@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{63BBC54E-3AF9-40AE-9EA2-D72132D18A1B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearnLanguages.DataAccess</RootNamespace>
+    <AssemblyName>LearnLanguages.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\net45\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-WPF.4.5.20\lib\net45\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.XmlSerializers, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\net45\Csla.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DalBases\PhraseBeliefDalBase.cs" />
+    <Compile Include="DalBases\MultiLineTextDalBase.cs" />
+    <Compile Include="DalBases\LineDalBase.cs" />
+    <Compile Include="DalBases\StudyDataDalBase.cs" />
+    <Compile Include="DalBases\LanguageDalBase.cs" />
+    <Compile Include="DalBases\TranslationDalBase.cs" />
+    <Compile Include="DalBases\PhraseDalBase.cs" />
+    <Compile Include="DalBases\UserDalBase.cs" />
+    <Compile Include="DalFactory.cs" />
+    <Compile Include="DalHelper.cs" />
+    <Compile Include="DalResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DalResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Dtos\PhraseBeliefDto.cs" />
+    <Compile Include="Dtos\MultiLineTextDto.cs" />
+    <Compile Include="Dtos\LineDto.cs" />
+    <Compile Include="Dtos\StudyDataDto.cs" />
+    <Compile Include="Dtos\TranslationDto.cs" />
+    <Compile Include="Dtos\RoleDto.cs" />
+    <Compile Include="Dtos\UserDto.cs" />
+    <Compile Include="Exceptions\MustRunOnServerException.cs" />
+    <Compile Include="Exceptions\InvalidPasswordException.cs" />
+    <Compile Include="Exceptions\MultipleIdsNotFoundException.cs" />
+    <Compile Include="Exceptions\LanguageTextNotFoundException.cs" />
+    <Compile Include="Exceptions\StudyDataNotFoundForUserException.cs" />
+    <Compile Include="Exceptions\User\AddUserFailedException.cs" />
+    <Compile Include="Exceptions\User\ChangePasswordFailedException.cs" />
+    <Compile Include="Exceptions\User\InvalidUsernameException.cs" />
+    <Compile Include="Exceptions\User\UsernameAlreadyExistsException.cs" />
+    <Compile Include="Exceptions\User\LoadUserDataException.cs" />
+    <Compile Include="Exceptions\User\UsernameAndUserIdDoNotMatchException.cs" />
+    <Compile Include="Exceptions\LanguageTextAlreadyExistsException.cs" />
+    <Compile Include="Exceptions\IdAlreadyExistsException.cs" />
+    <Compile Include="Exceptions\User\UserNotAuthorizedException.cs" />
+    <Compile Include="Exceptions\IdNotFoundException.cs" />
+    <Compile Include="Exceptions\CriteriaException.cs" />
+    <Compile Include="Exceptions\SeedDataException.cs" />
+    <Compile Include="Exceptions\User\UsernameNotFoundException.cs" />
+    <Compile Include="Exceptions\User\GetRolesFailedException.cs" />
+    <Compile Include="Exceptions\VeryBadException.cs" />
+    <Compile Include="Exceptions\User\VerifyUserFailedException.cs" />
+    <Compile Include="Exceptions\User\GetUserFailedException.cs" />
+    <Compile Include="Exceptions\Crud\GetAllFailedException.cs" />
+    <Compile Include="Exceptions\Crud\CreateFailedException.cs" />
+    <Compile Include="Exceptions\Crud\DeleteFailedException.cs" />
+    <Compile Include="Exceptions\Crud\FetchFailedException.cs" />
+    <Compile Include="Exceptions\GeneralDataAccessException.cs" />
+    <Compile Include="Exceptions\Crud\InsertFailedException.cs" />
+    <Compile Include="Exceptions\MultipleItemsFoundDataAccessException.cs" />
+    <Compile Include="Exceptions\Crud\UpdateFailedException.cs" />
+    <Compile Include="Interfaces\IPhraseBeliefDal.cs" />
+    <Compile Include="Interfaces\IMultiLineTextDal.cs" />
+    <Compile Include="Interfaces\ILineDal.cs" />
+    <Compile Include="Interfaces\IStudyDataDal.cs" />
+    <Compile Include="Interfaces\ITranslationDal.cs" />
+    <Compile Include="Interfaces\IDalManager.cs" />
+    <Compile Include="Interfaces\IUserDal.cs" />
+    <Compile Include="Interfaces\ILanguageDal.cs" />
+    <Compile Include="Interfaces\IPhraseDal.cs" />
+    <Compile Include="Dtos\LanguageDto.cs" />
+    <Compile Include="Dtos\PhraseDto.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SeedData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DalResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DalResources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LearnLanguages.Common.Server\LearnLanguages.Common.Server.csproj">
+      <Project>{D0155DB8-9B4B-4594-8DE9-6268F0E2595B}</Project>
+      <Name>LearnLanguages.Common.Server</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

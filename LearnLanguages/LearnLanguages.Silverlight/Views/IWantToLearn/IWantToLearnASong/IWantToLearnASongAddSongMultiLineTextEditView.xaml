@@ -1,0 +1,118 @@
+﻿<UserControl x:Class="LearnLanguages.Silverlight.Views.IWantToLearnASongAddSongMultiLineTextEditView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+  <Border Style="{StaticResource DebugBorder}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid x:Name="LayoutRoot" Background="White" ShowGridLines="{Binding Path=ShowGridLines}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="25" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <!--SONG LANGUAGE-->
+      <!--INSTRUCTIONS-->
+      <TextBlock Grid.Row="0"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 x:Name="InstructionsSelectLanguage" 
+                 Visibility="{Binding Path=InstructionsVisibility}"/>
+      <!--LABEL-->
+      <TextBlock Grid.Row="1" 
+                 Grid.Column="0"
+                 Text="{Binding Path=LabelLanguageText}" 
+                 VerticalAlignment="Center" />
+      <!--CONTROL-->
+      <ContentControl Grid.Row="1"
+                      Grid.Column="1"
+                      x:Name="Languages" 
+                      Margin="0,1,0,1" 
+                      MinWidth="50"
+                      TabIndex="0"
+                      HorizontalContentAlignment="Stretch"/>
+
+      <!--SONG TITLE-->
+      <!--INSTRUCTIONS-->
+      <TextBlock Grid.Row="2"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding Path=InstructionsEnterSongTitle}" 
+                 Visibility="{Binding Path=InstructionsVisibility}"/>
+      <!--LABEL-->
+      <TextBlock Grid.Row="3"
+                 Grid.Column="0"
+                 Text="{Binding Path=InstructionsEnterSongTitle}" />
+      <!--CONTROL-->
+      <TextBox Grid.Row="3"
+               Grid.Column="1"
+               x:Name="Model_Title" 
+               TabIndex="1" />
+
+      <!--SONG ADDITIONAL METADATA-->
+      <!--INSTRUCTIONS-->
+      <TextBlock Grid.Row="4"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 Text="{Binding Path=InstructionsEnterSongAdditionalMetadata}" 
+                 Visibility="{Binding Path=InstructionsVisibility}"/>
+      <!--LABEL-->
+      <TextBlock Grid.Row="5"
+                 Grid.Column="0"
+                 Text="{Binding Path=LabelSongAdditionalMetadata}" />
+      <!--CONTROL-->
+      <TextBox Grid.Row="5"
+               Grid.Column="1"
+               x:Name="Model_AdditionalMetadata"
+               TabIndex="2" />
+
+      <!--SONG TEXT-->
+      <!--INSTRUCTIONS-->
+      <TextBlock Grid.Row="6"
+                 Grid.Column="0"
+                 Grid.ColumnSpan="2"
+                 x:Name="InstructionsEnterSongText" 
+                 Margin="0,20,0,0"
+                 Visibility="{Binding Path=InstructionsVisibility}"/>
+      <!--LABEL-->
+      <TextBlock Grid.Row="7" 
+                 Grid.Column="0" 
+                 Text="{Binding Path=LabelSongText}" 
+                 VerticalAlignment="Center"/>
+      <!--CONTROL-->
+      <TextBox Grid.Row="7"
+               Grid.Column="1"
+               x:Name="SongText" 
+               Margin="1,2,1,2" 
+               MinWidth="250"
+               MinHeight="100"
+               VerticalAlignment="Stretch"
+               VerticalContentAlignment="Stretch"
+               TabIndex="3" TextWrapping="Wrap" AcceptsReturn="True" />
+
+      <!--BUTTONS-->
+      <Button x:Name="Save"
+              Grid.Row="8"
+              Grid.Column="0"
+              Grid.ColumnSpan="2"
+              HorizontalAlignment="Center"
+              Width="100"
+              Content="Save Phrase"
+              TabIndex="4"
+              />
+
+    </Grid>
+  </Border>
+</UserControl>

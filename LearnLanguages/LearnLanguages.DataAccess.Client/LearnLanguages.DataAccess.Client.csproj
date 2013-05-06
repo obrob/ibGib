@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{334F64FB-AA4B-40E7-99D6-F17435E5A319}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearnLanguages.DataAccess</RootNamespace>
+    <AssemblyName>LearnLanguages.DataAccess</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>LearnLanguages.DataAccess.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>LearnLanguages.DataAccess.Client.App</SilverlightAppEntry>
+    <TestPageFileName>LearnLanguages.DataAccess.ClientTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\sl50\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Silverlight.4.5.20\lib\sl50\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Silverlight">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\LearnLanguages.DataAccess\DalHelper.cs">
+      <Link>DalHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\DalResources.Designer.cs">
+      <Link>DalResources.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DalResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Dtos\LanguageDto.cs">
+      <Link>Dtos\LanguageDto.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Dtos\LineDto.cs">
+      <Link>Dtos\LineDto.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Dtos\MultiLineTextDto.cs">
+      <Link>Dtos\MultiLineTextDto.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Dtos\PhraseBeliefDto.cs">
+      <Link>Dtos\PhraseBeliefDto.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Dtos\PhraseDto.cs">
+      <Link>Dtos\PhraseDto.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Dtos\RoleDto.cs">
+      <Link>Dtos\RoleDto.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Dtos\StudyDataDto.cs">
+      <Link>Dtos\StudyDataDto.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Dtos\TranslationDto.cs">
+      <Link>Dtos\TranslationDto.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Dtos\UserDto.cs">
+      <Link>Dtos\UserDto.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\CriteriaException.cs">
+      <Link>Exceptions\CriteriaException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\Crud\CreateFailedException.cs">
+      <Link>Exceptions\Crud\CreateFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\Crud\DeleteFailedException.cs">
+      <Link>Exceptions\Crud\DeleteFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\Crud\FetchFailedException.cs">
+      <Link>Exceptions\Crud\FetchFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\Crud\GetAllFailedException.cs">
+      <Link>Exceptions\Crud\GetAllFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\Crud\InsertFailedException.cs">
+      <Link>Exceptions\Crud\InsertFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\Crud\UpdateFailedException.cs">
+      <Link>Exceptions\Crud\UpdateFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\GeneralDataAccessException.cs">
+      <Link>Exceptions\GeneralDataAccessException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\IdAlreadyExistsException.cs">
+      <Link>Exceptions\IdAlreadyExistsException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\IdNotFoundException.cs">
+      <Link>Exceptions\IdNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\InvalidPasswordException.cs">
+      <Link>Exceptions\InvalidPasswordException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\LanguageTextAlreadyExistsException.cs">
+      <Link>Exceptions\LanguageTextAlreadyExistsException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\LanguageTextNotFoundException.cs">
+      <Link>Exceptions\LanguageTextNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\MultipleIdsNotFoundException.cs">
+      <Link>Exceptions\MultipleIdsNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\MultipleItemsFoundDataAccessException.cs">
+      <Link>Exceptions\MultipleItemsFoundDataAccessException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\MustRunOnServerException.cs">
+      <Link>Exceptions\MustRunOnServerException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\SeedDataException.cs">
+      <Link>Exceptions\SeedDataException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\StudyDataNotFoundForUserException.cs">
+      <Link>Exceptions\StudyDataNotFoundForUserException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\ChangePasswordFailedException.cs">
+      <Link>Exceptions\User\ChangePasswordFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\GetRolesFailedException.cs">
+      <Link>Exceptions\User\GetRolesFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\GetUserFailedException.cs">
+      <Link>Exceptions\User\GetUserFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\InvalidUsernameException.cs">
+      <Link>Exceptions\User\InvalidUsernameException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\LoadUserDataException.cs">
+      <Link>Exceptions\User\LoadUserDataException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\UsernameAlreadyExistsException.cs">
+      <Link>Exceptions\User\UsernameAlreadyExistsException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\UsernameAndUserIdDoNotMatchException.cs">
+      <Link>Exceptions\User\UsernameAndUserIdDoNotMatchException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\UsernameNotFoundException.cs">
+      <Link>Exceptions\User\UsernameNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\UserNotAuthorizedException.cs">
+      <Link>Exceptions\User\UserNotAuthorizedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\User\VerifyUserFailedException.cs">
+      <Link>Exceptions\User\VerifyUserFailedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\Exceptions\VeryBadException.cs">
+      <Link>Exceptions\VeryBadException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.DataAccess\SeedData.cs">
+      <Link>SeedData.cs</Link>
+    </Compile>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LearnLanguages.Common\LearnLanguages.Common.csproj">
+      <Project>{B3A930C6-DD02-43EF-9970-0EDFAA81B9E9}</Project>
+      <Name>LearnLanguages.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\LearnLanguages.DataAccess\DalResources.resx">
+      <Link>DalResources.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>DalResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

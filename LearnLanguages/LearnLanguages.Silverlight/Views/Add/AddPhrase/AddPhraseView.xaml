@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="LearnLanguages.Silverlight.Views.AddPhraseView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+  <Border Style="{StaticResource DebugBorder}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid x:Name="LayoutRoot" Background="White" ShowGridLines="{Binding Path=ShowGridLines}">
+      <ContentControl x:Name="Phrase" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" 
+                      HorizontalContentAlignment="Stretch"
+                      VerticalContentAlignment="Stretch"/>
+    </Grid>
+  </Border>
+</UserControl>

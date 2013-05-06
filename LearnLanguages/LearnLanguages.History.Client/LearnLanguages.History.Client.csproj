@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DFC14799-1426-4266-A064-4B880612559F}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearnLanguages.History</RootNamespace>
+    <AssemblyName>LearnLanguages.History</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <TargetFrameworkProfile />
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=1.4.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\sl5\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\sl50\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Silverlight.4.5.20\lib\sl50\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Silverlight">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL" />
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.DomainServices.Client, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.DomainServices.Client.Web, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ServiceModel.Web.Extensions, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\sl5\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bases\FeedbackEventBase.cs" />
+    <Compile Include="Bases\HistoryRecorderBaseOfTMessage.cs" />
+    <Compile Include="Bases\SingleLineEventBase.cs" />
+    <Compile Include="Bases\ParentPhraseChildPhraseEventBase.cs" />
+    <Compile Include="Bases\SinglePhraseEventBase.cs" />
+    <Compile Include="CompoundEventMakers\CompoundEventMakerBase.cs" />
+    <Compile Include="CompoundEventMakers\ReviewedLineOrderCompoundEventMaker.cs" />
+    <Compile Include="CompoundEventMakers\ReviewedLineCompoundEventMaker.cs" />
+    <Compile Include="CompoundEventMakers\ReviewedPhraseCompoundEventMaker.cs" />
+    <Compile Include="ConsoleHistoryListener.cs" />
+    <Compile Include="Events\Compound\ReviewedLineOrderEvent.cs" />
+    <Compile Include="Events\Simple\PhraseAutoTranslatedEvent.cs" />
+    <Compile Include="Events\Simple\ReviewingLineOrderEvent.cs" />
+    <Compile Include="Events\Simple\ReviewingLineEvent.cs" />
+    <Compile Include="Events\Compound\ReviewedPhraseEvent.cs" />
+    <Compile Include="Events\Simple\ReviewingPhraseEvent.cs" />
+    <Compile Include="Events\Simple\ActivatedLineEvent.cs" />
+    <Compile Include="Events\Simple\StartingStudySessionEvent.cs" />
+    <Compile Include="Events\Simple\ThinkedAboutTargetEvent.cs" />
+    <Compile Include="Events\Simple\ThinkingAboutTargetEvent.cs" />
+    <Compile Include="Bases\ThinkingEventBase.cs" />
+    <Compile Include="Events\Simple\ViewingPhrasePartOfLineOnScreenEvent.cs" />
+    <Compile Include="Events\Simple\ViewedPhrasePartOfLineOnScreenEvent.cs" />
+    <Compile Include="Events\Simple\ViewedPhraseOnScreenEvent.cs" />
+    <Compile Include="Events\Simple\FeedbackAsDoubleGivenEvent.cs" />
+    <Compile Include="Events\Compound\ReviewedLineEvent.cs" />
+    <Compile Include="Events\Simple\ViewingPhraseOnScreenEvent.cs" />
+    <Compile Include="Events\Simple\ParentPhraseSpawnedChildPhraseEvent.cs" />
+    <Compile Include="Events\Simple\PhraseCreatedFromScratchEvent.cs" />
+    <Compile Include="HistoryException.cs" />
+    <Compile Include="HistoryResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HistoryResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryPublisher.cs" />
+    <Compile Include="Bases\HistoryEventBase.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="HistoryLineInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LearnLanguages.Business.Client\LearnLanguages.Business.Client.csproj">
+      <Project>{4314B702-58FE-44EC-BF55-61CC4483C05C}</Project>
+      <Name>LearnLanguages.Business.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Common\LearnLanguages.Common.csproj">
+      <Project>{B3A930C6-DD02-43EF-9970-0EDFAA81B9E9}</Project>
+      <Name>LearnLanguages.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.DataAccess.Client\LearnLanguages.DataAccess.Client.csproj">
+      <Project>{334F64FB-AA4B-40E7-99D6-F17435E5A319}</Project>
+      <Name>LearnLanguages.DataAccess.Client</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="HistoryResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HistoryResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

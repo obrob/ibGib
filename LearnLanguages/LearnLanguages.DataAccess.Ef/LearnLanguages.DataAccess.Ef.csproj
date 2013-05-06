@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C3110EBF-314D-44D1-8BEA-2C7CFF21F3A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearnLanguages.DataAccess.Ef</RootNamespace>
+    <AssemblyName>LearnLanguages.DataAccess.Ef</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\net45\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-WPF.4.5.20\lib\net45\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.XmlSerializers, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\net45\Csla.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.4.2.0.0\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dals\MultiLineTextDal.cs" />
+    <Compile Include="Dals\PhraseBeliefDal.cs" />
+    <Compile Include="Dals\StudyDataDal.cs" />
+    <Compile Include="Dals\LineDal.cs" />
+    <Compile Include="Dals\TranslationDal.cs" />
+    <Compile Include="Dals\UserDal.cs" />
+    <Compile Include="DalManager.cs" />
+    <Compile Include="DbContextManager.cs" />
+    <Compile Include="DbContextManagerException.cs" />
+    <Compile Include="EfResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EfResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="EfHelper.cs" />
+    <Compile Include="Dals\LanguageDal.cs" />
+    <Compile Include="LearnLanguages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LearnLanguages.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="LearnLanguagesContextManager.cs" />
+    <Compile Include="LearnLanguagesDbContext.cs" />
+    <Compile Include="Dals\PhraseDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EfResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EfResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="LearnLanguages.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LearnLanguages.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="LearnLanguages.edmx.diagram">
+      <DependentUpon>LearnLanguages.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LearnLanguages.Business.Server\LearnLanguages.Business.Server.csproj">
+      <Project>{9ab67d6b-f6b7-4ad4-8c51-c5049ae7898a}</Project>
+      <Name>LearnLanguages.Business.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Common.Server\LearnLanguages.Common.Server.csproj">
+      <Project>{D0155DB8-9B4B-4594-8DE9-6268F0E2595B}</Project>
+      <Name>LearnLanguages.Common.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.DataAccess\LearnLanguages.DataAccess.csproj">
+      <Project>{63BBC54E-3AF9-40AE-9EA2-D72132D18A1B}</Project>
+      <Name>LearnLanguages.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LearnLanguages.edmx.sql" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9AB67D6B-F6B7-4AD4-8C51-C5049AE7898A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearnLanguages.Business</RootNamespace>
+    <AssemblyName>LearnLanguages.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\net45\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-WPF.4.5.20\lib\net45\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.XmlSerializers, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\net45\Csla.XmlSerializers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\LearnLanguages.Business.Client\BusinessHelper.cs">
+      <Link>BusinessHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\BusinessResources.Designer.cs">
+      <Link>BusinessResources.Designer.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\BusinessRules\CollectionCountsAreEqualBusinessRule.cs">
+      <Link>BusinessRules\CollectionCountsAreEqualBusinessRule.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\BusinessRules\CollectionMinimumCountBusinessRule.cs">
+      <Link>BusinessRules\CollectionMinimumCountBusinessRule.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Commands\PhraseDefaultSetterCommand.cs">
+      <Link>Commands\PhraseDefaultSetterCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Commands\RemoveAlreadyExistingPhraseTextsCommand.cs">
+      <Link>Commands\RemoveAlreadyExistingPhraseTextsCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\ChangePasswordCriteria.cs">
+      <Link>Criteria\ChangePasswordCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\FindPhraseInPhraseListCriteria.cs">
+      <Link>Criteria\FindPhraseInPhraseListCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\LineInfosCriteria.cs">
+      <Link>Criteria\LineInfosCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\ListOfPhrasesCriteria.cs">
+      <Link>Criteria\ListOfPhrasesCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\PhraseCriteria.cs">
+      <Link>Criteria\PhraseCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\PhraseIdCriteria.cs">
+      <Link>Criteria\PhraseIdCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\PhraseTextLanguageTextPairsCriteria.cs">
+      <Link>Criteria\PhraseTextLanguageTextPairsCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\PhraseTextsCriteria.cs">
+      <Link>Criteria\PhraseTextsCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\TranslationPairSearchCriteria.cs">
+      <Link>Criteria\TranslationPairSearchCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\TranslationSearchCriteria.cs">
+      <Link>Criteria\TranslationSearchCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\UserInfoCriteria.cs">
+      <Link>Criteria\UserInfoCriteria.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Edits\LanguageEdit.cs">
+      <Link>Edits\LanguageEdit.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Edits\LineEdit.cs">
+      <Link>Edits\LineEdit.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Edits\MultiLineTextEdit.cs">
+      <Link>Edits\MultiLineTextEdit.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Edits\PhraseBeliefEdit.cs">
+      <Link>Edits\PhraseBeliefEdit.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Edits\PhraseEdit.cs">
+      <Link>Edits\PhraseEdit.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Edits\StudyDataEdit.cs">
+      <Link>Edits\StudyDataEdit.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Edits\TranslationEdit.cs">
+      <Link>Edits\TranslationEdit.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Edits\UserEdit.cs">
+      <Link>Edits\UserEdit.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Lists\LanguageList.cs">
+      <Link>Lists\LanguageList.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Lists\LineList.cs">
+      <Link>Lists\LineList.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Lists\MultiLineTextList.cs">
+      <Link>Lists\MultiLineTextList.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Lists\PhraseBeliefList.cs">
+      <Link>Lists\PhraseBeliefList.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Lists\PhraseList.cs">
+      <Link>Lists\PhraseList.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Lists\StudyDataList.cs">
+      <Link>Lists\StudyDataList.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Lists\TranslationList.cs">
+      <Link>Lists\TranslationList.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Lists\UserList.cs">
+      <Link>Lists\UserList.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\BlankPhraseCreator.cs">
+      <Link>ReadOnly\BlankPhraseCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\BlankTranslationCreator.cs">
+      <Link>ReadOnly\BlankTranslationCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\ChangePasswordReadOnly.cs">
+      <Link>ReadOnly\ChangePasswordReadOnly.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\DeleteMultiLineTextsReadOnly.cs">
+      <Link>ReadOnly\DeleteMultiLineTextsReadOnly.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\DeleteUserReadOnly.cs">
+      <Link>ReadOnly\DeleteUserReadOnly.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\MostRecentPhraseDataBeliefsRetriever.cs">
+      <Link>ReadOnly\MostRecentPhraseDataBeliefsRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\MultiLineTextDtosOnlyRetriever.cs">
+      <Link>ReadOnly\MultiLineTextDtosOnlyRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\NewUserCreator.cs">
+      <Link>ReadOnly\NewUserCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\PhrasesByTextAndLanguageRetriever.cs">
+      <Link>ReadOnly\PhrasesByTextAndLanguageRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\PhrasesExistRetriever.cs">
+      <Link>ReadOnly\PhrasesExistRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\StudyDataRetriever.cs">
+      <Link>ReadOnly\StudyDataRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\TranslationCreator.cs">
+      <Link>ReadOnly\TranslationCreator.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\TranslationPairSearchRetriever.cs">
+      <Link>ReadOnly\TranslationPairSearchRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\TranslationSearchRetriever.cs">
+      <Link>ReadOnly\TranslationSearchRetriever.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Security\UserIdentity.cs">
+      <Link>Security\UserIdentity.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Security\UserPrincipal.cs">
+      <Link>Security\UserPrincipal.cs</Link>
+    </Compile>
+    <Compile Include="Dummy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LearnLanguages.Common.Server\LearnLanguages.Common.Server.csproj">
+      <Project>{D0155DB8-9B4B-4594-8DE9-6268F0E2595B}</Project>
+      <Name>LearnLanguages.Common.Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.DataAccess\LearnLanguages.DataAccess.csproj">
+      <Project>{63BBC54E-3AF9-40AE-9EA2-D72132D18A1B}</Project>
+      <Name>LearnLanguages.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\LearnLanguages.Business.Client\BusinessResources.resx">
+      <Link>BusinessResources.resx</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,54 @@
+﻿<navigation:Page x:Class="LearnLanguages.Silverlight.Views.ShellView" 
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+           mc:Ignorable="d"
+           xmlns:navigation="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Navigation"
+           xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+           xmlns:local="clr-namespace:LearnLanguages.Silverlight"
+           d:DesignWidth="640" d:DesignHeight="480"
+           Title="Learn Languages Hard-Coded Title"
+                 >
+
+  <controls:BusyIndicator IsBusy="{Binding Path=IsBusy}">
+    <controls:DockPanel x:Name="LayoutRoot"
+                      LastChildFill="True">
+
+      <!--THINKING PANEL-->
+      <Border controls:DockPanel.Dock="Bottom"
+            Style="{StaticResource LargeViewSection}">
+
+        <ContentControl x:Name="ThinkingPanel" 
+                      IsEnabled="{Binding Path=ThinkingPanel_IsEnabled}"
+                      HorizontalContentAlignment="Stretch"
+                      VerticalContentAlignment="Stretch"
+                      TabIndex="2"
+                      Height="20"/>
+      </Border>
+
+      <!--NAVIGATION PANEL-->
+      <Border controls:DockPanel.Dock="Left"
+            Style="{StaticResource LargeViewSection}">
+
+        <ContentControl x:Name="NavigationPanelViewModel" 
+                      IsEnabled="{Binding Path=NavPanelIsEnabled}"
+                      TabIndex="0" />
+      </Border>
+
+
+
+
+      <!--MAIN VIEW AREA-->
+      <controls:BusyIndicator IsBusy="{Binding Path=ContentIsBusy}">
+        <Border Style="{StaticResource LargeViewSection}">
+          <ContentControl x:Name="Main" 
+                      HorizontalContentAlignment="Stretch" 
+                      VerticalContentAlignment="Stretch" 
+                      TabIndex="1"/>
+        </Border>
+      </controls:BusyIndicator>
+      
+    </controls:DockPanel>
+  </controls:BusyIndicator>
+</navigation:Page>

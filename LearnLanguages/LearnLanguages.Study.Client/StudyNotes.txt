@@ -1,0 +1,80 @@
+﻿The DefaultStudyPartner delegates study functionality to its constituents.
+
+The MultiLineTextsStudier uses the following ViewModels:
+AskHowMuchYouKnowViewModel
+StudyLineAggregatingPhrasesViewModel
+StudySongAggregatingLinesViewModel
+StudyLineOrderViewModel
+
+It uses the following workflow:
+Ask about how many words in the entire text that the user understands.
+None, Some, Most, All
+
+-If None, study Lines aggregating phrases.
+-If Some, study Song aggregating lines, with initial aggregate size of a single line.
+-If Most, study Song aggregating lines, with initial aggregate size of multiple lines, to be determined 
+by either the size of the total line count, or some initial default batch size.
+-If All, study Line order of songs.
+
+In order to learn the song, we need to be able to assign a percentage to studying the line order and 
+studying the meaning of the words.  If we know very little, then the focus must be on the meaning.  If
+we know a lot, then we must focus on the line order more, but still some on the meaning.  But how to 
+control the flow of this?  Well, we need the view models to implement an interface for studier to
+utilize.  LinesAggregatingPhrases.Go(callback); for example, but we would need to differentiate
+between meaning and order.  MeaningStudier.Go(callback), OrderStudier.Go(callback).  Each of these
+would choose among its particular strategies as mentioned above.  Perhaps they all need to have 
+access to knowledge progress of each constituent piece.  MultiLineTextStudier (top-most studier next
+to the general StudyPartner who delegates to this studier) would need to know how to set the percentage
+between MeaningStudier and OrderStudier.  And once the song is known, the StudyPartner would need to know 
+to delegate between study and review.  Once all things are studied to the point of "known" then the study
+phase is concluded.
+
+At each step of study, a history event is published, describing the study action and the feedback.  The
+interested parties are listening to the history event stream, and even perhaps publishing history events
+themselves based on these "original" history events (an aggregating event system). The MeaningStudier wants 
+to know if a word or subphrase is known, and when it was known.  When it is known, then it can take it off 
+its current list of unknown subphrases, move it to its list of known subphrases.  Then it can combine them 
+and put the adjacent phrases into the list of unknown phrases, where it will again be processed, this time
+in a more rich contextual environment.  Once that is known, then this process is repeated until the 
+entire line is known.  Then it can take it off of its unknown stack, and move it to the known lines stack, 
+and publishing the history event.  The OrderStudier hears this event, and puts the line in its known 
+lines stack.  When it has adjacent lines in this stack, it is now able to go.  So, when the MLTStudier's
+percentage says to study order, the OrderStudier studies these lines, and so on.  Aggregate lines in 
+OrderStudier just as in MeaningStudier, until all of the song is able to be recited.  
+
+As an idea of what else to do as far as general studying goes, the StudyPartner may have a frustration 
+input viewmodel being shown.  When the user gets frustrated, or excited, or happy, or angry, or whatever,
+it provides this feedback, which as usual will generate a history event.  This can be listened to in order 
+to provide suggestions as when to stop, as well as valuable data as the user's personality/mental environment, 
+and in the future how to optimize the learning for that user.
+
+So, there is no need for a result from the studier's.  But there is a chain-of-command that must be followed.
+If a MeaningStudier publishes an event that is what the Highest-up StudyPartner hears and has been "waiting
+for" so to speak, then the StudyPartner has to have the ability to supercede the MLTStudier's next request.
+Well, we had the idea of the queue of a stack being a requirement for the OrderStudier's CanGo.  So, it had a 
+need, and this would have been checked by the MLT studier when _it_ was deciding on whether to study meaning
+or order.  Apparently, if the OrderStudier has nothing to study, then it may very well be a waste of time
+to give it the command to Go().  And what if the user clicks on a navigation button to go to a different 
+viewmodel altogether?  I think what I want is some kind of queueing mechanism for requests.  Certain 
+requestors have a level of importance to their request.  A StudyPartner's request would almost undoubtedly
+overrule a MeaningStudier's request, but if it were to be very "profitable", then perhaps the MeaningStudier's
+request would outweigh the StudyPartner's.  This goes the road of an economic value of requests, and becomes 
+very complex, but we could implement a simpler version to begin with.  The request has a request weight,
+which initially is only tied to the type of the requestor...and instance of the requestor.  It should be easy
+enough to set these to default values, and I add the "instance" because I am thinking of an evolutionary
+engine (or neural network) where these values are changed depending on how successful we judge these 
+instance type variations to be.  This as stated shouldn't be overly complicated to implement, and it 
+would be a concrete step in the direction I think I'm heading with this.
+
+So, we have a singleton request queue that is listening to the request event messages.  The request
+event message has a request id, a request publisher, a request importance, and a request content 
+event message itself.  This queue would be responsible for publishing the requests that navigation
+is listening to, though these are named NavigationRequest messages, and this conflicts our current 
+use of "request".  I'll call this an OfferEventMessage, as this essentially encapsulates the meaning of 
+what these "requests" are.  They are offers, with the importance being the offered value.  The queue is 
+then responsible for accepting, ignoring, and declining offers.  So a constituent publishes an offer,
+listening for an OfferResponse with the matching OfferId.  The queue publishes these responses as per 
+how it evaluates the competing offers.  This sounds more flexible than some kind of rigid chain-of-command,
+and still feasible.  I also foresee abstracting this in the future to have competing publishers as
+well, but that would be unnecessary overhead for right now, with respect to processing usage, data storage, 
+and overall complexity.

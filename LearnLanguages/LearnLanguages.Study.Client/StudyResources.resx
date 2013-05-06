@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AdvisorIdPhrasePercentKnownStudyAdvisor" xml:space="preserve">
+    <value>EEE32EE6-6411-49BB-8A27-DD1C472E21B9</value>
+  </data>
+  <data name="AdvisorQuestionWhatIsPhrasePercentKnown" xml:space="preserve">
+    <value>What is the percent known of this phrase?</value>
+  </data>
+  <data name="AutoSavePhrasesAutomaticallyTranslated" xml:space="preserve">
+    <value>True</value>
+    <comment>If true, this saves all phrases translated by the auto translator service to the DB.</comment>
+  </data>
+  <data name="BeliefTextKeyValueEntrySeparator" xml:space="preserve">
+    <value>&amp;</value>
+  </data>
+  <data name="BeliefTextKeyValueEqualityOperator" xml:space="preserve">
+    <value>=</value>
+  </data>
+  <data name="BeliefTextPrefix" xml:space="preserve">
+    <value>?</value>
+  </data>
+  <data name="BingAppId" xml:space="preserve">
+    <value>A71DCFCC34133403B25C909D017FE0B140799549</value>
+  </data>
+  <data name="BusyContentSimpleProgressPageInitializingData" xml:space="preserve">
+    <value>Thinkin' hard bout that data!</value>
+  </data>
+  <data name="ButtonLabelApplyFilter" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="ButtonLabelEdit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ButtonLabelResearchAnswer" xml:space="preserve">
+    <value>Research</value>
+  </data>
+  <data name="ButtonLabelResearchQuestion" xml:space="preserve">
+    <value>Research</value>
+  </data>
+  <data name="ButtonLabelSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ButtonLabelShowAnswer" xml:space="preserve">
+    <value>Show Answer</value>
+  </data>
+  <data name="ButtonLabelStudySongsGo" xml:space="preserve">
+    <value>Go!</value>
+  </data>
+  <data name="CategoryStudy" xml:space="preserve">
+    <value>Study</value>
+  </data>
+  <data name="ChartTitleSimpleProgress" xml:space="preserve">
+    <value>Words Learned (appx.)</value>
+  </data>
+  <data name="DefaultAmountDefaultMultiLineTextsStudier" xml:space="preserve">
+    <value>10000</value>
+  </data>
+  <data name="DefaultAmountDefaultPhraseMeaningStudier" xml:space="preserve">
+    <value>1000</value>
+  </data>
+  <data name="DefaultBeliefStrength" xml:space="preserve">
+    <value>1.0</value>
+  </data>
+  <data name="DefaultExpectedPrecision" xml:space="preserve">
+    <value>90</value>
+  </data>
+  <data name="DefaultFeedbackCheckIntervalMilliseconds" xml:space="preserve">
+    <value>200</value>
+    <comment>ms to sleep while waiting to get feedback.  should be less than feedback timeout!!!</comment>
+  </data>
+  <data name="DefaultFeedbackTimeoutMilliseconds" xml:space="preserve">
+    <value>300000</value>
+    <comment>5 minutes = 300,000
+debug=10 seconds (10000)</comment>
+  </data>
+  <data name="DefaultKnowledgeThreshold" xml:space="preserve">
+    <value>.85</value>
+  </data>
+  <data name="DefaultMaxIterationsAggregateAdjacentKnownPhraseTexts" xml:space="preserve">
+    <value>100</value>
+  </data>
+  <data name="DefaultMeaningStudierActiveLinesCount" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="DefaultMeaningStudierAggregateSize" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="DefaultMillisecondsTimePerWordInQuestion" xml:space="preserve">
+    <value>500</value>
+    <comment>1/2 of a second per word.</comment>
+  </data>
+  <data name="DefaultMultiLineTextsStudierMeaningWeight" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="DefaultMultiLineTextsStudierOrderWeight" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="DefaultOfferExchangeId" xml:space="preserve">
+    <value>92A7E7C6-8278-4142-A962-6616E2959D1C</value>
+  </data>
+  <data name="DefaultOrderStudierLineGroupSize" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="DefaultPhraseAutoTranslatedRecorderId" xml:space="preserve">
+    <value>4F8FA6A7-DD12-4A32-A3C6-FF248059926B</value>
+  </data>
+  <data name="DefaultPhraseReviewedRecorderId" xml:space="preserve">
+    <value>8FA20DFF-0C65-4BC0-B4AC-38B72AB03CD7</value>
+  </data>
+  <data name="DefaultStudyHeartbeatTimeMilliseconds" xml:space="preserve">
+    <value>1000</value>
+  </data>
+  <data name="DefaultStudyTitle" xml:space="preserve">
+    <value>Study Ya ya ya!</value>
+  </data>
+  <data name="DefaultThinkAboutAnswerTime" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DefaultTimeLineOrderQuestionInMilliseconds" xml:space="preserve">
+    <value>2000</value>
+  </data>
+  <data name="DefaultTimeoutGetPercentKnown" xml:space="preserve">
+    <value>500</value>
+    <comment>.5 seconds</comment>
+  </data>
+  <data name="DefaultWordInPhraseReviewedRecorderId" xml:space="preserve">
+    <value>73A27EAD-A83E-4FBA-B400-679A1AC58AC7</value>
+  </data>
+  <data name="DescriptionExecuteStudySongsPage" xml:space="preserve">
+    <value>Study here, study there, this is a description of how to study everywhere.</value>
+  </data>
+  <data name="DescriptionSimpleProgressPage" xml:space="preserve">
+    <value>This page shows your awesome progress what-do-you-know!</value>
+  </data>
+  <data name="DescriptionStudyASongViewModel" xml:space="preserve">
+    <value>Here you can study multiple songs in both your native language and foreign languages as well!</value>
+  </data>
+  <data name="DescriptionStudyStuffPage" xml:space="preserve">
+    <value>This page is for studying a bunch of stuff and whatnot how-do-you-do.</value>
+  </data>
+  <data name="ErrorMsgAnswerIsNull" xml:space="preserve">
+    <value>The answer is null.</value>
+  </data>
+  <data name="ErrorMsgLanguageIsNull" xml:space="preserve">
+    <value>The language is null.</value>
+  </data>
+  <data name="ErrorMsgLanguageTextIsNullOrEmpty" xml:space="preserve">
+    <value>The Language.Text is null or empty.</value>
+  </data>
+  <data name="ErrorMsgQuestionIsNull" xml:space="preserve">
+    <value>The question is null.</value>
+  </data>
+  <data name="ErrorMsgSomeSongsWereNotDeletedDetailed" xml:space="preserve">
+    <value>Songs that could not be deleted: {0}</value>
+    <comment>{0} = UnsuccessfulIds</comment>
+  </data>
+  <data name="ErrorMsgSomeSongsWereNotDeletedSimple" xml:space="preserve">
+    <value>Some songs could not be deleted. This has been logged.</value>
+  </data>
+  <data name="ErrorMsgStudyException" xml:space="preserve">
+    <value>An exception was thrown during study.  See inner exception for details.</value>
+  </data>
+  <data name="InstructionsAskUserExtraData" xml:space="preserve">
+    <value>Select your native language.  This is the language you feel most comfortable with, usually the one you grew up speaking the most.</value>
+  </data>
+  <data name="InstructionsAskUserExtraDataSelectNativeLanguageText" xml:space="preserve">
+    <value>Select your native language.  This is the language you feel most comfortable with, usually the one you grew up speaking the most.</value>
+  </data>
+  <data name="InstructionsDefaultStudyPartner" xml:space="preserve">
+    <value>To continue learning, click Next.  Choose your feedback.  More instructions here.....</value>
+  </data>
+  <data name="InstructionsExecuteStudySongsPage" xml:space="preserve">
+    <value>These are generic study instructions.</value>
+  </data>
+  <data name="InstructionsSelectFeedbackAll" xml:space="preserve">
+    <value>You know this item completely. (95%-100%)</value>
+  </data>
+  <data name="InstructionsSelectFeedbackMost" xml:space="preserve">
+    <value>You know the majority of this item.  (50%-95%)</value>
+  </data>
+  <data name="InstructionsSelectFeedbackNone" xml:space="preserve">
+    <value>You hardly know this item at all.  (0%-5%)</value>
+  </data>
+  <data name="InstructionsSelectFeedbackNoneSomeMostAll" xml:space="preserve">
+    <value>Select the amount of knowledge you have of the given item.  Approximate to the best of your ability!</value>
+  </data>
+  <data name="InstructionsSelectFeedbackSome" xml:space="preserve">
+    <value>You know a little, or even perhaps, a decent amount of this item. (5%-50%)</value>
+  </data>
+  <data name="InstructionsSelectSongsSelectSong" xml:space="preserve">
+    <value>Select a single song or multiple songs.</value>
+  </data>
+  <data name="InstructionsStudySongsSelectSong" xml:space="preserve">
+    <value>Select the song(s) that you want to study...Once selected, press Go!</value>
+  </data>
+  <data name="InstructionsStudyStuff" xml:space="preserve">
+    <value>Study Some Stuff Don'tcha Know</value>
+  </data>
+  <data name="LabelAskUserExtraDataNativeLanguageText" xml:space="preserve">
+    <value>Your Native Language: </value>
+  </data>
+  <data name="LabelSelectNativeLanguageLanguageText" xml:space="preserve">
+    <value>Your Native Language: </value>
+  </data>
+  <data name="LabelStudySongsFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="MaxTriesToPickRandomFromEntireList" xml:space="preserve">
+    <value>50</value>
+  </data>
+  <data name="MsgSongsSuccessfullyDeleted" xml:space="preserve">
+    <value>The songs were successfully deleted.</value>
+  </data>
+  <data name="NavSetTextLanguages" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="NavTextSimpleProgressPage" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="NavTextStudySongs" xml:space="preserve">
+    <value>Study Songs</value>
+  </data>
+  <data name="PercentKnownAll" xml:space="preserve">
+    <value>1.0</value>
+  </data>
+  <data name="PercentKnownMost" xml:space="preserve">
+    <value>.75</value>
+  </data>
+  <data name="PercentKnownNone" xml:space="preserve">
+    <value>.01</value>
+  </data>
+  <data name="PercentKnownSome" xml:space="preserve">
+    <value>.25</value>
+  </data>
+  <data name="ProbabilityChooseMeaningIfKnowAllOfMeaning" xml:space="preserve">
+    <value>0.1</value>
+  </data>
+  <data name="ProbabilityChooseMeaningIfKnowMostOfMeaning" xml:space="preserve">
+    <value>0.8</value>
+  </data>
+  <data name="ProbabilityChooseMeaningIfKnowSomeOfMeaning" xml:space="preserve">
+    <value>0.9</value>
+  </data>
+  <data name="RecorderIdReviewedPhrase" xml:space="preserve">
+    <value>67B84750-AA2A-4EE8-B817-56183FD56CDE</value>
+  </data>
+  <data name="ResearchFormatStringBing" xml:space="preserve">
+    <value>http://www.bing.com/?q=translate {0}</value>
+    <comment>{0} = phrase text to research</comment>
+  </data>
+  <data name="ResearchFormatStringGoogle" xml:space="preserve">
+    <value>http://www.google.com/?q=translate {0}</value>
+    <comment>{0} = phrase text to research</comment>
+  </data>
+  <data name="ReviewMethodIdDefaultPhraseMeaningStudier" xml:space="preserve">
+    <value>2DF2AF17-CE4E-462B-AD39-B6E31DF985A5</value>
+  </data>
+  <data name="ReviewMethodIdStudyLineOrderManualQA" xml:space="preserve">
+    <value>360BF760-95AA-4EB3-B2E2-C7DAD1EB29AA</value>
+  </data>
+  <data name="ReviewMethodIdStudyLineOrderTimedQA" xml:space="preserve">
+    <value>0DB35AFA-49A9-4C11-A4B1-B4C6795B5931</value>
+  </data>
+  <data name="ReviewMethodIdStudyPhraseManualQA" xml:space="preserve">
+    <value>E5F6AF74-2F9D-4067-921B-009DE109759D</value>
+  </data>
+  <data name="ReviewMethodIdStudyPhraseTimedQA" xml:space="preserve">
+    <value>C7061A4F-43A1-4F31-B40D-4B6F5B8020A7</value>
+  </data>
+  <data name="ShowGridLines" xml:space="preserve">
+    <value>False</value>
+  </data>
+  <data name="ShowInstructions" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="SortOrderSimpleProgressPage" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="SortOrderStudySongs" xml:space="preserve">
+    <value>5000</value>
+  </data>
+  <data name="SourceNameDatabase" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="StudyContextMeaning" xml:space="preserve">
+    <value>Meaning</value>
+  </data>
+  <data name="StudyContextOrder" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="StudyContextTotal" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="StudyLineManualQuestionAnswerStudyItemTitle" xml:space="preserve">
+    <value>What is the next line?</value>
+  </data>
+  <data name="StudyLineOrderAnswerHeader" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StudyLineOrderLineNumberPrefix" xml:space="preserve">
+    <value>Line # </value>
+  </data>
+  <data name="StudyLineOrderQuestionBlank" xml:space="preserve">
+    <value>_____</value>
+  </data>
+  <data name="StudyLineOrderQuestionHeader" xml:space="preserve">
+    <value>Line Number: {0}</value>
+    <comment>{0} = Line.LineNumber</comment>
+  </data>
+  <data name="StudyLineOrderQuestionWhatIsFirstLine" xml:space="preserve">
+    <value>What is the first line?</value>
+  </data>
+  <data name="StudyLineOrderSeparatorBetweenLineNumberAndLineText" xml:space="preserve">
+    <value>  </value>
+  </data>
+  <data name="StudyLineTimedQuestionAnswerStudyItemTitle" xml:space="preserve">
+    <value>What is the next line?</value>
+  </data>
+  <data name="StudyPhraseManualQuestionAnswerStudyItemTitle" xml:space="preserve">
+    <value>Translate this phrase.</value>
+  </data>
+  <data name="StudyPhraseTimedQuestionAnswerStudyItemTitle" xml:space="preserve">
+    <value>Translate this phrase.</value>
+  </data>
+  <data name="TitleExecuteStudySongsPage" xml:space="preserve">
+    <value>Study</value>
+  </data>
+  <data name="TitleSimpleProgressPage" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="TitleStudySongsViewModel" xml:space="preserve">
+    <value>Study Song(s)</value>
+  </data>
+  <data name="ToolTipExecuteStudySongsPage" xml:space="preserve">
+    <value>Study them songs yo!</value>
+  </data>
+  <data name="ToolTipSelectSongs" xml:space="preserve">
+    <value>Select a single song or multiple songs.</value>
+  </data>
+  <data name="ToolTipSimpleProgressPage" xml:space="preserve">
+    <value>This page shows your awesome progress what-do-you-know!</value>
+  </data>
+  <data name="ToolTipStudySongs" xml:space="preserve">
+    <value>Study songs yo!</value>
+  </data>
+  <data name="WarningMsgEmptyAggregatePhraseTextFound" xml:space="preserve">
+    <value>An empty phrase text was found in AggregatePhraseTexts.  This shouldn't happen.</value>
+  </data>
+  <data name="WarningMsgUnknownOfferResponseResponse" xml:space="preserve">
+    <value>An unknown offer response ({0}) was given.</value>
+    <comment>{0} = OfferResponse.Response</comment>
+  </data>
+</root>

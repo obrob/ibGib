@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AutoTitlePrefix" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultPercentKnown" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DescriptionHomePage" xml:space="preserve">
+    <value>This is your Homeeee Pageeeee!</value>
+  </data>
+  <data name="InstructionsAddSongPage" xml:space="preserve">
+    <value>Adding a song is extremely easy.  Just select the language the song is in, optionally put in the song title and additional info, and then enter the entire lyrics of the song.  Once you are done, click "Save".  (Hint: You can also hold the mouse over any control for a tooltip on that control.)</value>
+  </data>
+  <data name="InstructionsAddSongEnterSongAdditionalMetadata" xml:space="preserve">
+    <value>(Optional) Add additional info about the song here.  This is still under construction though!!</value>
+  </data>
+  <data name="InstructionsAddSongEnterSongText" xml:space="preserve">
+    <value>Enter the entire lyrics to the song, starting with the name of the song and artist on the first two lines.  If you don't know these, it's okay - no big.  Be sure to enter the lyrics line by line as you would want to learn them.</value>
+  </data>
+  <data name="InstructionsAddSongEnterSongTitle" xml:space="preserve">
+    <value>(Optional) Enter the song's title here.  If you do not provide one, then the first line will act as the song's title.</value>
+  </data>
+  <data name="InstructionsAddSongSelectLanguage" xml:space="preserve">
+    <value>Select the language of the song.  If it is not in the list, click "Add Language" first, then select the newly added language.</value>
+  </data>
+  <data name="InstructionsAskHowMuchDoYouKnowResponse" xml:space="preserve">
+    <value>Select how much of this phrase do you know in the targeted language.  If you know it completely, select 100%.  If you don't know it at all, select 0%.  If you know somewhere in between, estimate to the best of your ability how much of the translation  you know in the targeted language.</value>
+  </data>
+  <data name="InstructionsEnterPhrase" xml:space="preserve">
+    <value>Enter as much text as you want to learn.  We will divide this into smaller phrases and words as we go.
+
+(If you want to add a song, however, "Add Song" is recommended for learning line order.)</value>
+  </data>
+  <data name="InstructionsHomePage" xml:space="preserve">
+    <value>Be at home on your Home Page.</value>
+  </data>
+  <data name="InstructionsSelectLanguage" xml:space="preserve">
+    <value>Select Language</value>
+  </data>
+  <data name="LabelAcceptPercentKnown" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="LabelAddLanguageLanguageText" xml:space="preserve">
+    <value>Language: </value>
+  </data>
+  <data name="LabelAddPhraseLanguageText" xml:space="preserve">
+    <value>Language: </value>
+  </data>
+  <data name="LabelAddPhrasePhraseText" xml:space="preserve">
+    <value>Phrase: </value>
+  </data>
+  <data name="LabelAddSongLanguage" xml:space="preserve">
+    <value>Song Language: </value>
+  </data>
+  <data name="LabelAddSongSongText" xml:space="preserve">
+    <value>Song Lyrics: </value>
+  </data>
+  <data name="LabelAddSongSongTitle" xml:space="preserve">
+    <value>Song Title: </value>
+  </data>
+  <data name="LabelAddSongText" xml:space="preserve">
+    <value>Song Text: </value>
+  </data>
+  <data name="LabelSongAdditionalMetadata" xml:space="preserve">
+    <value>Song Info: </value>
+  </data>
+  <data name="MaxInstructionsWidth" xml:space="preserve">
+    <value>400</value>
+  </data>
+  <data name="MaxThinkingDots" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="MessageNewUserAdded" xml:space="preserve">
+    <value>New Username ({0}) was successfully added.</value>
+    <comment>{0} = Username</comment>
+  </data>
+  <data name="NavButtonTextLogin" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="NavButtonTextLogout" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="NavSetTextGeneral" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="NavTextHomePage" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="ShowInstructions" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="SortOrderHomePage" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TitleHomePage" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="ToolTipHomePage" xml:space="preserve">
+    <value>Welcome Home!</value>
+  </data>
+  <data name="ToolTipTextAddLanguage" xml:space="preserve">
+    <value>Add New Language</value>
+  </data>
+  <data name="DescriptionLoginPage" xml:space="preserve">
+    <value>This page is where you can login to your account.</value>
+  </data>
+  <data name="InstructionsLoginPage" xml:space="preserve">
+    <value>Enter your username and password.</value>
+  </data>
+  <data name="NavTextLoginPage" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="SortOrderLoginPage" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="TitleLoginPage" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="ToolTipLoginPage" xml:space="preserve">
+    <value>Enter your username and password.</value>
+  </data>
+  <data name="NavSetTextHome" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="ShowGridLines" xml:space="preserve">
+    <value>True</value>
+  </data>
+  <data name="DescriptionAddSongPage" xml:space="preserve">
+    <value>Add a new song in whatever language you want.</value>
+  </data>
+  <data name="NavSetTextAddSong" xml:space="preserve">
+    <value>Languages</value>
+  </data>
+  <data name="NavTextAddSongPage" xml:space="preserve">
+    <value>Add A Song</value>
+  </data>
+  <data name="SortOrderAddSongPage" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TitleAddSongPage" xml:space="preserve">
+    <value>Add A Song</value>
+  </data>
+  <data name="ToolTipAddSongPage" xml:space="preserve">
+    <value>Enter the song in the box, line by line.</value>
+  </data>
+  <data name="LabelSaveButton" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TitleAddLanguage" xml:space="preserve">
+    <value>Add New Language</value>
+  </data>
+  <data name="NavSetTextAdmin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="DescriptionManageUsersPage" xml:space="preserve">
+    <value>This page is where you go to add/remove users, reset user passwords, etc.</value>
+  </data>
+  <data name="InstructionsManageUsersPage" xml:space="preserve">
+    <value>Enter the user information and choose save.</value>
+  </data>
+  <data name="NavTextManageUsersPage" xml:space="preserve">
+    <value>Manage Users</value>
+  </data>
+  <data name="SortOrderManageUsersPage" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TitleManageUsersPage" xml:space="preserve">
+    <value>Admin: Manage Users</value>
+  </data>
+  <data name="ToolTipManageUsersPage" xml:space="preserve">
+    <value>Manage the users well!</value>
+  </data>
+  <data name="DescriptionLogoutPage" xml:space="preserve">
+    <value>You have been successfully logged out!</value>
+  </data>
+  <data name="InstructionsLogoutPage" xml:space="preserve">
+    <value>Click on the login button to log back in.</value>
+  </data>
+  <data name="MsgLoggedOut" xml:space="preserve">
+    <value>You have been successfully logged out!</value>
+  </data>
+  <data name="MsgLoggingOut" xml:space="preserve">
+    <value>Logging you out...</value>
+  </data>
+  <data name="NavTextLogoutPage" xml:space="preserve">
+    <value>Logout</value>
+  </data>
+  <data name="SortOrderLogoutPage" xml:space="preserve">
+    <value>99</value>
+  </data>
+  <data name="TitleLogoutPage" xml:space="preserve">
+    <value>Logged Out</value>
+  </data>
+  <data name="ToolTipLogoutPage" xml:space="preserve">
+    <value>Click on the login button to log back in.</value>
+  </data>
+  <data name="ErrorMsgAddUserWasUnsuccessful" xml:space="preserve">
+    <value>The username ({0}) could NOT be added.</value>
+    <comment>{0} = Username</comment>
+  </data>
+  <data name="MessageUserWasRemoved" xml:space="preserve">
+    <value>The user ({0}) was successfully removed.</value>
+  </data>
+  <data name="ErrorMsgRemoveUserWasUnsuccessful" xml:space="preserve">
+    <value>The user ({0}) could NOT be removed.</value>
+    <comment>{0} = username</comment>
+  </data>
+  <data name="MsgConfirmDeleteUser" xml:space="preserve">
+    <value>Are you sure you want to remove this user? This will permanently delete ALL data associated with the user.</value>
+  </data>
+  <data name="MsgConfirmDeleteUserTitle" xml:space="preserve">
+    <value>Warning!!!! This cannot be undone!</value>
+  </data>
+  <data name="MsgDeleteUserCanceled" xml:space="preserve">
+    <value>The operation was canceled.</value>
+  </data>
+  <data name="InstructionsAccountSettingsPage" xml:space="preserve">
+    <value>Change your profile information, change your password.</value>
+  </data>
+  <data name="TitleAccountSettingsPage" xml:space="preserve">
+    <value>Account Settings</value>
+  </data>
+  <data name="DescriptionAccountSettingsPage" xml:space="preserve">
+    <value>The account settings page is where the user can change any profile information, as well as change passwords and other contact information.</value>
+  </data>
+  <data name="ToolTipAccountSettingsPage" xml:space="preserve">
+    <value>Enter account information. Change your password.</value>
+  </data>
+  <data name="NavTextAccountSettingsPage" xml:space="preserve">
+    <value>Account</value>
+  </data>
+  <data name="SortOrderAccountSettingsPage" xml:space="preserve">
+    <value>500</value>
+  </data>
+  <data name="NavSetTextAccountSettings" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="ErrorMsgPasswordChangeFailed" xml:space="preserve">
+    <value>The password was NOT changed. Be sure to type in the correct previous password.</value>
+  </data>
+  <data name="MsgPasswordWasSuccessfullyChanged" xml:space="preserve">
+    <value>Password was successfully changed!</value>
+  </data>
+</root>

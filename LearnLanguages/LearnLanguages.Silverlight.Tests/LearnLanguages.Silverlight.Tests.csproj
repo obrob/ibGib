@@ -1,0 +1,210 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8341B23A-A916-4C7D-B52B-A2682B568652}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearnLanguages.Silverlight.Tests</RootNamespace>
+    <AssemblyName>LearnLanguages.Silverlight.Tests</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures />
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>LearnLanguages.Silverlight.Tests.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>LearnLanguages.Silverlight.Tests.App</SilverlightAppEntry>
+    <TestPageFileName>TestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>false</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <!--
+  //
+  // Silverlight Code Coverage Instrumentation
+  // List any libraries or assemblies that you would like to instrument during
+  // a code coverage pass. An example, for ClassLibrary1, is provided, and
+  // commented out below as a starting point:
+  //
+  -->
+  <!--
+  <ItemGroup>
+    <InstrumentSilverlightAssemblies Include="SilverlightClassLibrary1">
+      <Visible>false</Visible>
+    </InstrumentSilverlightAssemblies>
+  </ItemGroup>
+  -->
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Csla">
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\sl50\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml">
+      <HintPath>..\packages\CSLA-Silverlight.4.5.20\lib\sl50\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Silverlight.Testing">
+      <HintPath>..\packages\SilverlightToolkit-Testing.5.2011.12.1\lib\SL5\Microsoft.Silverlight.Testing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Silverlight">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight">
+      <HintPath>..\packages\SilverlightToolkit-Testing.5.2011.12.1\lib\SL5\Microsoft.VisualStudio.QualityTools.UnitTesting.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Edits\LineTests.cs" />
+    <Compile Include="Edits\MultiLineTextTests.cs" />
+    <Compile Include="Edits\PhraseBeliefTests.cs" />
+    <Compile Include="Edits\PhraseTests.cs" />
+    <Compile Include="Edits\SecurityTests.cs" />
+    <Compile Include="Edits\StudyDataTests.cs" />
+    <Compile Include="Edits\TranslationTests.cs" />
+    <Compile Include="InitializeCleanupClass.cs" />
+    <Compile Include="Edits\LanguageTests.cs" />
+    <Compile Include="Lists\LineListTests.cs" />
+    <Compile Include="Lists\PhraseListTests.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ExpectedException.cs" />
+    <Compile Include="TestsBase.cs" />
+    <Compile Include="TestsHelper.cs" />
+    <Compile Include="TestsResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestsResources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestsResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TestsResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LearnLanguages.Business.Client\LearnLanguages.Business.Client.csproj">
+      <Project>{4314b702-58fe-44ec-bf55-61cc4483c05c}</Project>
+      <Name>LearnLanguages.Business.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Common\LearnLanguages.Common.csproj">
+      <Project>{b3a930c6-dd02-43ef-9970-0edfaa81b9e9}</Project>
+      <Name>LearnLanguages.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.CompressedProxy\LearnLanguages.CompressedProxy.csproj">
+      <Project>{c6d3c11d-57e0-49cf-b9b8-7bb5710eb986}</Project>
+      <Name>LearnLanguages.CompressedProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.DataAccess.Client\LearnLanguages.DataAccess.Client.csproj">
+      <Project>{334f64fb-aa4b-40e7-99d6-f17435e5a319}</Project>
+      <Name>LearnLanguages.DataAccess.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.History.Client\LearnLanguages.History.Client.csproj">
+      <Project>{dfc14799-1426-4266-a064-4b880612559f}</Project>
+      <Name>LearnLanguages.History.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Study.Client\LearnLanguages.Study.Client.csproj">
+      <Project>{02c0f892-7dd3-41fa-96c2-d02d4d4bb6c2}</Project>
+      <Name>LearnLanguages.Study.Client</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <Import Condition="$(SilverlightVersion)=='v3.0'" Project="$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SilverlightToolkit\Tools\v3.0)Microsoft.Silverlight.Toolkit.Build.targets" />
+  <Import Condition="$(SilverlightVersion)=='v4.0'" Project="$(Registry:HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\SilverlightToolkit\Tools\v4.0)Microsoft.Silverlight.Toolkit.Build.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

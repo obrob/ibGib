@@ -1,0 +1,444 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{23A302A7-4A66-4D8B-A13F-14A4453EF517}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearnLanguages.Silverlight</RootNamespace>
+    <AssemblyName>LearnLanguages.Silverlight</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>LearnLanguages.Silverlight.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>LearnLanguages.Silverlight.App</SilverlightAppEntry>
+    <TestPageFileName>LearnLanguages.SilverlightTestPage.html</TestPageFileName>
+    <CreateTestPage>true</CreateTestPage>
+    <ValidateXaml>true</ValidateXaml>
+    <EnableOutOfBrowser>true</EnableOutOfBrowser>
+    <OutOfBrowserSettingsFile>Properties\OutOfBrowserSettings.xml</OutOfBrowserSettingsFile>
+    <UsePlatformExtensions>false</UsePlatformExtensions>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <LinkedServerProject>
+    </LinkedServerProject>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT,USE_MOCK</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT, STAGING</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=1.4.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\sl5\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\sl50\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Silverlight.4.5.20\lib\sl50\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Silverlight">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition.Initialization, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.DataForm.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DomainServices, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Navigation, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Pivot, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Theming.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Toolkit, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Data, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\sl5\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Windows.Browser" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Args\QuestionAnswerArgs.cs" />
+    <Compile Include="Delegates\QuestionAnswerCallback.cs" />
+    <Compile Include="DebugEventMessageListener.cs" />
+    <Compile Include="Interfaces\IViewModelMetadata.cs" />
+    <Compile Include="MainAppModule.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MefBootstrapper.cs" />
+    <Compile Include="Pages\AddSongPage.cs" />
+    <Compile Include="Pages\AccountSettingsPage.cs" />
+    <Compile Include="Pages\LoginPage.cs" />
+    <Compile Include="Pages\HomePage.cs" />
+    <Compile Include="Pages\LogoutPage.cs" />
+    <Compile Include="Pages\ManageUsersPage.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Add\Song\AddSongMultiLineTextEditViewModel.cs" />
+    <Compile Include="ViewModels\Add\Song\AddSongViewModel.cs" />
+    <Compile Include="ViewModels\Core\AccountSettingsViewModel.cs" />
+    <Compile Include="ViewModels\Core\ManageUsersViewModel.cs" />
+    <Compile Include="ViewModels\Core\ThinkingPanelViewModel.cs" />
+    <Compile Include="ViewModels\Core\HomeViewModel.cs" />
+    <Compile Include="ViewModels\Core\LoginFailedViewModel.cs" />
+    <Compile Include="ViewModels\Core\AuthenticationStatusViewModel.cs" />
+    <Compile Include="ViewModels\Core\LoginViewModel.cs" />
+    <Compile Include="ViewModels\Core\LogoutViewModel.cs" />
+    <Compile Include="ViewModels\MetaDataAttributes\ViewModelMetadataAttribute.cs" />
+    <Compile Include="ViewModels\Core\ShellViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <!-- CUSTOM SERVICE REFERENCES FILES-->
+    <Content Include="ServiceReferences.ClientConfig">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Page Include="Views\Core\AccountSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\ManageUsersView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <None Include="ServiceReferences.Debug.ClientConfig">
+      <DependentUpon>ServiceReferences.ClientConfig</DependentUpon>
+    </None>
+    <None Include="ServiceReferences.Staging.ClientConfig">
+      <DependentUpon>ServiceReferences.ClientConfig</DependentUpon>
+    </None>
+    <None Include="ServiceReferences.Release.ClientConfig">
+      <DependentUpon>ServiceReferences.ClientConfig</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\Core\ThinkingPanelView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Study\StudyASongItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Study\StudyASongView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Study\AskUserExtraDataView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Add\AddSong\AddSongView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Add\AddSong\AddSongMultiLineTextEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Study\AskHowMuchDoYouKnowResponseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Study\QuestionAnswerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Study\AskHowMuchDoYouKnowView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Study\StudyView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\View\ViewLanguages\ViewLanguagesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\View\ViewLanguages\ViewLanguagesItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Add\AddLanguage\AddLanguageLanguageEditView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Add\AddLanguage\AddLanguageView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\View\ViewTranslations\ViewTranslationsPhrasesItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\View\ViewTranslations\ViewTranslationsPhrasesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\View\ViewTranslations\ViewTranslationsItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\View\ViewTranslations\ViewTranslationsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Add\AddTranslation\AddTranslationPhrasesView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Add\AddTranslation\AddTranslationPhrasesItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Add\AddTranslation\AddTranslationTranslationEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Add\AddTranslation\AddTranslationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\View\ViewPhrases\ViewPhrasesItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\View\ViewPhrases\ViewPhrasesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\LanguageEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\LanguageSelectorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Add\AddPhrase\AddPhraseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Add\AddPhrase\AddPhrasePhraseEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Add\AddUser\AddUserView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Core\AuthenticationStatusView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\LogoutView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Core\ShellView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\OutOfBrowserSettings.xml" />
+    <Resource Include="Content\progress.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LearnLanguages.Analysis.Client\LearnLanguages.Analysis.Client.csproj">
+      <Project>{4ac0d8f4-1f5d-43a8-8182-38198cea41d5}</Project>
+      <Name>LearnLanguages.Analysis.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Business.Client\LearnLanguages.Business.Client.csproj">
+      <Project>{4314B702-58FE-44EC-BF55-61CC4483C05C}</Project>
+      <Name>LearnLanguages.Business.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Common\LearnLanguages.Common.csproj">
+      <Project>{B3A930C6-DD02-43EF-9970-0EDFAA81B9E9}</Project>
+      <Name>LearnLanguages.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.CompressedProxy\LearnLanguages.CompressedProxy.csproj">
+      <Project>{c6d3c11d-57e0-49cf-b9b8-7bb5710eb986}</Project>
+      <Name>LearnLanguages.CompressedProxy</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.DataAccess.Client\LearnLanguages.DataAccess.Client.csproj">
+      <Project>{334F64FB-AA4B-40E7-99D6-F17435E5A319}</Project>
+      <Name>LearnLanguages.DataAccess.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.History.Client\LearnLanguages.History.Client.csproj">
+      <Project>{DFC14799-1426-4266-A064-4B880612559F}</Project>
+      <Name>LearnLanguages.History.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Navigation.Client\LearnLanguages.Navigation.csproj">
+      <Project>{1CEB7E12-3D55-4EE4-BFCD-1AAB6F64F024}</Project>
+      <Name>LearnLanguages.Navigation</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Offer.Client\LearnLanguages.Offer.Client.csproj">
+      <Project>{98EE87B2-152D-48D8-B509-93EEB92059BE}</Project>
+      <Name>LearnLanguages.Offer.Client</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Silverlight.Common\LearnLanguages.Silverlight.Common.csproj">
+      <Project>{671298a4-bd06-4e12-a844-d6dd0147d5e6}</Project>
+      <Name>LearnLanguages.Silverlight.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Study.Client\LearnLanguages.Study.Client.csproj">
+      <Project>{02C0F892-7DD3-41FA-96C2-D02D4D4BB6C2}</Project>
+      <Name>LearnLanguages.Study.Client</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Feedback\" />
+    <Folder Include="ViewModels\Bases\" />
+    <Folder Include="ViewModels\Study\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="BeforeBuild" Condition="Exists('ServiceReferences.$(Configuration).ClientConfig')">
+    <Move SourceFiles="ServiceReferences.ClientConfig" DestinationFiles="ServiceReferences.Build.ClientConfig" />
+    <TransformXml Source="ServiceReferences.Build.ClientConfig" Destination="ServiceReferences.ClientConfig" Transform="ServiceReferences.$(Configuration).ClientConfig" />
+  </Target>
+  <Target Name="AfterBuild" Condition="Exists('ServiceReferences.Build.ClientConfig')">
+    <Delete Files="ServiceReferences.ClientConfig" />
+    <Move SourceFiles="ServiceReferences.Build.ClientConfig" DestinationFiles="ServiceReferences.ClientConfig" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

@@ -1,0 +1,369 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllPhrasesList_DalKey" xml:space="preserve">
+    <value>AllPhrasesList_DalKey</value>
+  </data>
+  <data name="AppSettingsKeyDalManagerTypeName" xml:space="preserve">
+    <value>DalManagerType</value>
+    <comment>This is the key used in ConfigurationManager.AppSettings[__key__];</comment>
+  </data>
+  <data name="AuthenticationTypeString" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="DalSeedDataInitializedKey" xml:space="preserve">
+    <value>DalSeedDataInitializedKey</value>
+    <comment>This key accesses a bool value in the application context to determine if the dal seed data is initialized.</comment>
+  </data>
+  <data name="DefaultEnglishLanguageId" xml:space="preserve">
+    <value>C10D85B4-4DE4-40CB-8ABD-9458AD9B7FD9</value>
+  </data>
+  <data name="DefaultEnglishLanguageText" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="DefaultLanguageId" xml:space="preserve">
+    <value>C10D85B4-4DE4-40CB-8ABD-9458AD9B7FD9</value>
+    <comment>Set this to the LanguageId that should populate newly created Phrases.  As of this typing, this equals DefaultEnglishLanguageId.</comment>
+  </data>
+  <data name="DefaultNewLanguageText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultNewPhraseText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultNewPhraseUsername" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ErrorMsgBadCriteriaException" xml:space="preserve">
+    <value>The criteria given was incorrect.  The expected criteria is as follows: {0}</value>
+    <comment>{0} = expected criteria description</comment>
+  </data>
+  <data name="ErrorMsgBadCriteriaExceptionDetail_ExpectedTypeIsUserDto" xml:space="preserve">
+    <value>Criteria is expected to be of type UserDto</value>
+  </data>
+  <data name="ErrorMsgCreateFailedException" xml:space="preserve">
+    <value>The Create operation failed. InnerExceptionMsg = {0}</value>
+    <comment>{0} = InnerExceptionMsg</comment>
+  </data>
+  <data name="ErrorMsgDeleteFailedException" xml:space="preserve">
+    <value>The Delete operation failed. InnerExceptionMsg = {0}</value>
+    <comment>{0} = InnerExceptionMsg</comment>
+  </data>
+  <data name="ErrorMsgDeleteFailedExceptionDetail_MultipleItemsFound" xml:space="preserve">
+    <value>The Delete operation failed.  There were multiple items found to delete.</value>
+  </data>
+  <data name="ErrorMsgFetchFailedException" xml:space="preserve">
+    <value>The Fetch operation failed. InnerExceptionMsg = {0}</value>
+    <comment>{0} = InnerExceptionMsg</comment>
+  </data>
+  <data name="ErrorMsgGeneralDataAccessException" xml:space="preserve">
+    <value>GeneralDataAccessException.  InnerExceptionMsg = {0}</value>
+    <comment>{0} = InnerExceptionMsg</comment>
+  </data>
+  <data name="ErrorMsgGetAllFailedException" xml:space="preserve">
+    <value>The GetAll operation failed. InnerExceptionMsg = {0}</value>
+    <comment>{0} = InnerExceptionMsg</comment>
+  </data>
+  <data name="ErrorMsgGetRolesFailedException" xml:space="preserve">
+    <value>The roles of user ({0}) could not be retrieved. InnerExceptionMsg = {1}</value>
+    <comment>{0} = username</comment>
+  </data>
+  <data name="ErrorMsgIdAlreadyExists" xml:space="preserve">
+    <value>The Id ({0}) already exists.</value>
+    <comment>{0} = id</comment>
+  </data>
+  <data name="ErrorMsgIdNotFoundException" xml:space="preserve">
+    <value>The Id ({0}) was not found.</value>
+    <comment>{0} = id</comment>
+  </data>
+  <data name="ErrorMsgInsertFailedException" xml:space="preserve">
+    <value>The Insert operation failed. InnerExceptionMsg = {0}</value>
+    <comment>{0} = InnerExceptionMsg</comment>
+  </data>
+  <data name="ErrorMsgSeedDataException" xml:space="preserve">
+    <value>SeedData threw an exception.</value>
+  </data>
+  <data name="ErrorMsgUpdateFailedException" xml:space="preserve">
+    <value>The Update operation failed.</value>
+  </data>
+  <data name="ErrorMsgUsernameNotFoundException" xml:space="preserve">
+    <value>The username ({0}) was not found.</value>
+  </data>
+  <data name="ErrorMsgUserNotAuthenticatedException" xml:space="preserve">
+    <value>The current user has not been authenticated.</value>
+  </data>
+  <data name="ErrorMsgVerifyUserFailedException" xml:space="preserve">
+    <value>Verifying the user ({0}) threw an exception.</value>
+    <comment>{0} = username</comment>
+  </data>
+  <data name="ErrorMsgVeryBadException" xml:space="preserve">
+    <value>Something happened that was very bad. Detail = {0}</value>
+    <comment>{0} = detailed message/inner exception msg</comment>
+  </data>
+  <data name="ErrorMsgVeryBadExceptionDetail_ResultCountNotOneOrZero" xml:space="preserve">
+    <value>The result count was anticipated to be either one or zero.  This probably occurred when making a call to the database, expecting a unique result set.</value>
+  </data>
+  <data name="Phrase_DalKey" xml:space="preserve">
+    <value>Phrase_DalKey</value>
+  </data>
+  <data name="RoleAdmin" xml:space="preserve">
+    <value>Admin</value>
+  </data>
+  <data name="RoleUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="WcfProxyDefaultUrl" xml:space="preserve">
+    <value>http://localhost:50094/SlPortal.svc</value>
+  </data>
+  <data name="ErrorMsgUserNotAuthorizedException" xml:space="preserve">
+    <value>The user is not authorized to perform this operation.</value>
+  </data>
+  <data name="DefaultNewTranslationUsername" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ErrorMsgIdAlreadyExistsException" xml:space="preserve">
+    <value>The Id ({0}) already exists.</value>
+    <comment>{0} = id</comment>
+  </data>
+  <data name="MinPhrasesPerTranslation" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="ErrorMsgLanguageTextAlreadyExistsException" xml:space="preserve">
+    <value>The Language Text ({0}) already exists.</value>
+    <comment>{0} = Language Text</comment>
+  </data>
+  <data name="ErrorMsgUsernameAndUserIdDoNotMatchException" xml:space="preserve">
+    <value>The Username ({0}) does not match the UserId ({1}) in the database.</value>
+    <comment>{0} = Username
+{1} = UserId</comment>
+  </data>
+  <data name="ErrorMsgLoadUserDataException" xml:space="preserve">
+    <value>Error loading data for username ({0}).</value>
+    <comment>{0} = Username</comment>
+  </data>
+  <data name="DefaultNativeLanguageText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ErrorMsgLanguageTextNotFoundException" xml:space="preserve">
+    <value>Language ({0}) not found.  Be sure that the spelling and case-sensitivity are correct and that the language has been added.</value>
+    <comment>{0} = Language Text</comment>
+  </data>
+  <data name="ErrorMsgMultipleIdsNotFoundException" xml:space="preserve">
+    <value>Multiple Ids were not found.</value>
+  </data>
+  <data name="ErrorMsgLanguageTextProblemWhileCreatingPhraseTexts" xml:space="preserve">
+    <value>During a PhraseList create operation with PhraseTextsCriteria, there was a problem when trying to fetch/create the languagetext ({0}).</value>
+    <comment>{0} = Language Text</comment>
+  </data>
+  <data name="ErrorMsgLanguageTextProblemWhileCreatingLineInfos" xml:space="preserve">
+    <value>During a LineList create operation with LineInfosCriteria, there was a problem when trying to fetch/create the languagetext ({0}).</value>
+    <comment>{0} = Language Text</comment>
+  </data>
+  <data name="DefaultLineNumber" xml:space="preserve">
+    <value>-1</value>
+  </data>
+  <data name="DefaultNewLineUsername" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultNewArtistName" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultNewMultiLineTextTitle" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultNewMultiLineTextUsername" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultMultiLineTextAdditionalMetadata" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MinLinesPerMultiLineText" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ErrorMsgStudyDataNotFoundForUserException" xml:space="preserve">
+    <value>The StudyData cannot be found for current user with username ({0}).</value>
+    <comment>{0} = Username</comment>
+  </data>
+  <data name="DefaultNewPhraseBeliefText" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DefaultNewPhraseBeliefStrength" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="DefaultNewMultiLineTextAdditionalMetadata" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MaxSaltValue" xml:space="preserve">
+    <value>99999</value>
+  </data>
+  <data name="ErrorMsgUsernameAlreadyExistsException" xml:space="preserve">
+    <value>The username ({0}) already exists.</value>
+    <comment>{0} = username</comment>
+  </data>
+  <data name="ErrorMsgInvalidPasswordException" xml:space="preserve">
+    <value>The password ({0}) is invalid. It must contain at least one digit and one letter (upper or lowercase), and can also include !@#$%^&amp;*() characters.</value>
+    <comment>{0} = password</comment>
+  </data>
+  <data name="MaxTriesGenerateSalt" xml:space="preserve">
+    <value>100</value>
+  </data>
+  <data name="ErrorMsgInvalidUsernameException" xml:space="preserve">
+    <value>The username ({0}) is invalid. It must contain only letters, numbers, underscore, dash, periods.</value>
+  </data>
+  <data name="ErrorMsgGetUserFailedException" xml:space="preserve">
+    <value>GetUser Failed. Username: ({0}) InnerExceptionMsg = {1}</value>
+    <comment>{0} = Username, {1} = InnerExceptionMsg</comment>
+  </data>
+  <data name="ErrorMsgUserNotAuthorizedToDoException" xml:space="preserve">
+    <value>Current user is not authorized, but attempted to do, the following: \n {0}</value>
+    <comment>{0} = descriptionOfAttempt</comment>
+  </data>
+  <data name="ErrorMsgAttemptedToAddUser" xml:space="preserve">
+    <value>Attempted to add user.</value>
+  </data>
+  <data name="ErrorMsgAddUserFailedException" xml:space="preserve">
+    <value>There was an error trying to add the user with username ({0}).</value>
+    <comment>{0} = username</comment>
+  </data>
+  <data name="ErrorMsgAttemptedToDeleteUser" xml:space="preserve">
+    <value>Attempted to delete user.</value>
+  </data>
+  <data name="ErrorMsgVeryBadExceptionDetail_DeadlockRetriesExceededMaxTries" xml:space="preserve">
+    <value>The max number of retries due to db deadlock has been attempted.</value>
+  </data>
+  <data name="ErrorMsgAttemptedToGetAllUsers" xml:space="preserve">
+    <value>Attempted to get all users.</value>
+  </data>
+  <data name="DefaultUsername" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ErrorMsgMustRunOnServerException" xml:space="preserve">
+    <value>The current code must execute on the server only. Inner Exception (if any) message: {0}</value>
+    <comment>{0} = Inner exception msg</comment>
+  </data>
+  <data name="WcfProxyReleaseUrl" xml:space="preserve">
+    <value>http://kroker.azurewebsites.net/SlPortal.svc</value>
+  </data>
+  <data name="WcfProxyStagingUrl" xml:space="preserve">
+    <value>http://kroker.azurewebsites.net/SlPortal.svc</value>
+  </data>
+  <data name="ErrorMsgChangePasswordFailedException" xml:space="preserve">
+    <value>An error occurred while trying to change the password.</value>
+  </data>
+</root>

@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="LearnLanguages.Silverlight.Views.ManageUsersView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+  <Border Style="{StaticResource DebugBorder}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+    <Grid x:Name="LayoutRoot" Background="White" ShowGridLines="{Binding Path=ShowGridLines}">
+      <Grid.RowDefinitions>
+
+        <!--NewUsername-->
+        <RowDefinition Height="25" />
+        <!--NewPassword-->
+        <RowDefinition Height="25" />
+        <!--ConfirmNewPassword-->
+        <RowDefinition Height="25" />
+        <!--AddUser Button-->
+        <RowDefinition Height="40" />
+        
+        <!--Padding-->
+        <RowDefinition Height="30" />
+        
+        <!--UsernameToRemove-->
+        <RowDefinition Height="25" />
+        <!--RemoveUser Button-->
+        <RowDefinition Height="40" />
+        
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+      
+      <!--NewUsername-->
+      <TextBlock Grid.Row="0" 
+                 Text="Username: " 
+                 VerticalAlignment="Center" />
+      <TextBox x:Name="NewUsername" 
+               Grid.Row="0"
+               Grid.Column="1"
+               Margin="0,1,0,1" 
+               MinWidth="250"
+               TabIndex="0"/>
+    
+      <!--NewPassword-->
+      <TextBlock Grid.Row="1" Text="Password: " 
+                 VerticalAlignment="Center"/>
+      <PasswordBox x:Name="NewPassword" 
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   Margin="0,1,0,1" 
+                   MinWidth="250"
+                   TabIndex="1"/>
+
+      <!--ConfirmNewPassword-->
+      <TextBlock Grid.Row="2" Text="Confirm Password: " 
+                 VerticalAlignment="Center"/>
+      <PasswordBox x:Name="ConfirmNewPassword" 
+                   Grid.Row="2"
+                   Grid.Column="1"
+                   Margin="0,1,0,1" 
+                   MinWidth="250"
+                   TabIndex="2"/>
+      
+      <!--AddUser Button-->
+      <Button x:Name="AddUser"
+              Grid.Row="3"
+              Grid.Column="1"
+              Grid.ColumnSpan="1"
+              HorizontalAlignment="Center"
+              Width="100"
+              Content="Create User"
+              TabIndex="3"
+              
+              />
+
+      
+      <!--UsernameToRemove-->
+      <TextBlock Grid.Row="5" 
+                 Text="Username (To Remove): " 
+                 VerticalAlignment="Center" />
+      <TextBox x:Name="UsernameToRemove" 
+               Grid.Row="5"
+               Grid.Column="1"
+               Margin="0,1,0,1" 
+               MinWidth="250"
+               TabIndex="4"/>
+
+      <!--RemoveUser Button-->
+      <Button x:Name="RemoveUser"
+              Grid.Row="6"
+              Grid.Column="1"
+              Grid.ColumnSpan="1"
+              HorizontalAlignment="Center"
+              Width="100"
+              Content="Remove User"
+              TabIndex="5"
+              />
+
+
+    </Grid>
+  </Border>
+</UserControl>

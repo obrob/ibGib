@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="LearnLanguages.Silverlight.Views.AddSongMultiLineTextEditView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+  <Border Style="{StaticResource DebugBorder}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+
+    <Grid x:Name="LayoutRoot" Background="White" ShowGridLines="{Binding Path=ShowGridLines}">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="Auto" />
+        <RowDefinition Height="*" />
+        <RowDefinition Height="30" />
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="Auto" />
+        <ColumnDefinition Width="*" />
+      </Grid.ColumnDefinitions>
+
+      <!--INSTRUCTIONS-->
+      <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+              Style="{StaticResource InstructionsSection}">
+        <TextBlock Text="{Binding Path=Instructions}" 
+                   Style="{StaticResource InstructionsText}" />
+      </Border>
+
+      <!--SONG LANGUAGE-->
+      <!--LABEL-->
+      <TextBlock Grid.Row="1" Grid.Column="0"
+                 Text="{Binding Path=LabelLanguageText}" 
+                 VerticalAlignment="Center" />
+      <!--CONTROL-->
+      <ContentControl Grid.Row="1" Grid.Column="1"
+                      x:Name="Languages" 
+                      Margin="-3,2,1,2" 
+                      MinWidth="50"
+                      TabIndex="0"
+                      HorizontalContentAlignment="Stretch"
+                      ToolTipService.ToolTip="{Binding Path=InstructionsSelectLanguage}"/>
+
+      <!--SONG TITLE-->
+      <!--LABEL-->
+      <TextBlock Grid.Row="2" Grid.Column="0"
+                 Text="{Binding Path=LabelSongTitle}" />
+      <!--CONTROL-->
+      <TextBox Grid.Row="2" Grid.Column="1"
+               Margin="1,2,1,2" 
+               x:Name="Model_Title"
+               ToolTipService.ToolTip="{Binding Path=InstructionsEnterSongTitle}"
+               TabIndex="1" />
+
+      <!--SONG ADDITIONAL METADATA-->
+      <!--LABEL-->
+      <TextBlock Grid.Row="3" Grid.Column="0"
+                 Text="{Binding Path=LabelSongAdditionalMetadata}" />
+      <!--CONTROL-->
+      <TextBox Grid.Row="3" Grid.Column="1"
+               Margin="1,2,1,2" 
+               x:Name="Model_AdditionalMetadata"
+               TabIndex="2" 
+               ToolTipService.ToolTip="{Binding Path=InstructionsEnterSongAdditionalMetadata}"/>
+
+      <!--SONG TEXT-->
+      <!--LABEL-->
+      <TextBlock Grid.Row="4" Grid.Column="0" 
+                 Text="{Binding Path=LabelSongText}" 
+                 VerticalAlignment="Center"/>
+      <!--CONTROL-->
+      <TextBox Grid.Row="4" Grid.Column="1"
+               x:Name="SongText" 
+               Margin="1,2,1,2" 
+               MinWidth="250"
+               MinHeight="100"
+               VerticalAlignment="Stretch"
+               VerticalContentAlignment="Stretch"
+               ToolTipService.ToolTip="{Binding Path=InstructionsEnterSongText}"
+               TabIndex="3" TextWrapping="Wrap" AcceptsReturn="True" />
+
+      <!--BUTTONS-->
+      <Button Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"
+              x:Name="SaveAsync"
+              Margin="2"
+              HorizontalAlignment="Center"
+              Width="100"
+              Content="Save Song"
+              TabIndex="4"
+              />
+
+    </Grid>
+  </Border>
+</UserControl>

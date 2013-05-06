@@ -1,0 +1,274 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B3A930C6-DD02-43EF-9970-0EDFAA81B9E9}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearnLanguages.Common</RootNamespace>
+    <AssemblyName>LearnLanguages.Common</AssemblyName>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <!-- This property group is only here to support building this project using the 
+       MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
+       to set the TargetFrameworkVersion to v3.5 -->
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Staging|AnyCPU'">
+    <OutputPath>bin\Staging\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <NoConfig>true</NoConfig>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Caliburn.Micro, Version=1.4.1.0, Culture=neutral, PublicKeyToken=8e5891231f2ed21f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\sl5\Caliburn.Micro.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Core.4.5.20\lib\sl50\Csla.dll</HintPath>
+    </Reference>
+    <Reference Include="Csla.Xaml, Version=4.5.20.0, Culture=neutral, PublicKeyToken=93be5fdc093e4c30, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CSLA-Silverlight.4.5.20\lib\sl50\Csla.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Edm.SL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.0.0\lib\sl4\Microsoft.Data.Edm.SL.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData.SL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.0.0\lib\sl4\Microsoft.Data.OData.SL.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client.SL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.0.0\lib\sl4\Microsoft.Data.Services.Client.SL.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Threading.Tasks.Extensions.Silverlight">
+      <HintPath>..\packages\Microsoft.Bcl.Async.1.0.14-rc\lib\sl4\Microsoft.Threading.Tasks.Extensions.Silverlight.dll</HintPath>
+    </Reference>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.ComponentModel.Composition, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.Composition.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations, Version=5.0.5.0, Culture=neutral, PublicKeyToken=ddd0da4d3e678217, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.DataAnnotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Spatial.SL">
+      <HintPath>..\packages\System.Spatial.5.0.0\lib\sl4\System.Spatial.SL.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks">
+      <HintPath>..\packages\Microsoft.Bcl.1.0.16-rc\lib\sl5\System.Threading.Tasks.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Interactivity">
+      <HintPath>..\packages\Caliburn.Micro.1.4.1\lib\sl5\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\dependencies\csla_contrib\ErrorEventArgs.cs">
+      <Link>CslaContrib\ErrorEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\dependencies\csla_contrib\ExecuteEventArgs.cs">
+      <Link>CslaContrib\ExecuteEventArgs.cs</Link>
+    </Compile>
+    <Compile Include="..\dependencies\csla_contrib\IHaveModel.cs">
+      <Link>CslaContrib\IHaveModel.cs</Link>
+    </Compile>
+    <Compile Include="..\dependencies\csla_contrib\IHaveSubject.cs">
+      <Link>CslaContrib\IHaveSubject.cs</Link>
+    </Compile>
+    <Compile Include="..\dependencies\csla_contrib\ScreenWithModel.cs">
+      <Link>CslaContrib\ScreenWithModel.cs</Link>
+    </Compile>
+    <Compile Include="..\dependencies\csla_contrib\ScreenWithModelBase.cs">
+      <Link>CslaContrib\ScreenWithModelBase.cs</Link>
+    </Compile>
+    <Compile Include="..\dependencies\csla_contrib\ScreenWithSubject.cs">
+      <Link>CslaContrib\ScreenWithSubject.cs</Link>
+    </Compile>
+    <Compile Include="Analysis\AnalyzerBaseOfTAnalysis.cs" />
+    <Compile Include="CommonHelper.cs" />
+    <Compile Include="Core\PageBase.cs" />
+    <Compile Include="Core\QuestionArgs.cs" />
+    <Compile Include="Core\RandomPicker.cs" />
+    <Compile Include="Enums\Autonomous\AutonomousServiceContextStates.cs" />
+    <Compile Include="Enums\IntendedUserAuthenticationState.cs" />
+    <Compile Include="EventArgs\ResultArgsOfT.cs" />
+    <Compile Include="Core\LearnLanguagesExtensions.cs" />
+    <Compile Include="Delegates\AsynchronousCallback.cs" />
+    <Compile Include="CommonResources.cs" />
+    <Compile Include="EventMessages\AuthenticationChangedEventMessage.cs" />
+    <Compile Include="EventMessages\DecrementContentBusyEventMessage.cs" />
+    <Compile Include="EventMessages\IncrementContentBusyEventMessage.cs" />
+    <Compile Include="EventMessages\DecrementApplicationBusyEventMessage.cs" />
+    <Compile Include="EventMessages\IncrementApplicationBusyEventMessage.cs" />
+    <Compile Include="EventMessages\EnableNavigationRequestedEventMessage.cs" />
+    <Compile Include="EventMessages\DisableNavigationRequestedEventMessage.cs" />
+    <Compile Include="EventMessages\ExpandedChangedEventMessage.cs" />
+    <Compile Include="EventMessages\LanguageAddedEventMessage.cs" />
+    <Compile Include="EventMessages\LanguageEventMessage.cs" />
+    <Compile Include="EventMessages\NativeLanguageChangedEventMessage.cs" />
+    <Compile Include="EventMessages\PartSatisfiedEventMessage.cs" />
+    <Compile Include="Events\AutonomousEvent.cs" />
+    <Compile Include="Events\MessageEvent.cs" />
+    <Compile Include="Exceptions\AnalysisTypeNotRecognizedException.cs" />
+    <Compile Include="Exceptions\AnalysisIdNotRecognizedException.cs" />
+    <Compile Include="Exceptions\RefineAttemptedBeforeAnalysisException.cs" />
+    <Compile Include="Exceptions\UserNotAuthenticatedException.cs" />
+    <Compile Include="Interfaces\Analyzer\IAnalysis.cs" />
+    <Compile Include="Interfaces\Analyzer\IAnalyzer.cs" />
+    <Compile Include="Interfaces\Autonomous\IAutonomousServiceInfo.cs" />
+    <Compile Include="Interfaces\Autonomous\IAutonomousServiceContext.cs" />
+    <Compile Include="Interfaces\Autonomous\IAutonomousServiceManager.cs" />
+    <Compile Include="Interfaces\Autonomous\IAutonomousService.cs" />
+    <Compile Include="Interfaces\Core\IModule.cs" />
+    <Compile Include="Interfaces\Core\IPageInitializer.cs" />
+    <Compile Include="Interfaces\Navigation\INavigationPanelViewModel.cs" />
+    <Compile Include="Interfaces\Navigation\INavigationSet.cs" />
+    <Compile Include="Interfaces\Core\IPageViewModel.cs" />
+    <Compile Include="Interfaces\Core\IAdvisor.cs" />
+    <Compile Include="Interfaces\Core\IInitialize.cs" />
+    <Compile Include="Interfaces\Core\IPage.cs" />
+    <Compile Include="Interfaces\Core\IShellViewModel.cs" />
+    <Compile Include="Interfaces\Exchange\IStatusUpdateOfTTargetAndTProduct.cs" />
+    <Compile Include="Interfaces\Exchange\IOfferResponse.cs" />
+    <Compile Include="Interfaces\Exchange\IOffer.cs" />
+    <Compile Include="Interfaces\Exchange\IConglomerateMessage.cs" />
+    <Compile Include="Interfaces\Exchange\ICancelation.cs" />
+    <Compile Include="Interfaces\Exchange\IDoOfTJobInfo.cs" />
+    <Compile Include="Interfaces\Exchange\IExchangeMessage.cs" />
+    <Compile Include="Interfaces\Exchange\IHaveConglomerateId.cs" />
+    <Compile Include="Interfaces\Exchange\IStatusUpdate.cs" />
+    <Compile Include="Interfaces\Exchange\IOpportunityOfTTargetAndTProduct.cs" />
+    <Compile Include="Interfaces\Exchange\IJobInfo.cs" />
+    <Compile Include="Interfaces\Exchange\IJobInfoOfTTargetAndTProduct.cs" />
+    <Compile Include="Interfaces\Exchange\IOfferResponseOfTTargetAndTProduct.cs" />
+    <Compile Include="Interfaces\Exchange\IOpportunity.cs" />
+    <Compile Include="Interfaces\Feedback\IFeedbackViewModelBase.cs" />
+    <Compile Include="Interfaces\History\ICompoundEventMaker.cs" />
+    <Compile Include="Interfaces\History\IStudyReviewMethod.cs" />
+    <Compile Include="Interfaces\ICanExpand.cs" />
+    <Compile Include="Interfaces\IPartSatisfiedEventMessage.cs" />
+    <Compile Include="Logging\DebugLogger.cs" />
+    <Compile Include="CslaBases\BusinessBaseOfCAndCDto.cs" />
+    <Compile Include="CslaBases\BusinessListBaseOfLAndCAndCDto.cs" />
+    <Compile Include="CslaBases\CommandBaseOfC.cs" />
+    <Compile Include="CslaBases\ReadOnlyBaseOfC.cs" />
+    <Compile Include="CslaBases\ReadOnlyListBaseOfLAndCAndCDto.cs" />
+    <Compile Include="Core\CustomException.cs" />
+    <Compile Include="Delegates\AsyncCallbackOfT.cs" />
+    <Compile Include="Delegates\ExceptionCheckCallback.cs" />
+    <Compile Include="EventArgs\ModelEventArgsOfT.cs" />
+    <Compile Include="Exceptions\PartNotSatisfiedException.cs" />
+    <Compile Include="Feedback\FeedbackOfT.cs" />
+    <Compile Include="Interfaces\Feedback\IFeedback.cs" />
+    <Compile Include="Interfaces\Feedback\IGetFeedback.cs" />
+    <Compile Include="Interfaces\Feedback\IHaveFeedback.cs" />
+    <Compile Include="Interfaces\Core\IHaveId.cs" />
+    <Compile Include="Interfaces\Core\IHaveModelListOfTList.cs" />
+    <Compile Include="Interfaces\Core\IHaveModelOfT.cs" />
+    <Compile Include="Interfaces\Core\IHaveUri.cs" />
+    <Compile Include="Interfaces\Exchange\IOfferOfTTargetAndTProduct.cs" />
+    <Compile Include="Interfaces\Exchange\IExchange.cs" />
+    <Compile Include="Interfaces\History\IHistoryEvent.cs" />
+    <Compile Include="Interfaces\History\IHistoryPublisher.cs" />
+    <Compile Include="Interfaces\Core\ILogger.cs" />
+    <Compile Include="Interfaces\Core\IViewModelBase.cs" />
+    <Compile Include="Logging\LogCategory.cs" />
+    <Compile Include="Logging\LogPriority.cs" />
+    <Compile Include="Core\MagicStringsList.cs" />
+    <Compile Include="MessageShower\MessagePriority.cs" />
+    <Compile Include="MessageShower\MessageShower.cs" />
+    <Compile Include="MessageShower\MessageType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Core\ResultOfT.cs" />
+    <Compile Include="Core\SaltedHashedPassword.cs" />
+    <Compile Include="Core\Services.cs" />
+    <Compile Include="Core\Tuple.cs" />
+    <Compile Include="Core\UserInterfaceInfo.cs" />
+    <Compile Include="ViewModelBases\PageViewModelBase.cs" />
+    <Compile Include="ViewModelBases\ViewModelBase.cs" />
+    <Compile Include="ViewModelBases\ViewModelBaseOfTCslaModel.cs" />
+    <Compile Include="ViewModelBases\ViewModelBaseOfTCslaModelList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

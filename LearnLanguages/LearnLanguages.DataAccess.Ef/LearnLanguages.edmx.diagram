@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e5d1bda0f2c44208f37653aae212fff" Name="Diagram1" ZoomLevel="84" >
+        <EntityTypeShape EntityType="LearnLanguages.LanguageData" Width="1.875" PointX="5.625" PointY="3.75" />
+        <EntityTypeShape EntityType="LearnLanguages.PhraseData" Width="1.875" PointX="2.5" PointY="3.75" />
+        <EntityTypeShape EntityType="LearnLanguages.UserData" Width="1.875" PointX="0.875" PointY="0.5" />
+        <EntityTypeShape EntityType="LearnLanguages.RoleData" Width="1.875" PointX="4.25" PointY="0.5" />
+        <AssociationConnector Association="LearnLanguages.UserDataRoleData" />
+        <AssociationConnector Association="LearnLanguages.UserDataPhraseData" />
+        <AssociationConnector Association="LearnLanguages.PhraseDataLanguageData" />
+        <EntityTypeShape EntityType="LearnLanguages.TranslationData" Width="1.875" PointX="8.25" PointY="3.75" />
+        <AssociationConnector Association="LearnLanguages.TranslationDataPhraseData" />
+        <AssociationConnector Association="LearnLanguages.UserDataTranslationData" />
+        <AssociationConnector Association="LearnLanguages.UserDataLanguageData" />
+        <EntityTypeShape EntityType="LearnLanguages.LineData" Width="1.5" PointX="0.75" PointY="6.875" />
+        <AssociationConnector Association="LearnLanguages.UserDataLineData" />
+        <AssociationConnector Association="LearnLanguages.PhraseDataLineData" />
+        <AssociationConnector Association="LearnLanguages.ContextPhraseDataTranslationData" />
+        <EntityTypeShape EntityType="LearnLanguages.PhraseBeliefData" Width="1.5" PointX="5.625" PointY="7" />
+        <AssociationConnector Association="LearnLanguages.PhraseDataPhraseBeliefData" />
+        <AssociationConnector Association="LearnLanguages.UserDataPhraseBeliefData" />
+        <EntityTypeShape EntityType="LearnLanguages.StudyDataData" Width="1.5" PointX="8" PointY="7.125" />
+        <EntityTypeShape EntityType="LearnLanguages.MultiLineTextData" Width="1.625" PointX="7.125" PointY="0.5" />
+        <AssociationConnector Association="LearnLanguages.MultiLineTextDataUserData" />
+        <AssociationConnector Association="LearnLanguages.LineDataMultiLineTextData" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

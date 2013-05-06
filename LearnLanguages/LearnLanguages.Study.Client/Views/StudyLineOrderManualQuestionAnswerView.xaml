@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="LearnLanguages.Study.Views.StudyLineOrderManualQuestionAnswerView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    mc:Ignorable="d"
+    d:DesignHeight="300" d:DesignWidth="400">
+    
+  <Border Style="{StaticResource DebugBorder}">
+    <Grid x:Name="LayoutRoot" Background="White">
+      <Grid.RowDefinitions>
+        <RowDefinition />
+        <RowDefinition />
+      </Grid.RowDefinitions>
+      <Grid.Resources>
+        <Style TargetType="toolkit:HeaderedContentControl" x:Key="QAHeaderStyle">
+          <Setter Property="Padding" Value="5" />
+          <Setter Property="FontSize" Value="7" />
+          <Setter Property="FontStyle" Value="Italic" />
+        </Style>
+        <Style TargetType="TextBlock" x:Key="QAContentStyle">
+          <Setter Property="Padding" Value="0" />
+          <Setter Property="FontSize" Value="14" />
+          <Setter Property="FontStyle" Value="Normal" />
+        </Style>
+      </Grid.Resources>
+      
+      <!--QUESTION-->
+      <Border Grid.Row="0" Style="{StaticResource ViewSection}">
+        <toolkit:HeaderedContentControl Header="{Binding Path=QuestionHeader}" Style="{StaticResource QAHeaderStyle}">
+          <toolkit:HeaderedContentControl.Content>
+
+              <TextBlock x:Name="Question" Visibility="{Binding Path=QuestionVisibility}" Style="{StaticResource QAContentStyle}"/>
+
+          </toolkit:HeaderedContentControl.Content>
+        </toolkit:HeaderedContentControl>
+      </Border>
+
+      <!--ANSWER-->
+      <Border Grid.Row="1" Style="{StaticResource ViewSection}">
+        <toolkit:HeaderedContentControl Header="{Binding Path=AnswerHeader}" Style="{StaticResource QAHeaderStyle}">
+          <toolkit:HeaderedContentControl.Content>
+            <!--<toolkit:BusyIndicator IsBusy="{Binding Path=HidingAnswer}">-->
+
+              <Grid>
+                <!--THESE PURPOSEFULLY SHARE THE SAME GRID ROW/COLUMN.-->
+                <!--SHOW ANSWER BUTTON-->
+                <Button x:Name="ShowAnswer"
+                        Visibility="{Binding Path=ShowAnswerButtonVisibility}" 
+                        Content="{Binding Path=ShowAnswerButtonLabel}" />
+                
+                <!--ANSWER TEXT-->
+                <TextBlock x:Name="Answer" 
+                           Visibility="{Binding Path=AnswerVisibility}" 
+                           Style="{StaticResource QAContentStyle}"/>
+              </Grid>
+            
+            <!--</toolkit:BusyIndicator>-->
+          </toolkit:HeaderedContentControl.Content>
+        </toolkit:HeaderedContentControl>
+      </Border>
+
+    </Grid>
+  </Border>
+</UserControl>
