@@ -366,4 +366,7 @@
   <data name="ErrorMsgChangePasswordFailedException" xml:space="preserve">
     <value>An error occurred while trying to change the password.</value>
   </data>
+  <data name="ErrorMsgDatabaseException" xml:space="preserve">
+    <value>There was an error when manipulating the database.</value>
+  </data>
 </root>

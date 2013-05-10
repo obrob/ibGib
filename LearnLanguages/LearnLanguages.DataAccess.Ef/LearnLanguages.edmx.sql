@@ -2,8 +2,8 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 08/13/2012 17:25:17
--- Generated from EDMX file: C:\Users\user\Documents\Visual Studio 2010\Projects\LearnLanguages\LearnLanguages.DataAccess.Ef\LearnLanguages.edmx
+-- Date Created: 05/07/2013 17:57:48
+-- Generated from EDMX file: C:\ib\ibGib\LearnLanguages\LearnLanguages.DataAccess.Ef\LearnLanguages.edmx
 -- --------------------------------------------------
 
 SET QUOTED_IDENTIFIER OFF;
@@ -161,7 +161,7 @@ GO
 -- Creating table 'UserDatas'
 CREATE TABLE [dbo].[UserDatas] (
     [Id] uniqueidentifier  NOT NULL,
-    [Username] nvarchar(max)  NOT NULL,
+    [Username] nvarchar(50)  NOT NULL,
     [Salt] int  NOT NULL,
     [SaltedHashedPasswordValue] nvarchar(max)  NOT NULL
 );
@@ -216,7 +216,7 @@ GO
 CREATE TABLE [dbo].[StudyDataDatas] (
     [Id] uniqueidentifier  NOT NULL,
     [NativeLanguageText] nvarchar(max)  NOT NULL,
-    [Username] nvarchar(max)  NOT NULL
+    [Username] nvarchar(40)  NOT NULL
 );
 GO
 

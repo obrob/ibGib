@@ -125,7 +125,7 @@
     <comment>Newly created phrases are populated with the id of the Language that has this as its text.</comment>
   </data>
   <data name="DeleteAllExistingDataAndStartNewSeedData" xml:space="preserve">
-    <value>False</value>
+    <value>True</value>
     <comment>warning, this will delete all existing data</comment>
   </data>
   <data name="ErrorMsgPropertyNotAssigned" xml:space="preserve">

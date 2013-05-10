@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Configuration;
 using Csla.Data;
+using LearnLanguages.DataAccess.Exceptions;
 
 namespace LearnLanguages.DataAccess.Ef
 {
@@ -36,27 +37,44 @@ namespace LearnLanguages.DataAccess.Ef
       }
     }
     #endregion
-    
+
     private void Initialize()
     {
-      var threadId = System.Threading.Thread.CurrentThread.ManagedThreadId;
-      var isBackground = System.Threading.Thread.CurrentThread.IsBackground;
-      var isPool = System.Threading.Thread.CurrentThread.IsThreadPoolThread;
+#if DEBUG
       using (LearnLanguagesContext context = new LearnLanguagesContext())
       {
         bool databaseExists = context.DatabaseExists();
         bool deleteAll = bool.Parse(EfResources.DeleteAllExistingDataAndStartNewSeedData);
-        //if (context.DatabaseExists() && bool.Parse(EfResources.DeleteAllExistingDataAndStartNewSeedData))
-        if (databaseExists && deleteAll)
-          context.DeleteDatabase();
+
+        if (context.DatabaseExists() && bool.Parse(EfResources.DeleteAllExistingDataAndStartNewSeedData))
+          if (databaseExists && deleteAll)
+          {
+            try
+            {
+              context.DeleteDatabase();
+            }
+            catch (Exception ex)
+            {
+              throw new DatabaseException(ex);
+            }
+          }
         if (!context.DatabaseExists())
         {
-          context.CreateDatabase();
-          context.Connection.Open();
+          try
+          {
+            context.CreateDatabase();
+            context.Connection.Open();
+          }
+          catch (Exception ex)
+          {
+            throw new DatabaseException(ex);
+          }
+
           SeedContext(context);
           context.SaveChanges();
         }
       }
+#endif
     }
 
     private void SeedContext(LearnLanguagesContext context)

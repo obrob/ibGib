@@ -331,6 +331,15 @@ namespace LearnLanguages.DataAccess {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was an error when manipulating the database..
+        /// </summary>
+        public static string ErrorMsgDatabaseException {
+            get {
+                return ResourceManager.GetString("ErrorMsgDatabaseException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Delete operation failed. InnerExceptionMsg = {0}.
         /// </summary>
         public static string ErrorMsgDeleteFailedException {

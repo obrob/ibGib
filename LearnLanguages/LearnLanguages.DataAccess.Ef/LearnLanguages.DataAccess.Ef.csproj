@@ -99,7 +99,6 @@
       <DependentUpon>LearnLanguages.edmx</DependentUpon>
     </Compile>
     <Compile Include="LearnLanguagesContextManager.cs" />
-    <Compile Include="LearnLanguagesDbContext.cs" />
     <Compile Include="Dals\PhraseDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
