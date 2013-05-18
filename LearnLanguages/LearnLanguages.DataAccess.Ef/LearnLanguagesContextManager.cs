@@ -43,35 +43,18 @@ namespace LearnLanguages.DataAccess.Ef
 #if DEBUG
       using (LearnLanguagesContext context = new LearnLanguagesContext())
       {
-        bool databaseExists = context.DatabaseExists();
-        bool deleteAll = bool.Parse(EfResources.DeleteAllExistingDataAndStartNewSeedData);
-
-        if (context.DatabaseExists() && bool.Parse(EfResources.DeleteAllExistingDataAndStartNewSeedData))
-          if (databaseExists && deleteAll)
-          {
-            try
-            {
-              context.DeleteDatabase();
-            }
-            catch (Exception ex)
-            {
-              throw new DatabaseException(ex);
-            }
-          }
-        if (!context.DatabaseExists())
+        if (bool.Parse(EfResources.ShouldSeedDbWithData))
         {
           try
           {
-            context.CreateDatabase();
             context.Connection.Open();
+            SeedContext(context);
+            context.SaveChanges();
           }
           catch (Exception ex)
           {
             throw new DatabaseException(ex);
           }
-
-          SeedContext(context);
-          context.SaveChanges();
         }
       }
 #endif

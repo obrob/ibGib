@@ -21,7 +21,7 @@ namespace LearnLanguages.DataAccess.Ef
     {
       return new RoleData()
       {
-        Id = dto.Id,
+        Id = dto.Id == Guid.Empty ? Guid.NewGuid() : dto.Id,
         Text = dto.Text,
       };
     }
