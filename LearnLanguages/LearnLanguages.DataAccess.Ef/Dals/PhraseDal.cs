@@ -374,16 +374,19 @@ namespace LearnLanguages.DataAccess.Ef
           var phraseDataToDelete = results.First();
           var retDto = EfHelper.ToDto(phraseDataToDelete);
           
-          //WHEN WE DELETE PHRASES, IF IT IS PART OF A TRANSLATION, AND THAT TRANSLATION
-          //AFTER DELETE WOULD HAVE LESS THAN TWO PHRASES, WE NEED TO CASCADE THE DELETE TO THE TRANSLATION
-          var translationsToDelete = new List<TranslationData>();
-          foreach (var translation in phraseDataToDelete.TranslationDatas)
-          {
-            //IF WE ONLY HAVE TWO OR LESS PHRASES *NOW* (WE HAVE NOT DELETED PHRASE YET), THEN AFTER DELETE 
-            //WE *WILL* HAVE ONLY ONE OR ZERO, SO MARK THIS TRANSLATION FOR DELETION.
-            if (translation.PhraseDatas.Count <= 2)
-              translationsToDelete.Add(translation);
-          }
+          ////WHEN WE DELETE PHRASES, IF IT IS PART OF A TRANSLATION, AND THAT TRANSLATION
+          ////AFTER DELETE WOULD HAVE LESS THAN TWO PHRASES, WE NEED TO CASCADE THE DELETE TO THE TRANSLATION
+          //var translationsToDelete = new List<TranslationData>();
+          //foreach (var translation in phraseDataToDelete.TranslationDatas)
+          //{
+          //  //IF WE ONLY HAVE TWO OR LESS PHRASES *NOW* (WE HAVE NOT DELETED PHRASE YET), THEN AFTER DELETE 
+          //  //WE *WILL* HAVE ONLY ONE OR ZERO, SO MARK THIS TRANSLATION FOR DELETION.
+          //  if (translation.PhraseDatas.Count <= 2)
+          //    translationsToDelete.Add(translation);
+          //}
+
+          var translationsToDelete =
+            phraseDataToDelete.TranslationDatas.Where(td => td.PhraseDatas.Count <= 2).ToList();
 
           //EXECUTE DELETE OF THOSE TRANSLATIONS
           foreach (var translation in translationsToDelete)

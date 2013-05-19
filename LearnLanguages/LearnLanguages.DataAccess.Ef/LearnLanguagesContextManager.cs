@@ -5,6 +5,7 @@ using System.Text;
 using System.Configuration;
 using Csla.Data;
 using LearnLanguages.DataAccess.Exceptions;
+using System.Data.Objects;
 
 namespace LearnLanguages.DataAccess.Ef
 {
@@ -48,6 +49,7 @@ namespace LearnLanguages.DataAccess.Ef
           try
           {
             context.Connection.Open();
+            DeleteDatabaseData(context);
             SeedContext(context);
             context.SaveChanges();
           }
@@ -60,7 +62,80 @@ namespace LearnLanguages.DataAccess.Ef
 #endif
     }
 
+    private void DeleteDatabaseData(LearnLanguagesContext context)
+    {
+      //DELETE...Each call does a context.SaveChanges() at the end.
+      context.StudyDataDatas.DeleteAll();
+      //DeleteMultiLineTextsAndLines(context);
+      context.MultiLineTextDatas.DeleteAll();
+      context.LineDatas.DeleteAll();
+      //DeletePhrasesAndTranslations(context);
+      context.TranslationDatas.DeleteAll();
+      context.PhraseDatas.DeleteAll();
+      context.LanguageDatas.DeleteAll();
+      //DeleteUsersAndRoles(context);
+      context.UserDatas.DeleteAll();
+      context.RoleDatas.DeleteAll();//true = only SaveChanges at the very end.
+    }
+
+    private void DeleteMultiLineTextsAndLines(LearnLanguagesContext context)
+    {
+      var mltsToDelete = context.MultiLineTextDatas.ToList();
+      for (int i = 0; i < mltsToDelete.Count; i++)
+      {
+        var mltToDelete = mltsToDelete[i];
+        mltToDelete.LineDatas.Clear();
+        context.MultiLineTextDatas.DeleteObject(mltToDelete);
+      }
+      context.SaveChanges();
+    }
+
+    private void DeleteUsersAndRoles(LearnLanguagesContext context)
+    {
+      var usersToDelete = context.UserDatas.ToList();
+      for (int i = 0; i < usersToDelete.Count; i++)
+      {
+        var userToDelete = usersToDelete[i];
+        userToDelete.RoleDatas.Clear();
+        //var rolesToDeleteThisIteration = userToDelete.RoleDatas.ToList();
+        //foreach (var roleToDelete in rolesToDeleteThisIteration)
+        //  context.RoleDatas.DeleteObject(roleToDelete);
+        context.UserDatas.DeleteObject(userToDelete);
+      }
+      context.SaveChanges();
+    }
+
+    private void DeletePhrasesAndTranslations(LearnLanguagesContext context)
+    {
+      //I want to delete each phrase, and delete each translation related to
+      //that phrase. Then save the changes to the context.
+      var phrasesToDelete = context.PhraseDatas.ToList();
+      for (int i = 0; i < phrasesToDelete.Count; i++)
+      {
+        var phraseToDelete = phrasesToDelete[i];
+        var translationsToDeleteThisIteration = phraseToDelete.TranslationDatas.ToList();
+        foreach (var translationToDelete in translationsToDeleteThisIteration)
+        {
+          context.TranslationDatas.DeleteObject(translationToDelete);
+        }
+        context.PhraseDatas.DeleteObject(phraseToDelete);
+      }
+      context.SaveChanges();
+    }
+                                             
+
     private void SeedContext(LearnLanguagesContext context)
+    {
+      SeedRoles(context);
+      SeedUsers(context);
+      SeedLanguages(context);
+      SeedPhrases(context);
+      SeedTranslations(context);
+      SeedLines(context);
+      SeedStudyDatas(context);
+    }
+
+    private static void SeedRoles(LearnLanguagesContext context)
     {
       //ROLES 
       foreach (var roleDto in SeedData.Ton.Roles)
@@ -82,7 +157,10 @@ namespace LearnLanguages.DataAccess.Ef
 
         roleDto.Id = roleData.Id;
       }
+    }
 
+    private static void SeedUsers(LearnLanguagesContext context)
+    {
       //USERS
       foreach (var userDto in SeedData.Ton.Users)
       {
@@ -92,7 +170,7 @@ namespace LearnLanguages.DataAccess.Ef
         userData.Username = userDto.Username;
         userData.Salt = userDto.Salt;
         userData.SaltedHashedPasswordValue = userDto.SaltedHashedPasswordValue;
-        
+
         //manually add roles (cannot use dal.getroles because we are seeding 
         //the data and initializing the context that would use)
         foreach (var roleId in userDto.RoleIds)
@@ -109,7 +187,7 @@ namespace LearnLanguages.DataAccess.Ef
         context.SaveChanges();
 
         #region UPDATE AFFECTED SEED DATA THAT REFERENCES THE ID OF THIS USER
-        
+
         var affectedLanguages = (from languageDto in SeedData.Ton.Languages
                                  where languageDto.UserId == userDto.Id
                                  select languageDto);
@@ -118,7 +196,7 @@ namespace LearnLanguages.DataAccess.Ef
         {
           affectedLanguage.UserId = userData.Id;
         }
-        
+
         var affectedPhrases = (from phraseDto in SeedData.Ton.Phrases
                                where phraseDto.UserId == userDto.Id
                                select phraseDto);
@@ -167,7 +245,10 @@ namespace LearnLanguages.DataAccess.Ef
         userDto.Id = userData.Id;
         #endregion
       }
+    }
 
+    private static void SeedLanguages(LearnLanguagesContext context)
+    {
       //LANGUAGES
       foreach (var langDto in SeedData.Ton.Languages)
       {
@@ -185,7 +266,10 @@ namespace LearnLanguages.DataAccess.Ef
         }
         langDto.Id = langData.Id;
       }
+    }
 
+    private static void SeedPhrases(LearnLanguagesContext context)
+    {
       //PHRASES
       foreach (var phraseDto in SeedData.Ton.Phrases)
       {
@@ -224,7 +308,10 @@ namespace LearnLanguages.DataAccess.Ef
 
         phraseDto.Id = phraseData.Id;
       }
+    }
 
+    private static void SeedTranslations(LearnLanguagesContext context)
+    {
       //TRANSLATIONS
       foreach (var translationDto in SeedData.Ton.Translations)
       {
@@ -245,7 +332,10 @@ namespace LearnLanguages.DataAccess.Ef
         translationDto.Id = translationData.Id;
 
       }
+    }
 
+    private static void SeedLines(LearnLanguagesContext context)
+    {
       //LINES
       foreach (var lineDto in SeedData.Ton.Lines)
       {
@@ -265,7 +355,10 @@ namespace LearnLanguages.DataAccess.Ef
 
         lineDto.Id = lineData.Id;
       }
+    }
 
+    private static void SeedStudyDatas(LearnLanguagesContext context)
+    {
       //STUDY DATAS
       foreach (var studyDataDto in SeedData.Ton.StudyDatas)
       {

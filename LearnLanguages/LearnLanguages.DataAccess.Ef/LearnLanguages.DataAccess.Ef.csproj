@@ -88,6 +88,7 @@
     <Compile Include="DalManager.cs" />
     <Compile Include="DbContextManager.cs" />
     <Compile Include="DbContextManagerException.cs" />
+    <Compile Include="EfExtensions.cs" />
     <Compile Include="EfResources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

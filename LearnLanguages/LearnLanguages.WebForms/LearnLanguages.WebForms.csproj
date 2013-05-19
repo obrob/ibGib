@@ -19,7 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-    <SilverlightApplicationList>{23A302A7-4A66-4D8B-A13F-14A4453EF517}|..\LearnLanguages.Silverlight\LearnLanguages.Silverlight.csproj|ClientBin|False</SilverlightApplicationList>
+    <SilverlightApplicationList>{23A302A7-4A66-4D8B-A13F-14A4453EF517}|..\LearnLanguages.Silverlight\LearnLanguages.Silverlight.csproj|ClientBin|False,{8341B23A-A916-4C7D-B52B-A2682B568652}|..\LearnLanguages.Silverlight.Tests\LearnLanguages.Silverlight.Tests.csproj|ClientBin|False</SilverlightApplicationList>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
@@ -31,6 +31,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -147,6 +148,7 @@
     <Content Include="Account\OpenAuthProviders.ascx" />
     <Content Include="Account\Register.aspx" />
     <Content Include="Account\RegisterExternalLogin.aspx" />
+    <Content Include="ClientBin\LearnLanguages.Silverlight.Tests.xap" />
     <Content Include="ClientBin\LearnLanguages.Silverlight.xap" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\Site.css" />
@@ -225,6 +227,8 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
+    <Content Include="LearnLanguages.Silverlight.TestsTestPage.aspx" />
+    <Content Include="LearnLanguages.Silverlight.TestsTestPage.html" />
     <Content Include="LearnLanguages.SilverlightTestPage.aspx" />
     <Content Include="LearnLanguages.SilverlightTestPage.html" />
     <Content Include="packages.config" />

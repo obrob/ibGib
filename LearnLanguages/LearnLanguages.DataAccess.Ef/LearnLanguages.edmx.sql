@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, and Azure
 -- --------------------------------------------------
--- Date Created: 05/07/2013 17:57:48
+-- Date Created: 05/18/2013 01:41:03
 -- Generated from EDMX file: C:\ib\ibGib\LearnLanguages\LearnLanguages.DataAccess.Ef\LearnLanguages.edmx
 -- --------------------------------------------------
 
@@ -143,7 +143,7 @@ GO
 
 -- Creating table 'LanguageDatas'
 CREATE TABLE [dbo].[LanguageDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [Text] nvarchar(max)  NOT NULL,
     [UserDataId] uniqueidentifier  NOT NULL
 );
@@ -151,7 +151,7 @@ GO
 
 -- Creating table 'PhraseDatas'
 CREATE TABLE [dbo].[PhraseDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [Text] nvarchar(max)  NOT NULL,
     [UserDataId] uniqueidentifier  NOT NULL,
     [LanguageDataId] uniqueidentifier  NOT NULL
@@ -160,7 +160,7 @@ GO
 
 -- Creating table 'UserDatas'
 CREATE TABLE [dbo].[UserDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [Username] nvarchar(50)  NOT NULL,
     [Salt] int  NOT NULL,
     [SaltedHashedPasswordValue] nvarchar(max)  NOT NULL
@@ -169,14 +169,14 @@ GO
 
 -- Creating table 'RoleDatas'
 CREATE TABLE [dbo].[RoleDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [Text] nvarchar(max)  NOT NULL
 );
 GO
 
 -- Creating table 'TranslationDatas'
 CREATE TABLE [dbo].[TranslationDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [UserDataId] uniqueidentifier  NOT NULL,
     [ContextPhraseDataId] uniqueidentifier  NULL
 );
@@ -184,7 +184,7 @@ GO
 
 -- Creating table 'LineDatas'
 CREATE TABLE [dbo].[LineDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [LineNumber] int  NOT NULL,
     [UserDataId] uniqueidentifier  NOT NULL,
     [PhraseDataId] uniqueidentifier  NOT NULL
@@ -193,7 +193,7 @@ GO
 
 -- Creating table 'DefaultStudyAdvisorKnowledgeBeliefDatas'
 CREATE TABLE [dbo].[DefaultStudyAdvisorKnowledgeBeliefDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [ExpirationDate] datetime  NOT NULL,
     [PhraseDataId] uniqueidentifier  NOT NULL
 );
@@ -201,7 +201,7 @@ GO
 
 -- Creating table 'PhraseBeliefDatas'
 CREATE TABLE [dbo].[PhraseBeliefDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [TimeStamp] datetime  NOT NULL,
     [Text] nvarchar(max)  NOT NULL,
     [Strength] float  NOT NULL,
@@ -214,7 +214,7 @@ GO
 
 -- Creating table 'StudyDataDatas'
 CREATE TABLE [dbo].[StudyDataDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [NativeLanguageText] nvarchar(max)  NOT NULL,
     [Username] nvarchar(40)  NOT NULL
 );
@@ -222,7 +222,7 @@ GO
 
 -- Creating table 'MultiLineTextDatas'
 CREATE TABLE [dbo].[MultiLineTextDatas] (
-    [Id] uniqueidentifier  NOT NULL,
+    [Id] uniqueidentifier default newid() NOT NULL,
     [Title] nvarchar(max)  NOT NULL,
     [AdditionalMetadata] nvarchar(max)  NOT NULL,
     [UserDataId] uniqueidentifier  NOT NULL
