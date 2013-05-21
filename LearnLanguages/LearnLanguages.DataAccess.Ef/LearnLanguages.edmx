@@ -5,522 +5,526 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="LearnLanguages.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityContainer Name="LearnLanguagesStoreContainer">
-    <EntitySet Name="LanguageDatas" EntityType="LearnLanguages.Store.LanguageDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PhraseDatas" EntityType="LearnLanguages.Store.PhraseDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserDatas" EntityType="LearnLanguages.Store.UserDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="RoleDatas" EntityType="LearnLanguages.Store.RoleDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TranslationDatas" EntityType="LearnLanguages.Store.TranslationDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LineDatas" EntityType="LearnLanguages.Store.LineDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="DefaultStudyAdvisorKnowledgeBeliefDatas" EntityType="LearnLanguages.Store.DefaultStudyAdvisorKnowledgeBeliefDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="PhraseBeliefDatas" EntityType="LearnLanguages.Store.PhraseBeliefDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="StudyDataDatas" EntityType="LearnLanguages.Store.StudyDataDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="MultiLineTextDatas" EntityType="LearnLanguages.Store.MultiLineTextDatas" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AssociationUserDataWithLanguageData" EntityType="LearnLanguages.Store.AssociationUserDataWithLanguageData" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="AssociationUserDataWithRoleData" EntityType="LearnLanguages.Store.AssociationUserDataWithRoleData" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="UserDataRoleData" EntityType="LearnLanguages.Store.UserDataRoleData" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="TranslationDataPhraseData" EntityType="LearnLanguages.Store.TranslationDataPhraseData" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="LineDataMultiLineTextData" EntityType="LearnLanguages.Store.LineDataMultiLineTextData" store:Type="Tables" Schema="dbo" />
-    <AssociationSet Name="AssociateLanguageDataWithPhraseData" Association="LearnLanguages.Store.AssociateLanguageDataWithPhraseData">
-      <End Role="LanguageData" EntitySet="LanguageDatas" />
-      <End Role="PhraseData" EntitySet="PhraseDatas" />
-    </AssociationSet>
-    <AssociationSet Name="AssociationUserDataWithPhraseData" Association="LearnLanguages.Store.AssociationUserDataWithPhraseData">
-      <End Role="UserData" EntitySet="UserDatas" />
-      <End Role="PhraseData" EntitySet="PhraseDatas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AssociationUserDataWithLanguageData_UserData" Association="LearnLanguages.Store.FK_AssociationUserDataWithLanguageData_UserData">
-      <End Role="UserData" EntitySet="UserDatas" />
-      <End Role="AssociationUserDataWithLanguageData" EntitySet="AssociationUserDataWithLanguageData" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AssociationUserDataWithLanguageData_LanguageData" Association="LearnLanguages.Store.FK_AssociationUserDataWithLanguageData_LanguageData">
-      <End Role="LanguageData" EntitySet="LanguageDatas" />
-      <End Role="AssociationUserDataWithLanguageData" EntitySet="AssociationUserDataWithLanguageData" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AssociationUserDataWithRoleData_UserData" Association="LearnLanguages.Store.FK_AssociationUserDataWithRoleData_UserData">
-      <End Role="UserData" EntitySet="UserDatas" />
-      <End Role="AssociationUserDataWithRoleData" EntitySet="AssociationUserDataWithRoleData" />
-    </AssociationSet>
-    <AssociationSet Name="FK_AssociationUserDataWithRoleData_RoleData" Association="LearnLanguages.Store.FK_AssociationUserDataWithRoleData_RoleData">
-      <End Role="RoleData" EntitySet="RoleDatas" />
-      <End Role="AssociationUserDataWithRoleData" EntitySet="AssociationUserDataWithRoleData" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserDataRoleData_UserData" Association="LearnLanguages.Store.FK_UserDataRoleData_UserData">
-      <End Role="UserData" EntitySet="UserDatas" />
-      <End Role="UserDataRoleData" EntitySet="UserDataRoleData" />
-    </AssociationSet>
-    <AssociationSet Name="FK_UserDataRoleData_RoleData" Association="LearnLanguages.Store.FK_UserDataRoleData_RoleData">
-      <End Role="RoleData" EntitySet="RoleDatas" />
-      <End Role="UserDataRoleData" EntitySet="UserDataRoleData" />
-    </AssociationSet>
-    <AssociationSet Name="UserDataPhraseData" Association="LearnLanguages.Store.UserDataPhraseData">
-      <End Role="UserData" EntitySet="UserDatas" />
-      <End Role="PhraseData" EntitySet="PhraseDatas" />
-    </AssociationSet>
-    <AssociationSet Name="PhraseDataLanguageData" Association="LearnLanguages.Store.PhraseDataLanguageData">
-      <End Role="PhraseData" EntitySet="PhraseDatas" />
-      <End Role="LanguageData" EntitySet="LanguageDatas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TranslationDataPhraseData_TranslationData" Association="LearnLanguages.Store.FK_TranslationDataPhraseData_TranslationData">
-      <End Role="TranslationData" EntitySet="TranslationDatas" />
-      <End Role="TranslationDataPhraseData" EntitySet="TranslationDataPhraseData" />
-    </AssociationSet>
-    <AssociationSet Name="FK_TranslationDataPhraseData_PhraseData" Association="LearnLanguages.Store.FK_TranslationDataPhraseData_PhraseData">
-      <End Role="PhraseData" EntitySet="PhraseDatas" />
-      <End Role="TranslationDataPhraseData" EntitySet="TranslationDataPhraseData" />
-    </AssociationSet>
-    <AssociationSet Name="UserDataTranslationData" Association="LearnLanguages.Store.UserDataTranslationData">
-      <End Role="UserData" EntitySet="UserDatas" />
-      <End Role="TranslationData" EntitySet="TranslationDatas" />
-    </AssociationSet>
-    <AssociationSet Name="UserDataLanguageData" Association="LearnLanguages.Store.UserDataLanguageData">
-      <End Role="UserData" EntitySet="UserDatas" />
-      <End Role="LanguageData" EntitySet="LanguageDatas" />
-    </AssociationSet>
-    <AssociationSet Name="UserDataLineData" Association="LearnLanguages.Store.UserDataLineData">
-      <End Role="UserData" EntitySet="UserDatas" />
-      <End Role="LineData" EntitySet="LineDatas" />
-    </AssociationSet>
-    <AssociationSet Name="PhraseDataLineData" Association="LearnLanguages.Store.PhraseDataLineData">
-      <End Role="PhraseData" EntitySet="PhraseDatas" />
-      <End Role="LineData" EntitySet="LineDatas" />
-    </AssociationSet>
-    <AssociationSet Name="ContextPhraseDataTranslationData" Association="LearnLanguages.Store.ContextPhraseDataTranslationData">
-      <End Role="PhraseData" EntitySet="PhraseDatas" />
-      <End Role="TranslationData" EntitySet="TranslationDatas" />
-    </AssociationSet>
-    <AssociationSet Name="PhraseDataDefaultStudyAdvisorKnowledgeBeliefData" Association="LearnLanguages.Store.PhraseDataDefaultStudyAdvisorKnowledgeBeliefData">
-      <End Role="PhraseData" EntitySet="PhraseDatas" />
-      <End Role="DefaultStudyAdvisorKnowledgeBeliefData" EntitySet="DefaultStudyAdvisorKnowledgeBeliefDatas" />
-    </AssociationSet>
-    <AssociationSet Name="PhraseDataPhraseBeliefData" Association="LearnLanguages.Store.PhraseDataPhraseBeliefData">
-      <End Role="PhraseData" EntitySet="PhraseDatas" />
-      <End Role="PhraseBeliefData" EntitySet="PhraseBeliefDatas" />
-    </AssociationSet>
-    <AssociationSet Name="UserDataPhraseBeliefData" Association="LearnLanguages.Store.UserDataPhraseBeliefData">
-      <End Role="UserData" EntitySet="UserDatas" />
-      <End Role="PhraseBeliefData" EntitySet="PhraseBeliefDatas" />
-    </AssociationSet>
-    <AssociationSet Name="MultiLineTextDataUserData" Association="LearnLanguages.Store.MultiLineTextDataUserData">
-      <End Role="MultiLineTextData" EntitySet="MultiLineTextDatas" />
-      <End Role="UserData" EntitySet="UserDatas" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LineDataMultiLineTextData_LineData" Association="LearnLanguages.Store.FK_LineDataMultiLineTextData_LineData">
-      <End Role="LineData" EntitySet="LineDatas" />
-      <End Role="LineDataMultiLineTextData" EntitySet="LineDataMultiLineTextData" />
-    </AssociationSet>
-    <AssociationSet Name="FK_LineDataMultiLineTextData_MultiLineTextData" Association="LearnLanguages.Store.FK_LineDataMultiLineTextData_MultiLineTextData">
-      <End Role="MultiLineTextData" EntitySet="MultiLineTextDatas" />
-      <End Role="LineDataMultiLineTextData" EntitySet="LineDataMultiLineTextData" />
-    </AssociationSet>
-  </EntityContainer>
-  <EntityType Name="LanguageDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PhraseDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="LanguageDataId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UserDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
-    <Property Name="Salt" Type="int" Nullable="false" />
-    <Property Name="SaltedHashedPasswordValue" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="RoleDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TranslationDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ContextPhraseDataId" Type="uniqueidentifier" Nullable="true" />
-  </EntityType>
-  <EntityType Name="LineDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="LineNumber" Type="int" Nullable="false" />
-    <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PhraseDataId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="DefaultStudyAdvisorKnowledgeBeliefDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
-    <Property Name="PhraseDataId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="PhraseBeliefDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="TimeStamp" Type="datetime" Nullable="false" />
-    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Strength" Type="float" Nullable="false" />
-    <Property Name="BelieverId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="ReviewMethodId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PhraseDataId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="StudyDataDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="NativeLanguageText" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="40" />
-  </EntityType>
-  <EntityType Name="MultiLineTextDatas">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="uniqueidentifier" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="AdditionalMetadata" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="AssociationUserDataWithLanguageData">
-    <Key>
-      <PropertyRef Name="AssociationUserDataWithLanguageData_LanguageData_Id" />
-      <PropertyRef Name="AssociationUserDataWithLanguageData_UserData_Id" />
-    </Key>
-    <Property Name="AssociationUserDataWithLanguageData_LanguageData_Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="AssociationUserDataWithLanguageData_UserData_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="AssociationUserDataWithRoleData">
-    <Key>
-      <PropertyRef Name="AssociationUserDataWithRoleData_RoleData_Id" />
-      <PropertyRef Name="AssociationUserDataWithRoleData_UserData_Id" />
-    </Key>
-    <Property Name="AssociationUserDataWithRoleData_RoleData_Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="AssociationUserDataWithRoleData_UserData_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UserDataRoleData">
-    <Key>
-      <PropertyRef Name="UserDatas_Id" />
-      <PropertyRef Name="RoleDatas_Id" />
-    </Key>
-    <Property Name="UserDatas_Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="RoleDatas_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="TranslationDataPhraseData">
-    <Key>
-      <PropertyRef Name="TranslationDatas_Id" />
-      <PropertyRef Name="PhraseDatas_Id" />
-    </Key>
-    <Property Name="TranslationDatas_Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PhraseDatas_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <EntityType Name="LineDataMultiLineTextData">
-    <Key>
-      <PropertyRef Name="LineDatas_Id" />
-      <PropertyRef Name="MultiLineTextDatas_Id" />
-    </Key>
-    <Property Name="LineDatas_Id" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="MultiLineTextDatas_Id" Type="uniqueidentifier" Nullable="false" />
-  </EntityType>
-  <Association Name="AssociateLanguageDataWithPhraseData">
-    <End Role="LanguageData" Type="LearnLanguages.Store.LanguageDatas" Multiplicity="1" />
-    <End Role="PhraseData" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LanguageData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PhraseData">
-        <PropertyRef Name="LanguageDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="AssociationUserDataWithPhraseData">
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="PhraseData" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PhraseData">
-        <PropertyRef Name="UserDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UserDataPhraseData">
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
-    <End Role="PhraseData" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PhraseData">
-        <PropertyRef Name="UserDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PhraseDataLanguageData">
-    <End Role="PhraseData" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="*" />
-    <End Role="LanguageData" Type="LearnLanguages.Store.LanguageDatas" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="LanguageData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PhraseData">
-        <PropertyRef Name="LanguageDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UserDataTranslationData">
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
-    <End Role="TranslationData" Type="LearnLanguages.Store.TranslationDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TranslationData">
-        <PropertyRef Name="UserDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UserDataLanguageData">
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
-    <End Role="LanguageData" Type="LearnLanguages.Store.LanguageDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="LanguageData">
-        <PropertyRef Name="UserDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UserDataLineData">
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
-    <End Role="LineData" Type="LearnLanguages.Store.LineDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="LineData">
-        <PropertyRef Name="UserDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PhraseDataLineData">
-    <End Role="PhraseData" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="1" />
-    <End Role="LineData" Type="LearnLanguages.Store.LineDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PhraseData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="LineData">
-        <PropertyRef Name="PhraseDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="ContextPhraseDataTranslationData">
-    <End Role="PhraseData" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="0..1" />
-    <End Role="TranslationData" Type="LearnLanguages.Store.TranslationDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PhraseData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TranslationData">
-        <PropertyRef Name="ContextPhraseDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PhraseDataDefaultStudyAdvisorKnowledgeBeliefData">
-    <End Role="PhraseData" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="1" />
-    <End Role="DefaultStudyAdvisorKnowledgeBeliefData" Type="LearnLanguages.Store.DefaultStudyAdvisorKnowledgeBeliefDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PhraseData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="DefaultStudyAdvisorKnowledgeBeliefData">
-        <PropertyRef Name="PhraseDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="PhraseDataPhraseBeliefData">
-    <End Role="PhraseData" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="1" />
-    <End Role="PhraseBeliefData" Type="LearnLanguages.Store.PhraseBeliefDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="PhraseData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PhraseBeliefData">
-        <PropertyRef Name="PhraseDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="UserDataPhraseBeliefData">
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
-    <End Role="PhraseBeliefData" Type="LearnLanguages.Store.PhraseBeliefDatas" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PhraseBeliefData">
-        <PropertyRef Name="UserDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="MultiLineTextDataUserData">
-    <End Role="MultiLineTextData" Type="LearnLanguages.Store.MultiLineTextDatas" Multiplicity="*" />
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="MultiLineTextData">
-        <PropertyRef Name="UserDataId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AssociationUserDataWithLanguageData_UserData">
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
-    <End Role="AssociationUserDataWithLanguageData" Type="LearnLanguages.Store.AssociationUserDataWithLanguageData" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AssociationUserDataWithLanguageData">
-        <PropertyRef Name="AssociationUserDataWithLanguageData_LanguageData_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AssociationUserDataWithLanguageData_LanguageData">
-    <End Role="AssociationUserDataWithLanguageData" Type="LearnLanguages.Store.AssociationUserDataWithLanguageData" Multiplicity="*" />
-    <End Role="LanguageData" Type="LearnLanguages.Store.LanguageDatas" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="LanguageData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AssociationUserDataWithLanguageData">
-        <PropertyRef Name="AssociationUserDataWithLanguageData_UserData_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AssociationUserDataWithRoleData_UserData">
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
-    <End Role="AssociationUserDataWithRoleData" Type="LearnLanguages.Store.AssociationUserDataWithRoleData" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AssociationUserDataWithRoleData">
-        <PropertyRef Name="AssociationUserDataWithRoleData_RoleData_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_AssociationUserDataWithRoleData_RoleData">
-    <End Role="AssociationUserDataWithRoleData" Type="LearnLanguages.Store.AssociationUserDataWithRoleData" Multiplicity="*" />
-    <End Role="RoleData" Type="LearnLanguages.Store.RoleDatas" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="RoleData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AssociationUserDataWithRoleData">
-        <PropertyRef Name="AssociationUserDataWithRoleData_UserData_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserDataRoleData_UserData">
-    <End Role="UserData" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
-    <End Role="UserDataRoleData" Type="LearnLanguages.Store.UserDataRoleData" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="UserData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserDataRoleData">
-        <PropertyRef Name="UserDatas_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_UserDataRoleData_RoleData">
-    <End Role="UserDataRoleData" Type="LearnLanguages.Store.UserDataRoleData" Multiplicity="*" />
-    <End Role="RoleData" Type="LearnLanguages.Store.RoleDatas" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="RoleData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="UserDataRoleData">
-        <PropertyRef Name="RoleDatas_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TranslationDataPhraseData_TranslationData">
-    <End Role="TranslationData" Type="LearnLanguages.Store.TranslationDatas" Multiplicity="1" />
-    <End Role="TranslationDataPhraseData" Type="LearnLanguages.Store.TranslationDataPhraseData" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TranslationData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TranslationDataPhraseData">
-        <PropertyRef Name="TranslationDatas_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_TranslationDataPhraseData_PhraseData">
-    <End Role="TranslationDataPhraseData" Type="LearnLanguages.Store.TranslationDataPhraseData" Multiplicity="*" />
-    <End Role="PhraseData" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="PhraseData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="TranslationDataPhraseData">
-        <PropertyRef Name="PhraseDatas_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LineDataMultiLineTextData_LineData">
-    <End Role="LineData" Type="LearnLanguages.Store.LineDatas" Multiplicity="1" />
-    <End Role="LineDataMultiLineTextData" Type="LearnLanguages.Store.LineDataMultiLineTextData" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="LineData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="LineDataMultiLineTextData">
-        <PropertyRef Name="LineDatas_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_LineDataMultiLineTextData_MultiLineTextData">
-    <End Role="LineDataMultiLineTextData" Type="LearnLanguages.Store.LineDataMultiLineTextData" Multiplicity="*" />
-    <End Role="MultiLineTextData" Type="LearnLanguages.Store.MultiLineTextDatas" Multiplicity="1" />
-    <ReferentialConstraint>
-      <Principal Role="MultiLineTextData">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="LineDataMultiLineTextData">
-        <PropertyRef Name="MultiLineTextDatas_Id" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-</Schema></edmx:StorageModels>
+        <EntityContainer Name="LearnLanguagesStoreContainer">
+          <EntitySet Name="AssociationUserDataWithLanguageData" EntityType="LearnLanguages.Store.AssociationUserDataWithLanguageData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="AssociationUserDataWithRoleData" EntityType="LearnLanguages.Store.AssociationUserDataWithRoleData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="DefaultStudyAdvisorKnowledgeBeliefDatas" EntityType="LearnLanguages.Store.DefaultStudyAdvisorKnowledgeBeliefDatas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LanguageDatas" EntityType="LearnLanguages.Store.LanguageDatas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LineDataMultiLineTextData" EntityType="LearnLanguages.Store.LineDataMultiLineTextData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="LineDatas" EntityType="LearnLanguages.Store.LineDatas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="MultiLineTextDatas" EntityType="LearnLanguages.Store.MultiLineTextDatas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhraseBeliefDatas" EntityType="LearnLanguages.Store.PhraseBeliefDatas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="PhraseDatas" EntityType="LearnLanguages.Store.PhraseDatas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RoleDatas" EntityType="LearnLanguages.Store.RoleDatas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="StudyDataDatas" EntityType="LearnLanguages.Store.StudyDataDatas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TranslationDataPhraseData" EntityType="LearnLanguages.Store.TranslationDataPhraseData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TranslationDatas" EntityType="LearnLanguages.Store.TranslationDatas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserDataRoleData" EntityType="LearnLanguages.Store.UserDataRoleData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserDatas" EntityType="LearnLanguages.Store.UserDatas" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_AssociateLanguageDataWithPhraseData" Association="LearnLanguages.Store.FK_AssociateLanguageDataWithPhraseData">
+            <End Role="LanguageDatas" EntitySet="LanguageDatas" />
+            <End Role="PhraseDatas" EntitySet="PhraseDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssociationUserDataWithLanguageData_LanguageData" Association="LearnLanguages.Store.FK_AssociationUserDataWithLanguageData_LanguageData">
+            <End Role="LanguageDatas" EntitySet="LanguageDatas" />
+            <End Role="AssociationUserDataWithLanguageData" EntitySet="AssociationUserDataWithLanguageData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssociationUserDataWithLanguageData_UserData" Association="LearnLanguages.Store.FK_AssociationUserDataWithLanguageData_UserData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="AssociationUserDataWithLanguageData" EntitySet="AssociationUserDataWithLanguageData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssociationUserDataWithPhraseData" Association="LearnLanguages.Store.FK_AssociationUserDataWithPhraseData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="PhraseDatas" EntitySet="PhraseDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssociationUserDataWithRoleData_RoleData" Association="LearnLanguages.Store.FK_AssociationUserDataWithRoleData_RoleData">
+            <End Role="RoleDatas" EntitySet="RoleDatas" />
+            <End Role="AssociationUserDataWithRoleData" EntitySet="AssociationUserDataWithRoleData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AssociationUserDataWithRoleData_UserData" Association="LearnLanguages.Store.FK_AssociationUserDataWithRoleData_UserData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="AssociationUserDataWithRoleData" EntitySet="AssociationUserDataWithRoleData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ContextPhraseDataTranslationData" Association="LearnLanguages.Store.FK_ContextPhraseDataTranslationData">
+            <End Role="PhraseDatas" EntitySet="PhraseDatas" />
+            <End Role="TranslationDatas" EntitySet="TranslationDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LineDataMultiLineTextData_LineData" Association="LearnLanguages.Store.FK_LineDataMultiLineTextData_LineData">
+            <End Role="LineDatas" EntitySet="LineDatas" />
+            <End Role="LineDataMultiLineTextData" EntitySet="LineDataMultiLineTextData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LineDataMultiLineTextData_MultiLineTextData" Association="LearnLanguages.Store.FK_LineDataMultiLineTextData_MultiLineTextData">
+            <End Role="MultiLineTextDatas" EntitySet="MultiLineTextDatas" />
+            <End Role="LineDataMultiLineTextData" EntitySet="LineDataMultiLineTextData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MultiLineTextDataUserData" Association="LearnLanguages.Store.FK_MultiLineTextDataUserData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="MultiLineTextDatas" EntitySet="MultiLineTextDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData" Association="LearnLanguages.Store.FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData">
+            <End Role="PhraseDatas" EntitySet="PhraseDatas" />
+            <End Role="DefaultStudyAdvisorKnowledgeBeliefDatas" EntitySet="DefaultStudyAdvisorKnowledgeBeliefDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhraseDataLanguageData" Association="LearnLanguages.Store.FK_PhraseDataLanguageData">
+            <End Role="LanguageDatas" EntitySet="LanguageDatas" />
+            <End Role="PhraseDatas" EntitySet="PhraseDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhraseDataLineData" Association="LearnLanguages.Store.FK_PhraseDataLineData">
+            <End Role="PhraseDatas" EntitySet="PhraseDatas" />
+            <End Role="LineDatas" EntitySet="LineDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhraseDataPhraseBeliefData" Association="LearnLanguages.Store.FK_PhraseDataPhraseBeliefData">
+            <End Role="PhraseDatas" EntitySet="PhraseDatas" />
+            <End Role="PhraseBeliefDatas" EntitySet="PhraseBeliefDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TranslationDataPhraseData_PhraseData" Association="LearnLanguages.Store.FK_TranslationDataPhraseData_PhraseData">
+            <End Role="PhraseDatas" EntitySet="PhraseDatas" />
+            <End Role="TranslationDataPhraseData" EntitySet="TranslationDataPhraseData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TranslationDataPhraseData_TranslationData" Association="LearnLanguages.Store.FK_TranslationDataPhraseData_TranslationData">
+            <End Role="TranslationDatas" EntitySet="TranslationDatas" />
+            <End Role="TranslationDataPhraseData" EntitySet="TranslationDataPhraseData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDataLanguageData" Association="LearnLanguages.Store.FK_UserDataLanguageData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="LanguageDatas" EntitySet="LanguageDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDataLineData" Association="LearnLanguages.Store.FK_UserDataLineData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="LineDatas" EntitySet="LineDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDataPhraseBeliefData" Association="LearnLanguages.Store.FK_UserDataPhraseBeliefData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="PhraseBeliefDatas" EntitySet="PhraseBeliefDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDataPhraseData" Association="LearnLanguages.Store.FK_UserDataPhraseData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="PhraseDatas" EntitySet="PhraseDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDataRoleData_RoleData" Association="LearnLanguages.Store.FK_UserDataRoleData_RoleData">
+            <End Role="RoleDatas" EntitySet="RoleDatas" />
+            <End Role="UserDataRoleData" EntitySet="UserDataRoleData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDataRoleData_UserData" Association="LearnLanguages.Store.FK_UserDataRoleData_UserData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="UserDataRoleData" EntitySet="UserDataRoleData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UserDataTranslationData" Association="LearnLanguages.Store.FK_UserDataTranslationData">
+            <End Role="UserDatas" EntitySet="UserDatas" />
+            <End Role="TranslationDatas" EntitySet="TranslationDatas" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AssociationUserDataWithLanguageData">
+          <Key>
+            <PropertyRef Name="AssociationUserDataWithLanguageData_LanguageData_Id" />
+            <PropertyRef Name="AssociationUserDataWithLanguageData_UserData_Id" />
+          </Key>
+          <Property Name="AssociationUserDataWithLanguageData_LanguageData_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssociationUserDataWithLanguageData_UserData_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AssociationUserDataWithRoleData">
+          <Key>
+            <PropertyRef Name="AssociationUserDataWithRoleData_RoleData_Id" />
+            <PropertyRef Name="AssociationUserDataWithRoleData_UserData_Id" />
+          </Key>
+          <Property Name="AssociationUserDataWithRoleData_RoleData_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="AssociationUserDataWithRoleData_UserData_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DefaultStudyAdvisorKnowledgeBeliefDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ExpirationDate" Type="datetime" Nullable="false" />
+          <Property Name="PhraseDataId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LanguageDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LineDataMultiLineTextData">
+          <Key>
+            <PropertyRef Name="LineDatas_Id" />
+            <PropertyRef Name="MultiLineTextDatas_Id" />
+          </Key>
+          <Property Name="LineDatas_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MultiLineTextDatas_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LineDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="LineNumber" Type="int" Nullable="false" />
+          <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PhraseDataId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MultiLineTextDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AdditionalMetadata" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhraseBeliefDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TimeStamp" Type="datetime" Nullable="false" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Strength" Type="float" Nullable="false" />
+          <Property Name="BelieverId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ReviewMethodId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PhraseDataId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PhraseDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="LanguageDataId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RoleDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StudyDataDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="NativeLanguageText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="TranslationDataPhraseData">
+          <Key>
+            <PropertyRef Name="TranslationDatas_Id" />
+            <PropertyRef Name="PhraseDatas_Id" />
+          </Key>
+          <Property Name="TranslationDatas_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PhraseDatas_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TranslationDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UserDataId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ContextPhraseDataId" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="UserDataRoleData">
+          <Key>
+            <PropertyRef Name="UserDatas_Id" />
+            <PropertyRef Name="RoleDatas_Id" />
+          </Key>
+          <Property Name="UserDatas_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleDatas_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="UserDatas">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Username" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="Salt" Type="int" Nullable="false" />
+          <Property Name="SaltedHashedPasswordValue" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_AssociateLanguageDataWithPhraseData">
+          <End Role="LanguageDatas" Type="LearnLanguages.Store.LanguageDatas" Multiplicity="1" />
+          <End Role="PhraseDatas" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhraseDatas">
+              <PropertyRef Name="LanguageDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssociationUserDataWithLanguageData_LanguageData">
+          <End Role="LanguageDatas" Type="LearnLanguages.Store.LanguageDatas" Multiplicity="1" />
+          <End Role="AssociationUserDataWithLanguageData" Type="LearnLanguages.Store.AssociationUserDataWithLanguageData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssociationUserDataWithLanguageData">
+              <PropertyRef Name="AssociationUserDataWithLanguageData_UserData_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssociationUserDataWithLanguageData_UserData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
+          <End Role="AssociationUserDataWithLanguageData" Type="LearnLanguages.Store.AssociationUserDataWithLanguageData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssociationUserDataWithLanguageData">
+              <PropertyRef Name="AssociationUserDataWithLanguageData_LanguageData_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssociationUserDataWithPhraseData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PhraseDatas" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhraseDatas">
+              <PropertyRef Name="UserDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssociationUserDataWithRoleData_RoleData">
+          <End Role="RoleDatas" Type="LearnLanguages.Store.RoleDatas" Multiplicity="1" />
+          <End Role="AssociationUserDataWithRoleData" Type="LearnLanguages.Store.AssociationUserDataWithRoleData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssociationUserDataWithRoleData">
+              <PropertyRef Name="AssociationUserDataWithRoleData_UserData_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AssociationUserDataWithRoleData_UserData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
+          <End Role="AssociationUserDataWithRoleData" Type="LearnLanguages.Store.AssociationUserDataWithRoleData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AssociationUserDataWithRoleData">
+              <PropertyRef Name="AssociationUserDataWithRoleData_RoleData_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ContextPhraseDataTranslationData">
+          <End Role="PhraseDatas" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="0..1" />
+          <End Role="TranslationDatas" Type="LearnLanguages.Store.TranslationDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhraseDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TranslationDatas">
+              <PropertyRef Name="ContextPhraseDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LineDataMultiLineTextData_LineData">
+          <End Role="LineDatas" Type="LearnLanguages.Store.LineDatas" Multiplicity="1" />
+          <End Role="LineDataMultiLineTextData" Type="LearnLanguages.Store.LineDataMultiLineTextData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LineDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LineDataMultiLineTextData">
+              <PropertyRef Name="LineDatas_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LineDataMultiLineTextData_MultiLineTextData">
+          <End Role="MultiLineTextDatas" Type="LearnLanguages.Store.MultiLineTextDatas" Multiplicity="1" />
+          <End Role="LineDataMultiLineTextData" Type="LearnLanguages.Store.LineDataMultiLineTextData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MultiLineTextDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LineDataMultiLineTextData">
+              <PropertyRef Name="MultiLineTextDatas_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MultiLineTextDataUserData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
+          <End Role="MultiLineTextDatas" Type="LearnLanguages.Store.MultiLineTextDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MultiLineTextDatas">
+              <PropertyRef Name="UserDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData">
+          <End Role="PhraseDatas" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="1" />
+          <End Role="DefaultStudyAdvisorKnowledgeBeliefDatas" Type="LearnLanguages.Store.DefaultStudyAdvisorKnowledgeBeliefDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhraseDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DefaultStudyAdvisorKnowledgeBeliefDatas">
+              <PropertyRef Name="PhraseDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhraseDataLanguageData">
+          <End Role="LanguageDatas" Type="LearnLanguages.Store.LanguageDatas" Multiplicity="1" />
+          <End Role="PhraseDatas" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhraseDatas">
+              <PropertyRef Name="LanguageDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhraseDataLineData">
+          <End Role="PhraseDatas" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="1" />
+          <End Role="LineDatas" Type="LearnLanguages.Store.LineDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhraseDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LineDatas">
+              <PropertyRef Name="PhraseDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhraseDataPhraseBeliefData">
+          <End Role="PhraseDatas" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="1" />
+          <End Role="PhraseBeliefDatas" Type="LearnLanguages.Store.PhraseBeliefDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhraseDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhraseBeliefDatas">
+              <PropertyRef Name="PhraseDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TranslationDataPhraseData_PhraseData">
+          <End Role="PhraseDatas" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="1" />
+          <End Role="TranslationDataPhraseData" Type="LearnLanguages.Store.TranslationDataPhraseData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PhraseDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TranslationDataPhraseData">
+              <PropertyRef Name="PhraseDatas_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TranslationDataPhraseData_TranslationData">
+          <End Role="TranslationDatas" Type="LearnLanguages.Store.TranslationDatas" Multiplicity="1" />
+          <End Role="TranslationDataPhraseData" Type="LearnLanguages.Store.TranslationDataPhraseData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TranslationDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TranslationDataPhraseData">
+              <PropertyRef Name="TranslationDatas_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDataLanguageData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
+          <End Role="LanguageDatas" Type="LearnLanguages.Store.LanguageDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LanguageDatas">
+              <PropertyRef Name="UserDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDataLineData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
+          <End Role="LineDatas" Type="LearnLanguages.Store.LineDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="LineDatas">
+              <PropertyRef Name="UserDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDataPhraseBeliefData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
+          <End Role="PhraseBeliefDatas" Type="LearnLanguages.Store.PhraseBeliefDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhraseBeliefDatas">
+              <PropertyRef Name="UserDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDataPhraseData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
+          <End Role="PhraseDatas" Type="LearnLanguages.Store.PhraseDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="PhraseDatas">
+              <PropertyRef Name="UserDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDataRoleData_RoleData">
+          <End Role="RoleDatas" Type="LearnLanguages.Store.RoleDatas" Multiplicity="1" />
+          <End Role="UserDataRoleData" Type="LearnLanguages.Store.UserDataRoleData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoleDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserDataRoleData">
+              <PropertyRef Name="RoleDatas_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDataRoleData_UserData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
+          <End Role="UserDataRoleData" Type="LearnLanguages.Store.UserDataRoleData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="UserDataRoleData">
+              <PropertyRef Name="UserDatas_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UserDataTranslationData">
+          <End Role="UserDatas" Type="LearnLanguages.Store.UserDatas" Multiplicity="1" />
+          <End Role="TranslationDatas" Type="LearnLanguages.Store.TranslationDatas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserDatas">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TranslationDatas">
+              <PropertyRef Name="UserDataId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteUser_SP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="uniqueidentifier" Mode="In" />
+          <Parameter Name="Username" Type="nvarchar" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="LearnLanguages" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1050,6 +1054,7 @@
         <ScalarProperty Name="Id" ColumnName="MultiLineTextDatas_Id" />
       </EndProperty>
     </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteUser_SP" FunctionName="LearnLanguages.Store.DeleteUser_SP" />
   </EntityContainerMapping>
 </Mapping></edmx:Mappings>
   </edmx:Runtime>

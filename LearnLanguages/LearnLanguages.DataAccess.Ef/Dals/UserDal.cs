@@ -176,14 +176,14 @@ namespace LearnLanguages.DataAccess.Ef
             //"Transaction (Process ID 55) was deadlocked on lock resources with another process and has been chosen as the deadlock victim. Rerun the transaction."
             //DO NOTHING IF THE ERROR IS A DEADLOCK. WE HAVE THIS IN A FOR LOOP THAT WILL RETRY UP TO A MAX NUMBER OF ATTEMPTS
           }
-          else
-          {
-#if DEBUG
-            System.Diagnostics.Debugger.Break();
-#endif
-            //RETHROW THIS EXCEPTION
-            throw;
-          }
+//          else
+//          {
+//#if DEBUG
+//            System.Diagnostics.Debugger.Break();
+//#endif
+//            //RETHROW THIS EXCEPTION
+//            throw;
+//          }
         }
       }
 
