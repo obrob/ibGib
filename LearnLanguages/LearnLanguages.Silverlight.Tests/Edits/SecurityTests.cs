@@ -116,7 +116,6 @@ namespace LearnLanguages.Silverlight.Tests
 
     [TestMethod]
     [Asynchronous]
-    [Tag("current")]
     public async Task TEST_LOGIN_ADMIN_ADD_USER_DELETE_USER_LOGOUT()
     {
 

@@ -156,9 +156,9 @@ namespace LearnLanguages.Silverlight.Tests
       {
         EnqueueCallback(
                         () => Assert.IsFalse(hasError),
-                        () => Assert.IsNotNull(newPhraseEdit),
-                        () => Assert.AreEqual(SeedData.Ton.EnglishId, newPhraseEdit.LanguageId),
-                        () => Assert.IsNotNull(newPhraseEdit.Language)
+                        () => Assert.IsNotNull(newPhraseEdit)//,
+                        //() => Assert.AreEqual(SeedData.Ton.EnglishId, newPhraseEdit.LanguageId),
+                        //() => Assert.IsNotNull(newPhraseEdit.Language)
                         );
 
         EnqueueTestComplete();
@@ -223,6 +223,7 @@ namespace LearnLanguages.Silverlight.Tests
         newPhraseEdit.Text = "TestPhrase NEW_EDIT_BEGINSAVE_GET";
         newPhraseEdit.UserId = SeedData.Ton.GetTestValidUserDto().Id;
         newPhraseEdit.Username = SeedData.Ton.TestValidUsername;
+        newPhraseEdit.LanguageId = await LanguageEdit.GetDefaultLanguageIdAsync();
 
         //SAVE
         savedPhraseEdit = await newPhraseEdit.SaveAsync();
@@ -276,6 +277,7 @@ namespace LearnLanguages.Silverlight.Tests
         newPhraseEdit.Text = "TestPhrase NEW_EDIT_BEGINSAVE_GET_DELETE_GET";
         newPhraseEdit.UserId = SeedData.Ton.GetTestValidUserDto().Id;
         newPhraseEdit.Username = SeedData.Ton.TestValidUsername;
+        newPhraseEdit.LanguageId = await LanguageEdit.GetDefaultLanguageIdAsync();
 
         //SAVE
         savedPhraseEdit = await newPhraseEdit.SaveAsync();
@@ -350,7 +352,7 @@ namespace LearnLanguages.Silverlight.Tests
         newPhraseEdit.Text = reallyLongText;
         newPhraseEdit.UserId = SeedData.Ton.GetTestValidUserDto().Id;
         newPhraseEdit.Username = SeedData.Ton.TestValidUsername;
-        Assert.AreEqual(SeedData.Ton.EnglishId, newPhraseEdit.LanguageId);
+        newPhraseEdit.LanguageId = await LanguageEdit.GetDefaultLanguageIdAsync();
 
         //SAVE
         savedPhraseEdit = await newPhraseEdit.SaveAsync();
@@ -415,6 +417,7 @@ namespace LearnLanguages.Silverlight.Tests
         newPhraseEdit.Text = reallyReallyLongText;
         newPhraseEdit.UserId = SeedData.Ton.GetTestValidUserDto().Id;
         newPhraseEdit.Username = SeedData.Ton.TestValidUsername;
+        newPhraseEdit.LanguageId = await LanguageEdit.GetDefaultLanguageIdAsync();
 
         //SAVE
         savedPhraseEdit = await newPhraseEdit.SaveAsync();
@@ -446,6 +449,7 @@ namespace LearnLanguages.Silverlight.Tests
 
     [TestMethod]
     [Asynchronous]
+    [Tag("current")]
     public async Task GET_ALL_PHRASES_THAT_CONTAIN_THE_LETTER_H_IN_ALL_LANGUAGES()
     {
       Guid testId = Guid.Empty;
