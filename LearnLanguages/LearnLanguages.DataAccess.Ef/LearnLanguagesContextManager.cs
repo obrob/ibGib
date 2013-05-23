@@ -126,13 +126,22 @@ namespace LearnLanguages.DataAccess.Ef
 
     private void SeedContext(LearnLanguagesContext context)
     {
-      SeedRoles(context);
-      SeedUsers(context);
-      SeedLanguages(context);
-      SeedPhrases(context);
-      SeedTranslations(context);
-      SeedLines(context);
-      SeedStudyDatas(context);
+      try
+      {
+        SeedRoles(context);
+        SeedUsers(context);
+        SeedLanguages(context);
+        SeedPhrases(context);
+        SeedTranslations(context);
+        SeedLines(context);
+        SeedMultiLineTexts(context);
+        SeedStudyDatas(context);
+      }
+      catch (Exception ex)
+      {
+        var msg = ex.Message;
+        throw;
+      }
     }
 
     private static void SeedRoles(LearnLanguagesContext context)
@@ -264,6 +273,18 @@ namespace LearnLanguages.DataAccess.Ef
         {
           phraseDto.LanguageId = langData.Id;//new Id
         }
+
+        //UPDATE USERS
+        var affectedUsers = (from userDto in SeedData.Ton.Users
+                             where userDto.LanguageIds.Contains(langDto.Id)
+                             select userDto).ToList();
+
+        foreach (var affectedUser in affectedUsers)
+        {
+          affectedUser.LanguageIds.Remove(langDto.Id);
+          affectedUser.LanguageIds.Add(langData.Id);
+        }
+
         langDto.Id = langData.Id;
       }
     }
@@ -342,6 +363,14 @@ namespace LearnLanguages.DataAccess.Ef
         var lineData = EfHelper.AddToContext(lineDto, context);
         context.SaveChanges();
 
+        //UPDATE MLTS
+        var affectedMlts = SeedData.Ton.MultiLineTexts.Where((mlt) => mlt.LineIds.Contains(lineDto.Id));
+        foreach (var affectedMlt in affectedMlts)
+        {
+          affectedMlt.LineIds.Remove(lineDto.Id);
+          affectedMlt.LineIds.Add(lineData.Id);
+        }
+
         //UPDATE USERS
         var affectedUsers = (from userDto in SeedData.Ton.Users
                              where userDto.LineIds.Contains(lineDto.Id)
@@ -350,13 +379,35 @@ namespace LearnLanguages.DataAccess.Ef
         foreach (var affectedUser in affectedUsers)
         {
           affectedUser.LineIds.Remove(lineDto.Id);
-          affectedUser.LineIds.Add(lineDto.Id);
+          affectedUser.LineIds.Add(lineData.Id);
         }
 
         lineDto.Id = lineData.Id;
       }
     }
 
+    private static void SeedMultiLineTexts(LearnLanguagesContext context)
+    {
+      //LINES
+      foreach (var mltDto in SeedData.Ton.MultiLineTexts)
+      {
+        var mltData = EfHelper.AddToContext(mltDto, context);
+        context.SaveChanges();
+
+        //UPDATE USERS
+        var affectedUsers = (from userDto in SeedData.Ton.Users
+                             where userDto.MultiLineTextIds.Contains(mltDto.Id)
+                             select userDto).ToList();
+
+        foreach (var affectedUser in affectedUsers)
+        {
+          affectedUser.MultiLineTextIds.Remove(mltDto.Id);
+          affectedUser.MultiLineTextIds.Add(mltData.Id);
+        }
+
+        mltDto.Id = mltData.Id;
+      }
+    }
     private static void SeedStudyDatas(LearnLanguagesContext context)
     {
       //STUDY DATAS

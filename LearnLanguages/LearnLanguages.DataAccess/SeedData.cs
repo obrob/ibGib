@@ -52,9 +52,9 @@ namespace LearnLanguages.DataAccess
       InitializeLines();
       InitializePhraseBeliefs();
       InitializeTranslations();
+      InitializeMultiLineTexts();
       InitializeUsers();
       InitializeRoles();
-      InitializeMultiLineTexts();
       InitializeStudyDatas();
     }
 
@@ -240,6 +240,7 @@ namespace LearnLanguages.DataAccess
     }
     #endregion
     #region MultiLineText Data
+    public Guid IdMultiLineText { get { return MultiLineTexts.Where((mlt) => mlt.UserId == DefaultTestValidUserId).Single().Id; } }
     public string MultiLineTextTitle { get { return "This is my wonderful MultiLineTextTitle!"; } }
     public string MultiLineTextMetadata { get { return "Type=Song"; } }
     #endregion
@@ -417,8 +418,10 @@ namespace LearnLanguages.DataAccess
           SaltedHashedPasswordValue = TestSaltedHashedPassword,
           PhraseIds = new List<Guid>() { IdHello, IdDog, IdHola, IdLongPhrase },
           LineIds = new List<Guid>() { IdLine0, IdLine1 },
+          LanguageIds = new List<Guid>() { EnglishId, SpanishId, FrenchId },
           PhraseBeliefIds = new List<Guid>() { IdHello },
           TranslationIds = new List<Guid>() { IdHelloTranslation },
+          MultiLineTextIds = new List<Guid>() { IdMultiLineText }, 
           RoleIds = new List<Guid>() { AdminRoleId, UserRoleId }
         }
       };

@@ -56,6 +56,7 @@ namespace LearnLanguages.Silverlight.Tests
 
     [TestMethod]
     [Asynchronous]
+    [Tag("current")]
     public async Task GET()
     {
       Guid testId = Guid.Empty;
