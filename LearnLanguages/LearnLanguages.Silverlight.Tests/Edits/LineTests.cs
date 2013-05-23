@@ -137,6 +137,7 @@ namespace LearnLanguages.Silverlight.Tests
     
     [TestMethod]
     [Asynchronous]
+    [Tag("current")]
     public async Task NEW_EDIT_BEGINSAVE_GET_DELETE_GET()
     {
       LineEdit newLineEdit = null;

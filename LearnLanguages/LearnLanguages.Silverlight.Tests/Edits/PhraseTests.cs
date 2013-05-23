@@ -449,7 +449,6 @@ namespace LearnLanguages.Silverlight.Tests
 
     [TestMethod]
     [Asynchronous]
-    [Tag("current")]
     public async Task GET_ALL_PHRASES_THAT_CONTAIN_THE_LETTER_H_IN_ALL_LANGUAGES()
     {
       Guid testId = Guid.Empty;

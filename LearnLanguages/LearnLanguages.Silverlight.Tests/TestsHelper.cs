@@ -15,15 +15,27 @@ namespace LearnLanguages.Silverlight.Tests
   {
     public static bool IsIdNotFoundException(Csla.DataPortalException dpException)
     {
-      var containsIdStrings = (dpException.Message.Contains("The Id")           && 
-                               dpException.Message.Contains("was not found"));
+      var relevantErrorMsg = GetRelevantErrorMsg(dpException);
+      var containsIdStrings = relevantErrorMsg.Contains("The Id") &&
+                              relevantErrorMsg.Contains("was not found");
       return containsIdStrings;
     }
 
+    public static string GetRelevantErrorMsg(Csla.DataPortalException dpException)
+    {
+      string relevantErrorMsg = "";
+      if (dpException.Message.Contains("One or more errors occurred."))
+        relevantErrorMsg = dpException.ErrorInfo.InnerError.Message;
+      else
+        relevantErrorMsg = dpException.Message;
+
+      return relevantErrorMsg;
+    }
     public static bool IsUserNotFoundException(Csla.DataPortalException dpException)
     {
-      var containsIdStrings = (dpException.Message.Contains("The username") &&
-                               dpException.Message.Contains("was not found"));
+      var relevantErrorMsg = GetRelevantErrorMsg(dpException);
+      var containsIdStrings = relevantErrorMsg.Contains("The username") &&
+                              relevantErrorMsg.Contains("was not found");
       return containsIdStrings;
     }
   }
