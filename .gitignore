@@ -99,6 +99,22 @@ DocProject/Help/html
 # Click-Once directory
 publish
 
+# LightSwitch
+*.lsproj.user
+# ServiceConfiguration.cscfg	# not excluding this - caused me problems when the csdef was included.
+# _Pvt_Extensions/				# need this commented out with the next line enabled for build server to work with LS projects
+LsPkgLastWriteTime.txt
+GeneratedArtifacts/
+!Bin/Data/ApplicationDatabase.mdf
+!Bin/Data/ApplicationDatabase_log.ldf
+
+# PowerGREP Backup Files
+Backup*
+
+# Build
+[Bb]uild/
+*.tmp_proj
+
 # Others
 [Bb]in
 [Oo]bj
