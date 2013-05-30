@@ -78,8 +78,12 @@
     <Content Include="Scripts\msls-1.0.1-vsdoc.js" />
     <Content Include="Scripts\msls-1.0.1.js" />
     <Content Include="Scripts\msls-1.0.1.min.js" />
+    <Content Include="Scripts\uuid.js" />
     <Content Include="Scripts\winjs-1.0.js" />
     <Content Include="Scripts\winjs-1.0.min.js" />
+    <Content Include="UserCode\AddEditUserDataRoleData.js" />
+    <Content Include="UserCode\RoleData.js" />
+    <Content Include="UserCode\UserData.js" />
   </ItemGroup>
   <ItemGroup>
     <ServiceMetadataReference Include="..\LightLearn.LightSwitch.Server\LightLearn.LightSwitch.Server.csproj">

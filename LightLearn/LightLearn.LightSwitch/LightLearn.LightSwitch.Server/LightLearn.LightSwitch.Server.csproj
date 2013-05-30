@@ -199,6 +199,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserCode\LearnLanguagesDbDataService.cs" />
+    <Compile Include="UserCode\Shared\RoleData.cs" />
+    <Compile Include="UserCode\Shared\UserDataRoleData.cs" />
   </ItemGroup>
   <ItemGroup>
     <LightSwitchModel Include="Properties\Service.lsml">

@@ -1,21 +1,3693 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <ModelFragment xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
-
-  <ServiceApplication Name="LightSwitchServiceApplication"
-                      Version="1.0.0.0">
+  <ServiceApplication
+    Name="LightSwitchServiceApplication"
+    Version="1.0.0.0">
     <ServiceApplication.Attributes>
-      <ModuleNamespace Namespace="LightSwitchApplication" />
+      <ModuleNamespace
+        Namespace="LightSwitchApplication" />
     </ServiceApplication.Attributes>
   </ServiceApplication>
-
-  <EntityContainerGroup Name="DataWorkspace">
-    <EntityContainerGroupProperty EntityContainer="Microsoft.LightSwitch.Security:SecurityData"
-                             Name="SecurityData">
+  <EntityContainerGroup
+    Name="DataWorkspace">
+    <EntityContainerGroupProperty
+      Name="SecurityData"
+      EntityContainer="Microsoft.LightSwitch.Security:SecurityData">
       <EntityContainerGroupProperty.Attributes>
         <Generated />
-        <DisplayName Value="Security Data" />
-        <Description Value="Service that provides access to security-related data." />
+        <DisplayName
+          Value="Security Data" />
+        <Description
+          Value="Service that provides access to security-related data." />
       </EntityContainerGroupProperty.Attributes>
     </EntityContainerGroupProperty>
+    <EntityContainerGroupProperty
+      Name="LearnLanguagesDbData"
+      EntityContainer="LearnLanguagesDbData" />
   </EntityContainerGroup>
+  <EntityType
+    Name="AssociationUserDataWithLanguageData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="AssociationUserDataWithLanguageData_LanguageData_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="AssociationUserDataWithLanguageData_UserData_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty
+        Name="LanguageData"
+        Association="FK_AssociationUserDataWithLanguageData_LanguageData"
+        FromEnd="AssociationUserDataWithLanguageData"
+        ToEnd="LanguageDatas" />
+      <NavigationProperty
+        Name="UserData"
+        Association="FK_AssociationUserDataWithLanguageData_UserData"
+        FromEnd="AssociationUserDataWithLanguageData"
+        ToEnd="UserDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="AssociationUserDataWithRoleData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="AssociationUserDataWithRoleData_RoleData_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="AssociationUserDataWithRoleData_UserData_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty
+        Name="RoleData"
+        Association="FK_AssociationUserDataWithRoleData_RoleData"
+        FromEnd="AssociationUserDataWithRoleData"
+        ToEnd="RoleDatas" />
+      <NavigationProperty
+        Name="UserData"
+        Association="FK_AssociationUserDataWithRoleData_UserData"
+        FromEnd="AssociationUserDataWithRoleData"
+        ToEnd="UserDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="DefaultStudyAdvisorKnowledgeBeliefData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="ExpirationDate"
+        PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="PhraseData"
+        Association="FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData"
+        FromEnd="DefaultStudyAdvisorKnowledgeBeliefDatas"
+        ToEnd="PhraseDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="LanguageData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Text"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="PhraseDatas"
+        Association="FK_AssociateLanguageDataWithPhraseData"
+        FromEnd="LanguageDatas"
+        ToEnd="PhraseDatas" />
+      <NavigationProperty
+        Name="AssociationUserDataWithLanguageDatas"
+        Association="FK_AssociationUserDataWithLanguageData_LanguageData"
+        FromEnd="LanguageDatas"
+        ToEnd="AssociationUserDataWithLanguageData" />
+      <NavigationProperty
+        Name="UserData"
+        Association="FK_UserDataLanguageData"
+        FromEnd="LanguageDatas"
+        ToEnd="UserDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="LineDataMultiLineTextData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="LineDatas_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="MultiLineTextDatas_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty
+        Name="LineData"
+        Association="FK_LineDataMultiLineTextData_LineData"
+        FromEnd="LineDataMultiLineTextData"
+        ToEnd="LineDatas" />
+      <NavigationProperty
+        Name="MultiLineTextData"
+        Association="FK_LineDataMultiLineTextData_MultiLineTextData"
+        FromEnd="LineDataMultiLineTextData"
+        ToEnd="MultiLineTextDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="LineData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="LineNumber"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="LineDataMultiLineTextDatas"
+        Association="FK_LineDataMultiLineTextData_LineData"
+        FromEnd="LineDatas"
+        ToEnd="LineDataMultiLineTextData" />
+      <NavigationProperty
+        Name="PhraseData"
+        Association="FK_PhraseDataLineData"
+        FromEnd="LineDatas"
+        ToEnd="PhraseDatas" />
+      <NavigationProperty
+        Name="UserData"
+        Association="FK_UserDataLineData"
+        FromEnd="LineDatas"
+        ToEnd="UserDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="MultiLineTextData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Title"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="AdditionalMetadata"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="LineDataMultiLineTextDatas"
+        Association="FK_LineDataMultiLineTextData_MultiLineTextData"
+        FromEnd="MultiLineTextDatas"
+        ToEnd="LineDataMultiLineTextData" />
+      <NavigationProperty
+        Name="UserData"
+        Association="FK_MultiLineTextDataUserData"
+        FromEnd="MultiLineTextDatas"
+        ToEnd="UserDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="PhraseBeliefData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="TimeStamp"
+        PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Text"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Strength"
+        PropertyType=":Double">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="BelieverId"
+        PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ReviewMethodId"
+        PropertyType=":Guid">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="PhraseData"
+        Association="FK_PhraseDataPhraseBeliefData"
+        FromEnd="PhraseBeliefDatas"
+        ToEnd="PhraseDatas" />
+      <NavigationProperty
+        Name="UserData"
+        Association="FK_UserDataPhraseBeliefData"
+        FromEnd="PhraseBeliefDatas"
+        ToEnd="UserDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="PhraseData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Text"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="LanguageData"
+        Association="FK_AssociateLanguageDataWithPhraseData"
+        FromEnd="PhraseDatas"
+        ToEnd="LanguageDatas" />
+      <NavigationProperty
+        Name="UserData"
+        Association="FK_AssociationUserDataWithPhraseData"
+        FromEnd="PhraseDatas"
+        ToEnd="UserDatas" />
+      <NavigationProperty
+        Name="TranslationDatas"
+        Association="FK_ContextPhraseDataTranslationData"
+        FromEnd="PhraseDatas"
+        ToEnd="TranslationDatas" />
+      <NavigationProperty
+        Name="DefaultStudyAdvisorKnowledgeBeliefDatas"
+        Association="FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData"
+        FromEnd="PhraseDatas"
+        ToEnd="DefaultStudyAdvisorKnowledgeBeliefDatas" />
+      <NavigationProperty
+        Name="LineDatas"
+        Association="FK_PhraseDataLineData"
+        FromEnd="PhraseDatas"
+        ToEnd="LineDatas" />
+      <NavigationProperty
+        Name="PhraseBeliefDatas"
+        Association="FK_PhraseDataPhraseBeliefData"
+        FromEnd="PhraseDatas"
+        ToEnd="PhraseBeliefDatas" />
+      <NavigationProperty
+        Name="TranslationDataPhraseDatas"
+        Association="FK_TranslationDataPhraseData_PhraseData"
+        FromEnd="PhraseDatas"
+        ToEnd="TranslationDataPhraseData" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="RoleData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Text"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="AssociationUserDataWithRoleDatas"
+        Association="FK_AssociationUserDataWithRoleData_RoleData"
+        FromEnd="RoleDatas"
+        ToEnd="AssociationUserDataWithRoleData" />
+      <NavigationProperty
+        Name="UserDataRoleDatas"
+        Association="FK_UserDataRoleData_RoleData"
+        FromEnd="RoleDatas"
+        ToEnd="UserDataRoleData" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="StudyDataData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="NativeLanguageText"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Username"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="40" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="TranslationDataPhraseData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="TranslationDatas_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="PhraseDatas_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty
+        Name="PhraseData"
+        Association="FK_TranslationDataPhraseData_PhraseData"
+        FromEnd="TranslationDataPhraseData"
+        ToEnd="PhraseDatas" />
+      <NavigationProperty
+        Name="TranslationData"
+        Association="FK_TranslationDataPhraseData_TranslationData"
+        FromEnd="TranslationDataPhraseData"
+        ToEnd="TranslationDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="TranslationData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty
+        Name="PhraseData"
+        Association="FK_ContextPhraseDataTranslationData"
+        FromEnd="TranslationDatas"
+        ToEnd="PhraseDatas" />
+      <NavigationProperty
+        Name="TranslationDataPhraseDatas"
+        Association="FK_TranslationDataPhraseData_TranslationData"
+        FromEnd="TranslationDatas"
+        ToEnd="TranslationDataPhraseData" />
+      <NavigationProperty
+        Name="UserData"
+        Association="FK_UserDataTranslationData"
+        FromEnd="TranslationDatas"
+        ToEnd="UserDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="UserDataRoleData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="UserDatas_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <KeyProperty
+        Name="RoleDatas_Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <NavigationProperty
+        Name="RoleData"
+        Association="FK_UserDataRoleData_RoleData"
+        FromEnd="UserDataRoleData"
+        ToEnd="RoleDatas" />
+      <NavigationProperty
+        Name="UserData"
+        Association="FK_UserDataRoleData_UserData"
+        FromEnd="UserDataRoleData"
+        ToEnd="UserDatas" />
+      <EntityProperty
+        Name="Summary"
+        IsReadOnly="True"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+          <NotSortable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+    </EntityType.Properties>
+  </EntityType>
+  <EntityType
+    Name="UserData">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="Id"
+        PropertyType=":Guid">
+        <KeyProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="Username"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="50" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Salt"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="SaltedHashedPasswordValue"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="AssociationUserDataWithLanguageDatas"
+        Association="FK_AssociationUserDataWithLanguageData_UserData"
+        FromEnd="UserDatas"
+        ToEnd="AssociationUserDataWithLanguageData" />
+      <NavigationProperty
+        Name="PhraseDatas"
+        Association="FK_AssociationUserDataWithPhraseData"
+        FromEnd="UserDatas"
+        ToEnd="PhraseDatas" />
+      <NavigationProperty
+        Name="AssociationUserDataWithRoleDatas"
+        Association="FK_AssociationUserDataWithRoleData_UserData"
+        FromEnd="UserDatas"
+        ToEnd="AssociationUserDataWithRoleData" />
+      <NavigationProperty
+        Name="MultiLineTextDatas"
+        Association="FK_MultiLineTextDataUserData"
+        FromEnd="UserDatas"
+        ToEnd="MultiLineTextDatas" />
+      <NavigationProperty
+        Name="LanguageDatas"
+        Association="FK_UserDataLanguageData"
+        FromEnd="UserDatas"
+        ToEnd="LanguageDatas" />
+      <NavigationProperty
+        Name="LineDatas"
+        Association="FK_UserDataLineData"
+        FromEnd="UserDatas"
+        ToEnd="LineDatas" />
+      <NavigationProperty
+        Name="PhraseBeliefDatas"
+        Association="FK_UserDataPhraseBeliefData"
+        FromEnd="UserDatas"
+        ToEnd="PhraseBeliefDatas" />
+      <NavigationProperty
+        Name="UserDataRoleDatas"
+        Association="FK_UserDataRoleData_UserData"
+        FromEnd="UserDatas"
+        ToEnd="UserDataRoleData" />
+      <NavigationProperty
+        Name="TranslationDatas"
+        Association="FK_UserDataTranslationData"
+        FromEnd="UserDatas"
+        ToEnd="TranslationDatas" />
+    </EntityType.Properties>
+  </EntityType>
+  <Association
+    Name="FK_AssociateLanguageDataWithPhraseData">
+    <AssociationEnd
+      Name="LanguageDatas"
+      Multiplicity="One"
+      EntityType="LanguageData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="PhraseDatas"
+      Multiplicity="Many"
+      EntityType="PhraseData" />
+  </Association>
+  <Association
+    Name="FK_AssociationUserDataWithLanguageData_LanguageData">
+    <AssociationEnd
+      Name="LanguageDatas"
+      Multiplicity="One"
+      EntityType="LanguageData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="AssociationUserDataWithLanguageData"
+      Multiplicity="Many"
+      EntityType="AssociationUserDataWithLanguageData" />
+  </Association>
+  <Association
+    Name="FK_AssociationUserDataWithLanguageData_UserData">
+    <AssociationEnd
+      Name="UserDatas"
+      Multiplicity="One"
+      EntityType="UserData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="AssociationUserDataWithLanguageData"
+      Multiplicity="Many"
+      EntityType="AssociationUserDataWithLanguageData" />
+  </Association>
+  <Association
+    Name="FK_AssociationUserDataWithPhraseData">
+    <AssociationEnd
+      Name="UserDatas"
+      Multiplicity="One"
+      EntityType="UserData">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Cascade" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="PhraseDatas"
+      Multiplicity="Many"
+      EntityType="PhraseData" />
+  </Association>
+  <Association
+    Name="FK_AssociationUserDataWithRoleData_RoleData">
+    <AssociationEnd
+      Name="RoleDatas"
+      Multiplicity="One"
+      EntityType="RoleData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="AssociationUserDataWithRoleData"
+      Multiplicity="Many"
+      EntityType="AssociationUserDataWithRoleData" />
+  </Association>
+  <Association
+    Name="FK_AssociationUserDataWithRoleData_UserData">
+    <AssociationEnd
+      Name="UserDatas"
+      Multiplicity="One"
+      EntityType="UserData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="AssociationUserDataWithRoleData"
+      Multiplicity="Many"
+      EntityType="AssociationUserDataWithRoleData" />
+  </Association>
+  <Association
+    Name="FK_ContextPhraseDataTranslationData">
+    <AssociationEnd
+      Name="PhraseDatas"
+      EntityType="PhraseData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="TranslationDatas"
+      Multiplicity="Many"
+      EntityType="TranslationData" />
+  </Association>
+  <Association
+    Name="FK_LineDataMultiLineTextData_LineData">
+    <AssociationEnd
+      Name="LineDatas"
+      Multiplicity="One"
+      EntityType="LineData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="LineDataMultiLineTextData"
+      Multiplicity="Many"
+      EntityType="LineDataMultiLineTextData" />
+  </Association>
+  <Association
+    Name="FK_LineDataMultiLineTextData_MultiLineTextData">
+    <AssociationEnd
+      Name="MultiLineTextDatas"
+      Multiplicity="One"
+      EntityType="MultiLineTextData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="LineDataMultiLineTextData"
+      Multiplicity="Many"
+      EntityType="LineDataMultiLineTextData" />
+  </Association>
+  <Association
+    Name="FK_MultiLineTextDataUserData">
+    <AssociationEnd
+      Name="UserDatas"
+      Multiplicity="One"
+      EntityType="UserData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="MultiLineTextDatas"
+      Multiplicity="Many"
+      EntityType="MultiLineTextData" />
+  </Association>
+  <Association
+    Name="FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData">
+    <AssociationEnd
+      Name="PhraseDatas"
+      Multiplicity="One"
+      EntityType="PhraseData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="DefaultStudyAdvisorKnowledgeBeliefDatas"
+      Multiplicity="Many"
+      EntityType="DefaultStudyAdvisorKnowledgeBeliefData" />
+  </Association>
+  <Association
+    Name="FK_PhraseDataLineData">
+    <AssociationEnd
+      Name="PhraseDatas"
+      Multiplicity="One"
+      EntityType="PhraseData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="LineDatas"
+      Multiplicity="Many"
+      EntityType="LineData" />
+  </Association>
+  <Association
+    Name="FK_PhraseDataPhraseBeliefData">
+    <AssociationEnd
+      Name="PhraseDatas"
+      Multiplicity="One"
+      EntityType="PhraseData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="PhraseBeliefDatas"
+      Multiplicity="Many"
+      EntityType="PhraseBeliefData" />
+  </Association>
+  <Association
+    Name="FK_TranslationDataPhraseData_PhraseData">
+    <AssociationEnd
+      Name="PhraseDatas"
+      Multiplicity="One"
+      EntityType="PhraseData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="TranslationDataPhraseData"
+      Multiplicity="Many"
+      EntityType="TranslationDataPhraseData" />
+  </Association>
+  <Association
+    Name="FK_TranslationDataPhraseData_TranslationData">
+    <AssociationEnd
+      Name="TranslationDatas"
+      Multiplicity="One"
+      EntityType="TranslationData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="TranslationDataPhraseData"
+      Multiplicity="Many"
+      EntityType="TranslationDataPhraseData" />
+  </Association>
+  <Association
+    Name="FK_UserDataLanguageData">
+    <AssociationEnd
+      Name="UserDatas"
+      Multiplicity="One"
+      EntityType="UserData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="LanguageDatas"
+      Multiplicity="Many"
+      EntityType="LanguageData" />
+  </Association>
+  <Association
+    Name="FK_UserDataLineData">
+    <AssociationEnd
+      Name="UserDatas"
+      Multiplicity="One"
+      EntityType="UserData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="LineDatas"
+      Multiplicity="Many"
+      EntityType="LineData" />
+  </Association>
+  <Association
+    Name="FK_UserDataPhraseBeliefData">
+    <AssociationEnd
+      Name="UserDatas"
+      Multiplicity="One"
+      EntityType="UserData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="PhraseBeliefDatas"
+      Multiplicity="Many"
+      EntityType="PhraseBeliefData" />
+  </Association>
+  <Association
+    Name="FK_UserDataRoleData_RoleData">
+    <AssociationEnd
+      Name="RoleDatas"
+      Multiplicity="One"
+      EntityType="RoleData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="UserDataRoleData"
+      Multiplicity="Many"
+      EntityType="UserDataRoleData" />
+  </Association>
+  <Association
+    Name="FK_UserDataRoleData_UserData">
+    <AssociationEnd
+      Name="UserDatas"
+      Multiplicity="One"
+      EntityType="UserData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="UserDataRoleData"
+      Multiplicity="Many"
+      EntityType="UserDataRoleData" />
+  </Association>
+  <Association
+    Name="FK_UserDataTranslationData">
+    <AssociationEnd
+      Name="UserDatas"
+      Multiplicity="One"
+      EntityType="UserData">
+      <AssociationEnd.Attributes>
+        <DeleteRule />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="TranslationDatas"
+      Multiplicity="Many"
+      EntityType="TranslationData" />
+  </Association>
+  <EntityContainer
+    Name="LearnLanguagesDbData">
+    <EntitySet
+      Name="AssociationUserDataWithLanguageDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="AssociationUserDataWithLanguageData" />
+    <EntitySet
+      Name="AssociationUserDataWithRoleDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="AssociationUserDataWithRoleData" />
+    <EntitySet
+      Name="DefaultStudyAdvisorKnowledgeBeliefDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="DefaultStudyAdvisorKnowledgeBeliefData" />
+    <EntitySet
+      Name="LanguageDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="LanguageData" />
+    <EntitySet
+      Name="LineDataMultiLineTextDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="LineDataMultiLineTextData" />
+    <EntitySet
+      Name="LineDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="LineData" />
+    <EntitySet
+      Name="MultiLineTextDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="MultiLineTextData" />
+    <EntitySet
+      Name="PhraseBeliefDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="PhraseBeliefData" />
+    <EntitySet
+      Name="PhraseDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="PhraseData" />
+    <EntitySet
+      Name="RoleDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="RoleData" />
+    <EntitySet
+      Name="StudyDataDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="StudyDataData" />
+    <EntitySet
+      Name="TranslationDataPhraseDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="TranslationDataPhraseData" />
+    <EntitySet
+      Name="TranslationDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="TranslationData" />
+    <EntitySet
+      Name="UserDataRoleDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="UserDataRoleData" />
+    <EntitySet
+      Name="UserDatas"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="UserData" />
+    <AssociationSet
+      Name="FK_AssociateLanguageDataWithPhraseData"
+      Association="FK_AssociateLanguageDataWithPhraseData">
+      <AssociationSetEnd
+        Name="LanguageDatas"
+        EntitySet="LanguageDatas" />
+      <AssociationSetEnd
+        Name="PhraseDatas"
+        EntitySet="PhraseDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_AssociationUserDataWithLanguageData_LanguageData"
+      Association="FK_AssociationUserDataWithLanguageData_LanguageData">
+      <AssociationSetEnd
+        Name="LanguageDatas"
+        EntitySet="LanguageDatas" />
+      <AssociationSetEnd
+        Name="AssociationUserDataWithLanguageData"
+        EntitySet="AssociationUserDataWithLanguageDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_AssociationUserDataWithLanguageData_UserData"
+      Association="FK_AssociationUserDataWithLanguageData_UserData">
+      <AssociationSetEnd
+        Name="UserDatas"
+        EntitySet="UserDatas" />
+      <AssociationSetEnd
+        Name="AssociationUserDataWithLanguageData"
+        EntitySet="AssociationUserDataWithLanguageDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_AssociationUserDataWithPhraseData"
+      Association="FK_AssociationUserDataWithPhraseData">
+      <AssociationSetEnd
+        Name="UserDatas"
+        EntitySet="UserDatas" />
+      <AssociationSetEnd
+        Name="PhraseDatas"
+        EntitySet="PhraseDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_AssociationUserDataWithRoleData_RoleData"
+      Association="FK_AssociationUserDataWithRoleData_RoleData">
+      <AssociationSetEnd
+        Name="RoleDatas"
+        EntitySet="RoleDatas" />
+      <AssociationSetEnd
+        Name="AssociationUserDataWithRoleData"
+        EntitySet="AssociationUserDataWithRoleDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_AssociationUserDataWithRoleData_UserData"
+      Association="FK_AssociationUserDataWithRoleData_UserData">
+      <AssociationSetEnd
+        Name="UserDatas"
+        EntitySet="UserDatas" />
+      <AssociationSetEnd
+        Name="AssociationUserDataWithRoleData"
+        EntitySet="AssociationUserDataWithRoleDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_ContextPhraseDataTranslationData"
+      Association="FK_ContextPhraseDataTranslationData">
+      <AssociationSetEnd
+        Name="PhraseDatas"
+        EntitySet="PhraseDatas" />
+      <AssociationSetEnd
+        Name="TranslationDatas"
+        EntitySet="TranslationDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_LineDataMultiLineTextData_LineData"
+      Association="FK_LineDataMultiLineTextData_LineData">
+      <AssociationSetEnd
+        Name="LineDatas"
+        EntitySet="LineDatas" />
+      <AssociationSetEnd
+        Name="LineDataMultiLineTextData"
+        EntitySet="LineDataMultiLineTextDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_LineDataMultiLineTextData_MultiLineTextData"
+      Association="FK_LineDataMultiLineTextData_MultiLineTextData">
+      <AssociationSetEnd
+        Name="MultiLineTextDatas"
+        EntitySet="MultiLineTextDatas" />
+      <AssociationSetEnd
+        Name="LineDataMultiLineTextData"
+        EntitySet="LineDataMultiLineTextDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_MultiLineTextDataUserData"
+      Association="FK_MultiLineTextDataUserData">
+      <AssociationSetEnd
+        Name="UserDatas"
+        EntitySet="UserDatas" />
+      <AssociationSetEnd
+        Name="MultiLineTextDatas"
+        EntitySet="MultiLineTextDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData"
+      Association="FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData">
+      <AssociationSetEnd
+        Name="PhraseDatas"
+        EntitySet="PhraseDatas" />
+      <AssociationSetEnd
+        Name="DefaultStudyAdvisorKnowledgeBeliefDatas"
+        EntitySet="DefaultStudyAdvisorKnowledgeBeliefDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_PhraseDataLineData"
+      Association="FK_PhraseDataLineData">
+      <AssociationSetEnd
+        Name="PhraseDatas"
+        EntitySet="PhraseDatas" />
+      <AssociationSetEnd
+        Name="LineDatas"
+        EntitySet="LineDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_PhraseDataPhraseBeliefData"
+      Association="FK_PhraseDataPhraseBeliefData">
+      <AssociationSetEnd
+        Name="PhraseDatas"
+        EntitySet="PhraseDatas" />
+      <AssociationSetEnd
+        Name="PhraseBeliefDatas"
+        EntitySet="PhraseBeliefDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_TranslationDataPhraseData_PhraseData"
+      Association="FK_TranslationDataPhraseData_PhraseData">
+      <AssociationSetEnd
+        Name="PhraseDatas"
+        EntitySet="PhraseDatas" />
+      <AssociationSetEnd
+        Name="TranslationDataPhraseData"
+        EntitySet="TranslationDataPhraseDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_TranslationDataPhraseData_TranslationData"
+      Association="FK_TranslationDataPhraseData_TranslationData">
+      <AssociationSetEnd
+        Name="TranslationDatas"
+        EntitySet="TranslationDatas" />
+      <AssociationSetEnd
+        Name="TranslationDataPhraseData"
+        EntitySet="TranslationDataPhraseDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_UserDataLanguageData"
+      Association="FK_UserDataLanguageData">
+      <AssociationSetEnd
+        Name="UserDatas"
+        EntitySet="UserDatas" />
+      <AssociationSetEnd
+        Name="LanguageDatas"
+        EntitySet="LanguageDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_UserDataLineData"
+      Association="FK_UserDataLineData">
+      <AssociationSetEnd
+        Name="UserDatas"
+        EntitySet="UserDatas" />
+      <AssociationSetEnd
+        Name="LineDatas"
+        EntitySet="LineDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_UserDataPhraseBeliefData"
+      Association="FK_UserDataPhraseBeliefData">
+      <AssociationSetEnd
+        Name="UserDatas"
+        EntitySet="UserDatas" />
+      <AssociationSetEnd
+        Name="PhraseBeliefDatas"
+        EntitySet="PhraseBeliefDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_UserDataRoleData_RoleData"
+      Association="FK_UserDataRoleData_RoleData">
+      <AssociationSetEnd
+        Name="RoleDatas"
+        EntitySet="RoleDatas" />
+      <AssociationSetEnd
+        Name="UserDataRoleData"
+        EntitySet="UserDataRoleDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_UserDataRoleData_UserData"
+      Association="FK_UserDataRoleData_UserData">
+      <AssociationSetEnd
+        Name="UserDatas"
+        EntitySet="UserDatas" />
+      <AssociationSetEnd
+        Name="UserDataRoleData"
+        EntitySet="UserDataRoleDatas" />
+    </AssociationSet>
+    <AssociationSet
+      Name="FK_UserDataTranslationData"
+      Association="FK_UserDataTranslationData">
+      <AssociationSetEnd
+        Name="UserDatas"
+        EntitySet="UserDatas" />
+      <AssociationSetEnd
+        Name="TranslationDatas"
+        EntitySet="TranslationDatas" />
+    </AssociationSet>
+    <SubmitOperation
+      Name="SaveChanges" />
+    <QueryOperation
+      Name="AssociationUserDataWithLanguageDatas_Single"
+      ReturnType="AssociationUserDataWithLanguageData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AssociationUserDataWithLanguageData_UserData_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="AssociationUserDataWithLanguageData_UserData_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AssociationUserDataWithLanguageData_LanguageData_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="AssociationUserDataWithLanguageData_LanguageData_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="AssociationUserDataWithLanguageDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="AssociationUserDataWithLanguageData_LanguageData_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'AssociationUserDataWithLanguageData_LanguageData_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="AssociationUserDataWithLanguageData_UserData_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'AssociationUserDataWithLanguageData_UserData_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="AssociationUserDataWithLanguageDatas_SingleOrDefault"
+      ReturnType="AssociationUserDataWithLanguageData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AssociationUserDataWithLanguageData_UserData_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="AssociationUserDataWithLanguageData_UserData_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AssociationUserDataWithLanguageData_LanguageData_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="AssociationUserDataWithLanguageData_LanguageData_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="AssociationUserDataWithLanguageDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="AssociationUserDataWithLanguageData_LanguageData_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'AssociationUserDataWithLanguageData_LanguageData_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="AssociationUserDataWithLanguageData_UserData_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'AssociationUserDataWithLanguageData_UserData_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="AssociationUserDataWithRoleDatas_Single"
+      ReturnType="AssociationUserDataWithRoleData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AssociationUserDataWithRoleData_UserData_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="AssociationUserDataWithRoleData_UserData_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AssociationUserDataWithRoleData_RoleData_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="AssociationUserDataWithRoleData_RoleData_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="AssociationUserDataWithRoleDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="AssociationUserDataWithRoleData_RoleData_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'AssociationUserDataWithRoleData_RoleData_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="AssociationUserDataWithRoleData_UserData_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'AssociationUserDataWithRoleData_UserData_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="AssociationUserDataWithRoleDatas_SingleOrDefault"
+      ReturnType="AssociationUserDataWithRoleData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AssociationUserDataWithRoleData_UserData_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="AssociationUserDataWithRoleData_UserData_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AssociationUserDataWithRoleData_RoleData_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="AssociationUserDataWithRoleData_RoleData_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="AssociationUserDataWithRoleDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="AssociationUserDataWithRoleData_RoleData_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'AssociationUserDataWithRoleData_RoleData_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="AssociationUserDataWithRoleData_UserData_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'AssociationUserDataWithRoleData_UserData_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="DefaultStudyAdvisorKnowledgeBeliefDatas_Single"
+      ReturnType="DefaultStudyAdvisorKnowledgeBeliefData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="DefaultStudyAdvisorKnowledgeBeliefDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="DefaultStudyAdvisorKnowledgeBeliefDatas_SingleOrDefault"
+      ReturnType="DefaultStudyAdvisorKnowledgeBeliefData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="DefaultStudyAdvisorKnowledgeBeliefDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="LanguageDatas_Single"
+      ReturnType="LanguageData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="LanguageDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="LanguageDatas_SingleOrDefault"
+      ReturnType="LanguageData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="LanguageDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="LineDataMultiLineTextDatas_Single"
+      ReturnType="LineDataMultiLineTextData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="MultiLineTextDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="MultiLineTextDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="LineDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="LineDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="LineDataMultiLineTextDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="LineDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'LineDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="MultiLineTextDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'MultiLineTextDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="LineDataMultiLineTextDatas_SingleOrDefault"
+      ReturnType="LineDataMultiLineTextData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="MultiLineTextDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="MultiLineTextDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="LineDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="LineDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="LineDataMultiLineTextDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="LineDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'LineDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="MultiLineTextDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'MultiLineTextDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="LineDatas_Single"
+      ReturnType="LineData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="LineDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="LineDatas_SingleOrDefault"
+      ReturnType="LineData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="LineDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="MultiLineTextDatas_Single"
+      ReturnType="MultiLineTextData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="MultiLineTextDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="MultiLineTextDatas_SingleOrDefault"
+      ReturnType="MultiLineTextData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="MultiLineTextDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="PhraseBeliefDatas_Single"
+      ReturnType="PhraseBeliefData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="PhraseBeliefDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="PhraseBeliefDatas_SingleOrDefault"
+      ReturnType="PhraseBeliefData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="PhraseBeliefDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="PhraseDatas_Single"
+      ReturnType="PhraseData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="PhraseDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="PhraseDatas_SingleOrDefault"
+      ReturnType="PhraseData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="PhraseDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="RoleDatas_Single"
+      ReturnType="RoleData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="RoleDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="RoleDatas_SingleOrDefault"
+      ReturnType="RoleData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="RoleDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="StudyDataDatas_Single"
+      ReturnType="StudyDataData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="StudyDataDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="StudyDataDatas_SingleOrDefault"
+      ReturnType="StudyDataData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="StudyDataDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="TranslationDataPhraseDatas_Single"
+      ReturnType="TranslationDataPhraseData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="PhraseDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="PhraseDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="TranslationDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="TranslationDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="TranslationDataPhraseDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="TranslationDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'TranslationDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="PhraseDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'PhraseDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="TranslationDataPhraseDatas_SingleOrDefault"
+      ReturnType="TranslationDataPhraseData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="PhraseDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="PhraseDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="TranslationDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="TranslationDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="TranslationDataPhraseDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="TranslationDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'TranslationDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="PhraseDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'PhraseDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="TranslationDatas_Single"
+      ReturnType="TranslationData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="TranslationDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="TranslationDatas_SingleOrDefault"
+      ReturnType="TranslationData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="TranslationDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="UserDataRoleDatas_Single"
+      ReturnType="UserDataRoleData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="RoleDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="RoleDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="UserDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="UserDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="UserDataRoleDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="UserDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'UserDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="RoleDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'RoleDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="UserDataRoleDatas_SingleOrDefault"
+      ReturnType="UserDataRoleData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="And">
+            <BinaryExpression.Left>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="RoleDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="RoleDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <BinaryExpression
+                NodeType="Equal">
+                <BinaryExpression.Left>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="UserDatas_Id" />
+                  </ChainExpression>
+                </BinaryExpression.Left>
+                <BinaryExpression.Right>
+                  <ParameterExpression
+                    Parameter="UserDatas_Id" />
+                </BinaryExpression.Right>
+              </BinaryExpression>
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="UserDataRoleDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="UserDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'UserDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+      <QueryOperationParameter
+        Name="RoleDatas_Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'RoleDatas_Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="UserDatas_Single"
+      ReturnType="UserData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="UserDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="UserDatas_SingleOrDefault"
+      ReturnType="UserData">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="Id" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="Id" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="UserDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="Id"
+        ParameterType=":Guid?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'Id' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="Query1"
+      ReturnType="UserData*">
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree />
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="UserDatas" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="LearnLanguagesDbDataDataService"
+    DataProvider="EntityFrameworkDataProvider"
+    EntityContainer="LearnLanguagesDbData">
+    <DataService.ConnectionProperties>
+      <ConnectionProperty
+        Name="DataProviderName"
+        Value="91510608-8809-4020-8897-fba057e22d54" />
+      <ConnectionProperty
+        Name="DataSourceName"
+        Value="067ea0d9-ba62-43f7-9106-34930c60c528" />
+      <ConnectionProperty
+        Name="ProviderInvariantName"
+        Value="System.Data.SqlClient" />
+      <ConnectionProperty
+        Name="ConnectionStringGuid"
+        Value="d198a4fd-3f73-4212-beae-fd3726997e5b" />
+      <ConnectionProperty
+        Name="ProviderManifestToken"
+        Value="2008" />
+    </DataService.ConnectionProperties>
+    <EntitySetMapping
+      EntitySet="AssociationUserDataWithLanguageDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="AssociationUserDataWithLanguageData" />
+        <SsdlProperty
+          Name="AssociationUserDataWithLanguageData_LanguageData_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="AssociationUserDataWithLanguageData/Properties[AssociationUserDataWithLanguageData_LanguageData_Id]" />
+        <SsdlProperty
+          Name="AssociationUserDataWithLanguageData_UserData_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="AssociationUserDataWithLanguageData/Properties[AssociationUserDataWithLanguageData_UserData_Id]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="AssociationUserDataWithRoleDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="AssociationUserDataWithRoleData" />
+        <SsdlProperty
+          Name="AssociationUserDataWithRoleData_RoleData_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="AssociationUserDataWithRoleData/Properties[AssociationUserDataWithRoleData_RoleData_Id]" />
+        <SsdlProperty
+          Name="AssociationUserDataWithRoleData_UserData_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="AssociationUserDataWithRoleData/Properties[AssociationUserDataWithRoleData_UserData_Id]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="DefaultStudyAdvisorKnowledgeBeliefDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="DefaultStudyAdvisorKnowledgeBeliefDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="DefaultStudyAdvisorKnowledgeBeliefData/Properties[Id]" />
+        <SsdlProperty
+          Name="ExpirationDate"
+          Nullable="False"
+          Type="datetime"
+          Property="DefaultStudyAdvisorKnowledgeBeliefData/Properties[ExpirationDate]" />
+        <SsdlForeignKeyProperty
+          Name="PhraseDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="PhraseDataId" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="LanguageDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="LanguageDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="LanguageData/Properties[Id]" />
+        <SsdlProperty
+          Name="Text"
+          Nullable="False"
+          Type="nvarchar(max)"
+          Property="LanguageData/Properties[Text]" />
+        <SsdlForeignKeyProperty
+          Name="UserDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="UserDataId" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="LineDataMultiLineTextDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="LineDataMultiLineTextData" />
+        <SsdlProperty
+          Name="LineDatas_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="LineDataMultiLineTextData/Properties[LineDatas_Id]" />
+        <SsdlProperty
+          Name="MultiLineTextDatas_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="LineDataMultiLineTextData/Properties[MultiLineTextDatas_Id]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="LineDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="LineDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="LineData/Properties[Id]" />
+        <SsdlProperty
+          Name="LineNumber"
+          Nullable="False"
+          Type="int"
+          Property="LineData/Properties[LineNumber]" />
+        <SsdlForeignKeyProperty
+          Name="PhraseDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="PhraseDataId" />
+        <SsdlForeignKeyProperty
+          Name="UserDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="UserDataId" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="MultiLineTextDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="MultiLineTextDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="MultiLineTextData/Properties[Id]" />
+        <SsdlProperty
+          Name="Title"
+          Nullable="False"
+          Type="nvarchar(max)"
+          Property="MultiLineTextData/Properties[Title]" />
+        <SsdlProperty
+          Name="AdditionalMetadata"
+          Nullable="False"
+          Type="nvarchar(max)"
+          Property="MultiLineTextData/Properties[AdditionalMetadata]" />
+        <SsdlForeignKeyProperty
+          Name="UserDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="UserDataId" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="PhraseBeliefDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="PhraseBeliefDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="PhraseBeliefData/Properties[Id]" />
+        <SsdlProperty
+          Name="TimeStamp"
+          Nullable="False"
+          Type="datetime"
+          Property="PhraseBeliefData/Properties[TimeStamp]" />
+        <SsdlProperty
+          Name="Text"
+          Nullable="False"
+          Type="nvarchar(max)"
+          Property="PhraseBeliefData/Properties[Text]" />
+        <SsdlProperty
+          Name="Strength"
+          Nullable="False"
+          Type="float"
+          Property="PhraseBeliefData/Properties[Strength]" />
+        <SsdlProperty
+          Name="BelieverId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="PhraseBeliefData/Properties[BelieverId]" />
+        <SsdlProperty
+          Name="ReviewMethodId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="PhraseBeliefData/Properties[ReviewMethodId]" />
+        <SsdlForeignKeyProperty
+          Name="PhraseDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="PhraseDataId" />
+        <SsdlForeignKeyProperty
+          Name="UserDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="UserDataId" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="PhraseDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="PhraseDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="PhraseData/Properties[Id]" />
+        <SsdlProperty
+          Name="Text"
+          Nullable="False"
+          Type="nvarchar(max)"
+          Property="PhraseData/Properties[Text]" />
+        <SsdlForeignKeyProperty
+          Name="LanguageDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="LanguageDataId" />
+        <SsdlForeignKeyProperty
+          Name="UserDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="UserDataId" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="RoleDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="RoleDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="RoleData/Properties[Id]" />
+        <SsdlProperty
+          Name="Text"
+          Nullable="False"
+          Type="nvarchar(max)"
+          Property="RoleData/Properties[Text]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="StudyDataDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="StudyDataDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="StudyDataData/Properties[Id]" />
+        <SsdlProperty
+          Name="NativeLanguageText"
+          Nullable="False"
+          Type="nvarchar(max)"
+          Property="StudyDataData/Properties[NativeLanguageText]" />
+        <SsdlProperty
+          MaxLength="40"
+          Name="Username"
+          Nullable="False"
+          Type="nvarchar"
+          Property="StudyDataData/Properties[Username]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="TranslationDataPhraseDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="TranslationDataPhraseData" />
+        <SsdlProperty
+          Name="TranslationDatas_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="TranslationDataPhraseData/Properties[TranslationDatas_Id]" />
+        <SsdlProperty
+          Name="PhraseDatas_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="TranslationDataPhraseData/Properties[PhraseDatas_Id]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="TranslationDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="TranslationDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="TranslationData/Properties[Id]" />
+        <SsdlForeignKeyProperty
+          Name="ContextPhraseDataId"
+          Nullable="True"
+          Type="uniqueidentifier"
+          PropertyName="ContextPhraseDataId" />
+        <SsdlForeignKeyProperty
+          Name="UserDataId"
+          Nullable="False"
+          Type="uniqueidentifier"
+          PropertyName="UserDataId" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="UserDataRoleDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="UserDataRoleData" />
+        <SsdlProperty
+          Name="UserDatas_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="UserDataRoleData/Properties[UserDatas_Id]" />
+        <SsdlProperty
+          Name="RoleDatas_Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="UserDataRoleData/Properties[RoleDatas_Id]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <EntitySetMapping
+      EntitySet="UserDatas">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="UserDatas" />
+        <SsdlProperty
+          Name="Id"
+          Nullable="False"
+          Type="uniqueidentifier"
+          Property="UserData/Properties[Id]" />
+        <SsdlProperty
+          MaxLength="50"
+          Name="Username"
+          Nullable="False"
+          Type="nvarchar"
+          Property="UserData/Properties[Username]" />
+        <SsdlProperty
+          Name="Salt"
+          Nullable="False"
+          Type="int"
+          Property="UserData/Properties[Salt]" />
+        <SsdlProperty
+          Name="SaltedHashedPasswordValue"
+          Nullable="False"
+          Type="nvarchar(max)"
+          Property="UserData/Properties[SaltedHashedPasswordValue]" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_AssociateLanguageDataWithPhraseData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_AssociateLanguageDataWithPhraseData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociateLanguageDataWithPhraseData]/Members[LanguageDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociateLanguageDataWithPhraseData]/Members[PhraseDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="LanguageDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_AssociationUserDataWithLanguageData_LanguageData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_AssociationUserDataWithLanguageData_LanguageData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithLanguageData_LanguageData]/Members[LanguageDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithLanguageData_LanguageData]/Members[AssociationUserDataWithLanguageData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AssociationUserDataWithLanguageData_UserData_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_AssociationUserDataWithLanguageData_UserData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_AssociationUserDataWithLanguageData_UserData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithLanguageData_UserData]/Members[UserDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithLanguageData_UserData]/Members[AssociationUserDataWithLanguageData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AssociationUserDataWithLanguageData_LanguageData_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_AssociationUserDataWithPhraseData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_AssociationUserDataWithPhraseData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithPhraseData]/Members[UserDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithPhraseData]/Members[PhraseDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="UserDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_AssociationUserDataWithRoleData_RoleData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_AssociationUserDataWithRoleData_RoleData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithRoleData_RoleData]/Members[RoleDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithRoleData_RoleData]/Members[AssociationUserDataWithRoleData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AssociationUserDataWithRoleData_UserData_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_AssociationUserDataWithRoleData_UserData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_AssociationUserDataWithRoleData_UserData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithRoleData_UserData]/Members[UserDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_AssociationUserDataWithRoleData_UserData]/Members[AssociationUserDataWithRoleData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="AssociationUserDataWithRoleData_RoleData_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_ContextPhraseDataTranslationData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_ContextPhraseDataTranslationData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_ContextPhraseDataTranslationData]/Members[PhraseDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_ContextPhraseDataTranslationData]/Members[TranslationDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ContextPhraseDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_LineDataMultiLineTextData_LineData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_LineDataMultiLineTextData_LineData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_LineDataMultiLineTextData_LineData]/Members[LineDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_LineDataMultiLineTextData_LineData]/Members[LineDataMultiLineTextData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="LineDatas_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_LineDataMultiLineTextData_MultiLineTextData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_LineDataMultiLineTextData_MultiLineTextData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_LineDataMultiLineTextData_MultiLineTextData]/Members[MultiLineTextDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_LineDataMultiLineTextData_MultiLineTextData]/Members[LineDataMultiLineTextData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="MultiLineTextDatas_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_MultiLineTextDataUserData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_MultiLineTextDataUserData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_MultiLineTextDataUserData]/Members[UserDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_MultiLineTextDataUserData]/Members[MultiLineTextDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="UserDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData]/Members[PhraseDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_PhraseDataDefaultStudyAdvisorKnowledgeBeliefData]/Members[DefaultStudyAdvisorKnowledgeBeliefDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="PhraseDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_PhraseDataLineData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_PhraseDataLineData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_PhraseDataLineData]/Members[PhraseDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_PhraseDataLineData]/Members[LineDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="PhraseDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_PhraseDataPhraseBeliefData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_PhraseDataPhraseBeliefData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_PhraseDataPhraseBeliefData]/Members[PhraseDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_PhraseDataPhraseBeliefData]/Members[PhraseBeliefDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="PhraseDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_TranslationDataPhraseData_PhraseData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_TranslationDataPhraseData_PhraseData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_TranslationDataPhraseData_PhraseData]/Members[PhraseDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_TranslationDataPhraseData_PhraseData]/Members[TranslationDataPhraseData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="PhraseDatas_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_TranslationDataPhraseData_TranslationData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_TranslationDataPhraseData_TranslationData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_TranslationDataPhraseData_TranslationData]/Members[TranslationDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_TranslationDataPhraseData_TranslationData]/Members[TranslationDataPhraseData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="TranslationDatas_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_UserDataLanguageData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_UserDataLanguageData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataLanguageData]/Members[UserDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataLanguageData]/Members[LanguageDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="UserDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_UserDataLineData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_UserDataLineData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataLineData]/Members[UserDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataLineData]/Members[LineDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="UserDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_UserDataPhraseBeliefData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_UserDataPhraseBeliefData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataPhraseBeliefData]/Members[UserDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataPhraseBeliefData]/Members[PhraseBeliefDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="UserDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_UserDataRoleData_RoleData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_UserDataRoleData_RoleData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataRoleData_RoleData]/Members[RoleDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataRoleData_RoleData]/Members[UserDataRoleData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="RoleDatas_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_UserDataRoleData_UserData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_UserDataRoleData_UserData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataRoleData_UserData]/Members[UserDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataRoleData_UserData]/Members[UserDataRoleData]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="UserDatas_Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="FK_UserDataTranslationData">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="FK_UserDataTranslationData" />
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataTranslationData]/Members[UserDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="LearnLanguagesDbData/Members[FK_UserDataTranslationData]/Members[TranslationDatas]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="UserDataId" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <GlobalAttributeGroup
+    Name="LightSwitchServiceApplicationGroup">
+    <GlobalAttributeGroup.Attributes>
+      <AutomaticDisplayName
+        Expression="(\p{Ll})(\p{Lu})|_+"
+        Replacement="$1 $2" />
+    </GlobalAttributeGroup.Attributes>
+  </GlobalAttributeGroup>
 </ModelFragment>
