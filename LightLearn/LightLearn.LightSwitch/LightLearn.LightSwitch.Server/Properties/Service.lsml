@@ -489,6 +489,16 @@
         Association="FK_UserDataRoleData_RoleData"
         FromEnd="RoleDatas"
         ToEnd="UserDataRoleData" />
+      <EntityProperty
+        Name="Summary"
+        IsReadOnly="True"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+          <NotSortable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
   <EntityType

@@ -105,16 +105,6 @@
           Name="RoleData"
           ParameterType="RoleData" />
       </ApplicationMethod>
-      <ApplicationMethod
-        Name="showAddEditUserDataRoleData">
-        <ApplicationMethod.Attributes>
-          <ShowScreenMethod
-            TargetScreen="AddEditUserDataRoleData" />
-        </ApplicationMethod.Attributes>
-        <ApplicationMethodParameter
-          Name="UserDataRoleData"
-          ParameterType="UserDataRoleData" />
-      </ApplicationMethod>
     </Application.Methods>
   </Application>
   <EntityContainerGroup
@@ -2561,10 +2551,15 @@
             Name="UserDataRoleDatas"
             Kind="Group"
             View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="Roles" />
+            </ContentItem.Attributes>
             <ContentItem
               Name="UserDataRoleDatas1"
               Kind="Collection"
-              DataType="CollectionView$UserDataRoleData">
+              DataType="CollectionView$UserDataRoleData"
+              View="Microsoft.LightSwitch.MobileWeb:List">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
@@ -2576,38 +2571,13 @@
               <ContentItem
                 Name="RowTemplate"
                 Kind="Details"
-                DataType="UserDataRoleData">
+                DataType="UserDataRoleData"
+                View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression />
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
-                <ContentItem
-                  Name="UserDatas_Id"
-                  Kind="Value"
-                  DataType=":Guid">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="UserDataRoleData/Properties[UserDatas_Id]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="RoleDatas_Id"
-                  Kind="Value"
-                  DataType=":Guid">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="UserDataRoleData/Properties[RoleDatas_Id]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
                 <ContentItem
                   Name="RoleData"
                   Kind="Details"
@@ -2621,7 +2591,7 @@
                     </ScreenExpressionTree>
                   </ContentItem.DataSource>
                   <ContentItem
-                    Name="RowTemplate1"
+                    Name="RoleData1"
                     Kind="Details"
                     DataType="RoleData">
                     <ContentItem.DataSource>
@@ -2632,53 +2602,16 @@
                   </ContentItem>
                 </ContentItem>
               </ContentItem>
-              <ContentItem.PropertySources>
-                <ControlPropertySource
-                  Property="Microsoft.LightSwitch.MobileWeb:RootCollectionControl/Properties[ItemTap]">
-                  <ScreenExpressionTree>
-                    <ChainExpression>
-                      <CallExpression
-                        Target="!module/Methods[showAddEditUserDataRoleData]">
-                        <CallExpression.Attributes>
-                          <AssociatedCollection
-                            Collection="AddEditUserData/Properties[UserDataRoleDatas]" />
-                        </CallExpression.Attributes>
-                        <ArgumentExpression
-                          Parameter="UserDataRoleData">
-                          <ChainExpression>
-                            <MemberExpression
-                              Member="AddEditUserData/Properties[UserDataRoleDatas]" />
-                            <MemberExpression
-                              Member="selectedItem" />
-                          </ChainExpression>
-                        </ArgumentExpression>
-                      </CallExpression>
-                    </ChainExpression>
-                  </ScreenExpressionTree>
-                </ControlPropertySource>
-              </ContentItem.PropertySources>
             </ContentItem>
             <ContentItem.CommandItems>
               <ContentItem
                 Name="AddUserDataRoleData"
                 Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Add Role" />
+                </ContentItem.Attributes>
                 <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <CallExpression
-                          Target="!module/Methods[showAddEditUserDataRoleData]">
-                          <CallExpression.Attributes>
-                            <AssociatedCollection
-                              Collection="AddEditUserData/Properties[UserDataRoleDatas]" />
-                            <CreateNewEntity
-                              TargetParameter="!module/Methods[showAddEditUserDataRoleData]/Parameters[UserDataRoleData]" />
-                          </CallExpression.Attributes>
-                        </CallExpression>
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
                   <ControlPropertySource
                     Property="Microsoft.LightSwitch.MobileWeb:RootCommand/Properties[Icon]">
                     <ScreenExpressionTree>
@@ -2686,6 +2619,48 @@
                         <ConstantExpression
                           Value="msls-add"
                           ResultType=":String" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <CallExpression
+                          Target="AddEditUserData/Methods[showDialog]">
+                          <ArgumentExpression
+                            Parameter="dialogName">
+                            <ConstantExpression
+                              Value="RolePicker"
+                              ResultType=":String" />
+                          </ArgumentExpression>
+                        </CallExpression>
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
+              </ContentItem>
+              <ContentItem
+                Name="ShowRoleRemover"
+                Kind="Command">
+                <ContentItem.Attributes>
+                  <DisplayName
+                    Value="Remove Role" />
+                </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[Tap]">
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <CallExpression
+                          Target="AddEditUserData/Methods[showDialog]">
+                          <ArgumentExpression
+                            Parameter="dialogName">
+                            <ConstantExpression
+                              Value="RoleRemover"
+                              ResultType=":String" />
+                          </ArgumentExpression>
+                        </CallExpression>
                       </ChainExpression>
                     </ScreenExpressionTree>
                   </ControlPropertySource>
@@ -2697,7 +2672,124 @@
         <ContentItem
           Name="Popups"
           Kind="Group"
-          View="Microsoft.LightSwitch.MobileWeb:DialogPages" />
+          View="Microsoft.LightSwitch.MobileWeb:DialogPages">
+          <ContentItem
+            Name="RolePicker"
+            Kind="Group">
+            <ContentItem
+              Name="RoleDatas"
+              Kind="Collection"
+              DataType="CollectionView$RoleData"
+              View="Microsoft.LightSwitch.MobileWeb:List">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AddEditUserData/Properties[RoleDatas]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="RoleDatasTemplate"
+                Kind="Details"
+                DataType="RoleData">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="Id1"
+                  Kind="Value"
+                  DataType=":Guid">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="RoleData/Properties[Id]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+                <ContentItem
+                  Name="Text"
+                  Kind="Value"
+                  DataType=":String">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="RoleData/Properties[Text]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                </ContentItem>
+              </ContentItem>
+              <ContentItem.PropertySources>
+                <ControlPropertySource
+                  Property="Microsoft.LightSwitch.MobileWeb:RootCollectionControl/Properties[ItemTap]">
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <CallExpression
+                        Target="AddEditUserData/Methods[SelectRole]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ControlPropertySource>
+              </ContentItem.PropertySources>
+            </ContentItem>
+          </ContentItem>
+          <ContentItem
+            Name="RoleRemover"
+            Kind="Group">
+            <ContentItem
+              Name="UserDataRoleDatas2"
+              Kind="Collection"
+              DataType="CollectionView$UserDataRoleData"
+              View="Microsoft.LightSwitch.MobileWeb:TileList">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="AddEditUserData/Properties[UserDataRoleDatas]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+              <ContentItem
+                Name="UserDataRoleDatas2Template"
+                Kind="Details"
+                DataType="UserDataRoleData">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression />
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+                <ContentItem
+                  Name="RoleData2"
+                  Kind="Details"
+                  DataType="RoleData">
+                  <ContentItem.DataSource>
+                    <ScreenExpressionTree>
+                      <ChainExpression>
+                        <MemberExpression
+                          Member="UserDataRoleData/Properties[RoleData]" />
+                      </ChainExpression>
+                    </ScreenExpressionTree>
+                  </ContentItem.DataSource>
+                  <ContentItem
+                    Name="RoleData3"
+                    Kind="Details"
+                    DataType="RoleData">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression />
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem>
+              </ContentItem>
+            </ContentItem>
+          </ContentItem>
+        </ContentItem>
         <ContentItem.PropertySources>
           <ControlPropertySource
             Property="Microsoft.LightSwitch.MobileWeb:Screen/Properties[ScreenType]">
@@ -2745,6 +2837,10 @@
           Name="dialogName"
           ParameterType=":String" />
       </ScreenMethod>
+      <ScreenMethod
+        Name="SelectRole" />
+      <ScreenMethod
+        Name="DeleteUserRole" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenProperty
@@ -2781,6 +2877,32 @@
           <ChainExpression>
             <CallExpression
               Target="AddEditUserData/Properties[UserDataRoleDatas]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="RoleDatas"
+        PageSize="45"
+        PropertyType="CollectionView$RoleData">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="RoleDatasQuery"
+            ReturnType="RoleData*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <MemberExpression
+                  Member="LearnLanguagesDbData/Members[RoleDatas]" />
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="AddEditUserData/Properties[RoleDatas]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -3166,235 +3288,6 @@
       <ScreenProperty
         Name="RoleData"
         PropertyType="RoleData">
-        <ScreenProperty.Attributes>
-          <IsParameter />
-        </ScreenProperty.Attributes>
-      </ScreenProperty>
-    </Screen.Properties>
-  </Screen>
-  <Screen
-    Name="AddEditUserDataRoleData">
-    <Screen.Attributes>
-      <SaveChangesTo
-        EntityContainer="LearnLanguagesDbData" />
-    </Screen.Attributes>
-    <Screen.RootContentItem>
-      <ContentItem
-        Name="RootContentItem"
-        Kind="Screen"
-        View="Microsoft.LightSwitch.MobileWeb:Screen">
-        <ContentItem
-          Name="Tabs"
-          Kind="Group"
-          View="Microsoft.LightSwitch.MobileWeb:TabPages">
-          <ContentItem
-            Name="Details"
-            Kind="Group"
-            View="Microsoft.LightSwitch.MobileWeb:RowsLayout">
-            <ContentItem.Attributes>
-              <DisplayName
-                Value="Details" />
-            </ContentItem.Attributes>
-            <ContentItem
-              Name="columns"
-              Kind="Details"
-              DataType="UserDataRoleData"
-              View="Microsoft.LightSwitch.MobileWeb:ColumnsLayout">
-              <ContentItem.Attributes>
-                <DisplayName
-                  Value="columns" />
-              </ContentItem.Attributes>
-              <ContentItem.DataSource>
-                <ScreenExpressionTree>
-                  <ChainExpression>
-                    <MemberExpression
-                      Member="AddEditUserDataRoleData/Properties[UserDataRoleData]" />
-                  </ChainExpression>
-                </ScreenExpressionTree>
-              </ContentItem.DataSource>
-              <ContentItem
-                Name="left"
-                Kind="Group">
-                <ContentItem
-                  Name="UserDatas_Id"
-                  Kind="Value"
-                  DataType=":Guid">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="UserDataRoleData/Properties[UserDatas_Id]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem
-                  Name="RoleDatas_Id"
-                  Kind="Value"
-                  DataType=":Guid">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="UserDataRoleData/Properties[RoleDatas_Id]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                </ContentItem>
-                <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MinWidth]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression
-                          Value="200"
-                          ResultType=":Double" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MaxWidth]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression
-                          Value="400"
-                          ResultType=":Double" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-              </ContentItem>
-              <ContentItem
-                Name="right"
-                Kind="Group">
-                <ContentItem
-                  Name="RoleData"
-                  Kind="Details"
-                  DataType="RoleData">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="UserDataRoleData/Properties[RoleData]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem
-                    Name="RowTemplate"
-                    Kind="Details"
-                    DataType="RoleData">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression />
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                </ContentItem>
-                <ContentItem
-                  Name="UserData"
-                  Kind="Details"
-                  DataType="UserData">
-                  <ContentItem.DataSource>
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <MemberExpression
-                          Member="UserDataRoleData/Properties[UserData]" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ContentItem.DataSource>
-                  <ContentItem
-                    Name="RowTemplate1"
-                    Kind="Details"
-                    DataType="UserData">
-                    <ContentItem.DataSource>
-                      <ScreenExpressionTree>
-                        <ChainExpression />
-                      </ScreenExpressionTree>
-                    </ContentItem.DataSource>
-                  </ContentItem>
-                </ContentItem>
-                <ContentItem.PropertySources>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MinWidth]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression
-                          Value="200"
-                          ResultType=":Double" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                  <ControlPropertySource
-                    Property="Microsoft.LightSwitch.MobileWeb:RootControl/Properties[MaxWidth]">
-                    <ScreenExpressionTree>
-                      <ChainExpression>
-                        <ConstantExpression
-                          Value="400"
-                          ResultType=":Double" />
-                      </ChainExpression>
-                    </ScreenExpressionTree>
-                  </ControlPropertySource>
-                </ContentItem.PropertySources>
-              </ContentItem>
-            </ContentItem>
-          </ContentItem>
-        </ContentItem>
-        <ContentItem
-          Name="Popups"
-          Kind="Group"
-          View="Microsoft.LightSwitch.MobileWeb:DialogPages" />
-        <ContentItem.PropertySources>
-          <ControlPropertySource
-            Property="Microsoft.LightSwitch.MobileWeb:Screen/Properties[ScreenType]">
-            <ScreenExpressionTree>
-              <ChainExpression>
-                <ConstantExpression
-                  Value="Edit"
-                  ResultType=":String" />
-              </ChainExpression>
-            </ScreenExpressionTree>
-          </ControlPropertySource>
-          <ControlPropertySource
-            Property="Microsoft.LightSwitch.MobileWeb:Screen/Properties[ShowAsDialog]">
-            <ScreenExpressionTree>
-              <ChainExpression>
-                <ConstantExpression
-                  Value="True"
-                  ResultType=":Boolean" />
-              </ChainExpression>
-            </ScreenExpressionTree>
-          </ControlPropertySource>
-        </ContentItem.PropertySources>
-      </ContentItem>
-    </Screen.RootContentItem>
-    <Screen.Methods>
-      <ScreenMethod
-        Name="showTab">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault
-            Display="True" />
-          <Generated />
-        </ScreenMethod.Attributes>
-        <ScreenMethodParameter
-          Name="tabName"
-          ParameterType=":String" />
-      </ScreenMethod>
-      <ScreenMethod
-        Name="showDialog">
-        <ScreenMethod.Attributes>
-          <DisplayMethodByDefault
-            Display="True" />
-          <Generated />
-        </ScreenMethod.Attributes>
-        <ScreenMethodParameter
-          Name="dialogName"
-          ParameterType=":String" />
-      </ScreenMethod>
-    </Screen.Methods>
-    <Screen.Properties>
-      <ScreenProperty
-        Name="UserDataRoleData"
-        PropertyType="UserDataRoleData">
         <ScreenProperty.Attributes>
           <IsParameter />
         </ScreenProperty.Attributes>

@@ -81,7 +81,7 @@
     <Content Include="Scripts\uuid.js" />
     <Content Include="Scripts\winjs-1.0.js" />
     <Content Include="Scripts\winjs-1.0.min.js" />
-    <Content Include="UserCode\AddEditUserDataRoleData.js" />
+    <Content Include="UserCode\AddEditUserData.js" />
     <Content Include="UserCode\RoleData.js" />
     <Content Include="UserCode\UserData.js" />
   </ItemGroup>
