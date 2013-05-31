@@ -258,6 +258,17 @@ debug=10 seconds (10000)</comment>
   <data name="ErrorMsgAnswerIsNull" xml:space="preserve">
     <value>The answer is null.</value>
   </data>
+  <data name="ErrorMsgGetNextStudyItemViewModel" xml:space="preserve">
+    <value>There was an error when getting the next study item. ({0})</value>
+    <comment>0 = Exception Info</comment>
+  </data>
+  <data name="ErrorMsgGetRandomUnknownPhrase" xml:space="preserve">
+    <value>There was an error when getting an random unknown phrase.</value>
+  </data>
+  <data name="ErrorMsgInitializeForNewStudySession" xml:space="preserve">
+    <value>There was an error when initializing for new study session. ({0})</value>
+    <comment>0 = Exception Info</comment>
+  </data>
   <data name="ErrorMsgLanguageIsNull" xml:space="preserve">
     <value>The language is null.</value>
   </data>

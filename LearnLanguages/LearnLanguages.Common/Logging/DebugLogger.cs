@@ -2,6 +2,7 @@
 using LearnLanguages.Common.Interfaces;
 using System.Diagnostics;
 using System.ComponentModel.Composition;
+using LearnLanguages.Common;
 
 namespace LearnLanguages
 {
@@ -11,7 +12,7 @@ namespace LearnLanguages
   {
     public void Log(string msg, LogPriority priority, LogCategory category)
     {
-      string padding = "------";
+      string padding = "------DebugLogger Event------";
 
       Debug.WriteLine(padding);
 
@@ -24,6 +25,7 @@ namespace LearnLanguages
 
     public void Handle(Common.Events.MessageEvent message)
     {
+      Log(message.Text, message.Priority.ToLogPriority(), message.Type.ToLogCategory());
       //HANDLE MESSAGE EVENT IMPLEMENTATION IN DEBUGLOGGER (AND CREATE PRIORITY/TYPE CONVERTER)
       //var logPriority = LogPriority.High
       //throw new NotImplementedException();

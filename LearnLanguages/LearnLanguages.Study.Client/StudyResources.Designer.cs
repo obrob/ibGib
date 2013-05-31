@@ -466,6 +466,33 @@ namespace LearnLanguages.Study {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There was an error when getting the next study item. ({0}).
+        /// </summary>
+        public static string ErrorMsgGetNextStudyItemViewModel {
+            get {
+                return ResourceManager.GetString("ErrorMsgGetNextStudyItemViewModel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an error when getting an random unknown phrase..
+        /// </summary>
+        public static string ErrorMsgGetRandomUnknownPhrase {
+            get {
+                return ResourceManager.GetString("ErrorMsgGetRandomUnknownPhrase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There was an error when initializing for new study session. ({0}).
+        /// </summary>
+        public static string ErrorMsgInitializeForNewStudySession {
+            get {
+                return ResourceManager.GetString("ErrorMsgInitializeForNewStudySession", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The language is null..
         /// </summary>
         public static string ErrorMsgLanguageIsNull {

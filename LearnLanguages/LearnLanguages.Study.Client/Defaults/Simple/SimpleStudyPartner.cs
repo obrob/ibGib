@@ -99,6 +99,12 @@ namespace LearnLanguages.Study.Defaults.Simple
         History.Events.ThinkingAboutTargetEvent.Publish(System.Guid.Empty);
         #endregion
       }
+      catch (Exception ex)
+      {
+        Services.PublishMessageEvent(string.Format(StudyResources.ErrorMsgInitializeForNewStudySession, ex.Message), 
+                                     MessagePriority.High, 
+                                     MessageType.Error);
+      }
       finally
       {
         #region EnableNav/Thinked
@@ -130,7 +136,14 @@ namespace LearnLanguages.Study.Defaults.Simple
           ///CHOOSING FROM THE MLT LIST AT RANDOM.
           //PhraseEdit phraseToStudy = GetRandomPhrase(GetCurrentTarget());
           phraseToStudy = await GetRandomUnknownPhrase(GetCurrentTarget());
+          
         #region (...finally) Thinked
+        }
+        catch (Exception ex)
+        {
+          Services.PublishMessageEvent(string.Format(StudyResources.ErrorMsgGetNextStudyItemViewModel, ex.Message), 
+                                       MessagePriority.High,
+                                       MessageType.Error);
         }
         finally
         {
@@ -148,11 +161,16 @@ namespace LearnLanguages.Study.Defaults.Simple
         }
         History.Events.ThinkingAboutTargetEvent.Publish(System.Guid.Empty);
 
-
         //PUBLISH A REVIEWING PHRASE EVENT MESSAGE.
         History.Events.ReviewingPhraseEvent reviewingEvent =
           new ReviewingPhraseEvent(phraseToStudy, qaViewModel.ReviewMethodId);
         History.HistoryPublisher.Ton.PublishEvent(reviewingEvent);
+      }
+      catch (Exception ex)
+      {
+        Services.PublishMessageEvent(string.Format(StudyResources.ErrorMsgGetNextStudyItemViewModel, ex.Message),
+                                     MessagePriority.High,
+                                     MessageType.Error);
       }
       finally
       {
@@ -255,11 +273,12 @@ namespace LearnLanguages.Study.Defaults.Simple
         }
         else if (indexToPick < (unknownBeliefsFromCache.Count + unknownPseudoBeliefsFromCache.Count))
         {
-          //WE _TRY_ TO PICK FROM THE PSUEDO CACHE
+          #region //WE _TRY_ TO PICK FROM THE PSUEDO CACHE
           indexToPick -= unknownBeliefsFromCache.Count;
           var beliefEntry = unknownPseudoBeliefsFromCache[indexToPick];
           var phraseText = beliefEntry.Key;
           var languageText = beliefEntry.Value.Item1;
+          #endregion
           var phrase = await PhraseEdit.NewPhraseEditAsync(languageText);
           phrase.Text = phraseText;
           var phraseId = Guid.NewGuid();
@@ -280,6 +299,7 @@ namespace LearnLanguages.Study.Defaults.Simple
           return retPhrase;
         }
       }
+      
 
       //IF WE'VE GOTTEN THIS FAR, THEN WE COULDN'T FIND AN UNKNOWN PHRASE
       Services.PublishMessageEvent("Couldn't retrieve unknown phrase.", MessagePriority.Medium, MessageType.Warning);
@@ -287,9 +307,11 @@ namespace LearnLanguages.Study.Defaults.Simple
       }
       catch (Exception ex)
       {
-        throw ex;
+        Services.PublishMessageEvent(string.Format(StudyResources.ErrorMsgGetRandomUnknownPhrase, ex.Message),
+                                     MessagePriority.High,
+                                     MessageType.Error);
+        return null;
       }
-
     }
 
     /// <summary>

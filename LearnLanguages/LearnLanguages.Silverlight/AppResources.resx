@@ -156,6 +156,10 @@
   <data name="ErrorMsgQuestionIsNull" xml:space="preserve">
     <value>The question is null.</value>
   </data>
+  <data name="ErrorMsgSaveSong" xml:space="preserve">
+    <value>There was an error saving the song. ({0})</value>
+    <comment>0=Additional error information</comment>
+  </data>
   <data name="ErrorMsgTranslateServiceNotAvailable" xml:space="preserve">
     <value>Attempted to use auto-translation service, but it is not available at this time.  Causes of this may include: The service could be down, there could be a cross domain policy issue, the internet connection might be down, or the firewall could be blocking the service.</value>
   </data>

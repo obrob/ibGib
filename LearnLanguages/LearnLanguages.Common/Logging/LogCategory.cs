@@ -1,5 +1,5 @@
 ﻿
 namespace LearnLanguages
 {
-  public enum LogCategory { Information, Warning, Exception }
+  public enum LogCategory { Information, Warning, Exception, Other }
 }

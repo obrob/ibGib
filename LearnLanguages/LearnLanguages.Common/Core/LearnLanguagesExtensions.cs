@@ -16,6 +16,7 @@ namespace LearnLanguages.Common
       lineDelimiter = lineDelimiter.Replace("\\r", "\r");
       lineDelimiter = lineDelimiter.Replace("\\n", "\n");
       var lines = new List<string>(str.Split(new string[] { lineDelimiter }, StringSplitOptions.RemoveEmptyEntries));
+      lines = lines.Where((l) => !string.IsNullOrWhiteSpace(l)).ToList();
       return lines;
     }
 
@@ -39,6 +40,56 @@ namespace LearnLanguages.Common
       {
         return words.Distinct().Count();
       }
+    }
+
+    public static LogCategory ToLogCategory(this MessageType msgType)
+    {
+      LogCategory retCategory = default(LogCategory);
+      switch (msgType)
+      {
+        case MessageType.Information:
+          retCategory = LogCategory.Information;
+          break;
+        case MessageType.Warning:
+          retCategory = LogCategory.Warning;
+          break;
+        case MessageType.Error:
+          retCategory = LogCategory.Exception;
+          break;
+        case MessageType.Other:
+          retCategory = LogCategory.Other;
+          break;
+        default:
+          throw new NotImplementedException("msgType enum doesn't convert to LogCategory");
+          break;
+      }
+      return retCategory;
+    }
+
+    public static LogPriority ToLogPriority(this MessagePriority msgPriority)
+    {
+      LogPriority retPriority = default(LogPriority);
+      switch (msgPriority)
+      {
+        case MessagePriority.VeryLow:
+          retPriority = LogPriority.VeryLow;
+          break;
+        case MessagePriority.Low:
+          retPriority = LogPriority.Low;
+          break;
+        case MessagePriority.Medium:
+          retPriority = LogPriority.Medium;
+          break;
+        case MessagePriority.High:
+          retPriority = LogPriority.High;
+          break;
+        case MessagePriority.VeryHigh:
+          retPriority = LogPriority.VeryHigh;
+          break;
+        default:
+          throw new NotImplementedException("msgPriority enum doesn't convert to LogPriority");
+      }
+      return retPriority;
     }
   }
 }

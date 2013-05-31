@@ -27,8 +27,8 @@
           <Setter Property="TextWrapping" Value="Wrap" />
           <Setter Property="AcceptsReturn" Value="True" />
           <Setter Property="HorizontalAlignment" Value="Stretch" />
-          <Setter Property="MinHeight" Value="75" />
-          <Setter Property="MinWidth" Value="200" />
+          <Setter Property="Height" Value="100" />
+          <Setter Property="Width" Value="300" />
         </Style>
       </Grid.Resources>
       

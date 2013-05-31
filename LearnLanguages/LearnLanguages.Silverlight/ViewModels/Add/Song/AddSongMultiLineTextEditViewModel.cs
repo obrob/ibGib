@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.ComponentModel.Composition;
 using LearnLanguages.Business;
 using LearnLanguages.DataAccess;
@@ -11,6 +12,7 @@ using System.Threading.Tasks;
 using LearnLanguages.Silverlight.Common.ViewModels;
 using LearnLanguages.Silverlight.Common;
 using LearnLanguages.Common.EventMessages;
+using Csla.Rules;
 
 
 namespace LearnLanguages.Silverlight.ViewModels
@@ -198,22 +200,24 @@ namespace LearnLanguages.Silverlight.ViewModels
           var songText = SongText;
           var languageText = SongLanguage.Text;
           var lines = songText.ParseIntoLines(); //removes empty entries
-          var words = songText.ParseIntoWords();
-          var wordCount = words.Count;
-          var escapeHelper = 0;
-          while (words.Contains(""))
-          {
-            History.Events.ThinkedAboutTargetEvent.Publish();
+          var words = songText.ParseIntoWords().Where((w) => !string.IsNullOrWhiteSpace(w)).ToList();
+          //var wordCount = words.Count;
+          //var escapeHelper = 0;
+          //words = words
+          //while (words.Contains(""))
+          //{
+          //  History.Events.ThinkedAboutTargetEvent.Publish();
 
-            //ESCAPE HELPER TO ESCAPE IN CASE OF INFINITE LOOP WITH WHILE STATEMENT.
-            //I WANT THE WHILE LOOP TO USE THE QUICKNESS OF CONTAINS(), 
-            //AS OPPOSED TO FOREACH-ING OR FOR-ING.  BUT I HATE POSSIBILITY OF
-            //ENDLESS LOOP, EVEN THOUGH I DON'T SEE HOW IT COULD HAPPEN.
-            words.Remove("");
-            escapeHelper++;
-            if (escapeHelper > wordCount)
-              break;
-          }
+          //  //ESCAPE HELPER TO ESCAPE IN CASE OF INFINITE LOOP WITH WHILE STATEMENT.
+          //  //I WANT THE WHILE LOOP TO USE THE QUICKNESS OF CONTAINS(), 
+          //  //AS OPPOSED TO FOREACH-ING OR FOR-ING.  BUT I HATE POSSIBILITY OF
+          //  //ENDLESS LOOP, EVEN THOUGH I DON'T SEE HOW IT COULD HAPPEN.
+          //  words.Remove("");
+
+          //  escapeHelper++;
+          //  if (escapeHelper > wordCount)
+          //    break;
+          //}
 
           //I'M CHANGING THIS TO UTILIZE MY LINELIST.NEWLINELIST(INFOS) ALREADY IN 
           //PLACE.
@@ -281,11 +285,11 @@ namespace LearnLanguages.Silverlight.ViewModels
 
           //NOW WE CAN USE THE BASE SAVE
           History.Events.ThinkedAboutTargetEvent.Publish();
+          var invalidLine = Model.Lines.Where((l) => !l.IsValid).FirstOrDefault();
           await base.SaveAsync();
           SongHasBeenSaved = true;
           IsSaving = false;
           History.Events.ThinkedAboutTargetEvent.Publish();
-
           #endregion
 
           #endregion
@@ -297,6 +301,13 @@ namespace LearnLanguages.Silverlight.ViewModels
           #endregion
         }
         #endregion
+      }
+      catch (Exception ex)
+      {
+        //Don't really care about handling the exception, I just want to log that 
+        //the save failed.
+        Services.PublishMessageEvent(string.Format(AppResources.ErrorMsgSaveSong, ex.Message),
+          MessagePriority.Medium, MessageType.Error);
       }
       finally
       {
