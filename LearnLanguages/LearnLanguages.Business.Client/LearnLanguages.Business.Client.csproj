@@ -97,6 +97,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessHelper.cs" />
+    <Compile Include="Core\Cache.cs" />
     <Compile Include="Criteria\ChangePasswordCriteria.cs" />
     <Compile Include="Criteria\PhraseTextLanguageTextPairsCriteria.cs" />
     <Compile Include="Edits\UserEdit.cs" />

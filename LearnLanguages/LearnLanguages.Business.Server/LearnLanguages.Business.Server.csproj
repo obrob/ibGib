@@ -90,6 +90,9 @@
     <Compile Include="..\LearnLanguages.Business.Client\Commands\RemoveAlreadyExistingPhraseTextsCommand.cs">
       <Link>Commands\RemoveAlreadyExistingPhraseTextsCommand.cs</Link>
     </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Core\Cache.cs">
+      <Link>Core\Cache.cs</Link>
+    </Compile>
     <Compile Include="..\LearnLanguages.Business.Client\Criteria\ChangePasswordCriteria.cs">
       <Link>Criteria\ChangePasswordCriteria.cs</Link>
     </Compile>

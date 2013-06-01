@@ -9,6 +9,7 @@ using LearnLanguages.DataAccess;
 using LearnLanguages.Business.Security;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using LearnLanguages.Business.Core;
 
 
 namespace LearnLanguages.Business
@@ -173,7 +174,12 @@ namespace LearnLanguages.Business
         LoadProperty<Guid>(UserIdProperty, dto.UserId);
         LoadProperty<string>(UsernameProperty, dto.Username);
         if (!string.IsNullOrEmpty(dto.Username))
-          User = DataPortal.FetchChild<UserIdentity>(dto.Username);
+        {
+          if (Cache.User == null || Cache.User.Name != dto.Username)
+            User = DataPortal.FetchChild<UserIdentity>(dto.Username);
+          else
+            User = Cache.User;
+        }
       }
 
       BusinessRules.CheckRules();
