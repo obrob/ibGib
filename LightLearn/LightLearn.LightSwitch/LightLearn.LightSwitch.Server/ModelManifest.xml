@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <ModelDocumentManifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Documents>
-    <Document FullPath="C:\ib\_ibGib\LightLearn\LightLearn.LightSwitch\LightLearn.LightSwitch.Server\Properties\Service.lsml" Checksum="2BF72970B799960F488BC1D36E980BC9C4A917FF1D19EF00D09EE26F3F618848" />
+    <Document FullPath="C:\ib\ibGib\LightLearn\LightLearn.LightSwitch\LightLearn.LightSwitch.Server\Properties\Service.lsml" Checksum="2BF72970B799960F488BC1D36E980BC9C4A917FF1D19EF00D09EE26F3F618848" />
   </Documents>
 </ModelDocumentManifest>
