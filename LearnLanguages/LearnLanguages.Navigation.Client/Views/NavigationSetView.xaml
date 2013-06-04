@@ -7,22 +7,16 @@
     mc:Ignorable="d"
     d:DesignHeight="300" d:DesignWidth="150" MinWidth="150" >
   
+  
   <Border x:Name="RefreshNavSetVisibility"
     Style="{StaticResource NavigationSetBorder}" >
     <StackPanel>
       <ContentControl x:Name="TitleControl" HorizontalContentAlignment="Stretch" />
       <!--<ListBox x:Name="Items" Visibility="Collapsed">-->
       <Border x:Name="ItemsIsVisible">
-        
-        <ListBox x:Name="Items">
-          <ListBox.ItemContainerStyle>
-            <Style TargetType="ListBoxItem">
-              <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-              <Setter Property="Padding" Value="30,3,3,3" />
-            </Style>
-          </ListBox.ItemContainerStyle>
-        </ListBox>
-
+        <ItemsControl x:Name="Items" Margin="25,0,0,0">
+          
+        </ItemsControl>
       </Border>
     </StackPanel>
   </Border>

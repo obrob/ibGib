@@ -8,14 +8,14 @@
     d:DesignHeight="300" d:DesignWidth="150" MinWidth="150">
   
   <Border Style="{StaticResource DebugBorder}">
-    <ListBox x:Name="Items">
-      <ListBox.ItemContainerStyle>
-        <Style TargetType="ListBoxItem">
+    <ItemsControl x:Name="Items">
+      <!--<ItemsControl.ItemContainerStyle>
+        <Style TargetType="ItemsControlItem">
           <Setter Property="HorizontalContentAlignment" Value="Stretch" />
           <Setter Property="Padding" Value="1" />
           <Setter Property="Template" Value="{StaticResource ListBoxItemSansFocus}" />
         </Style>
-      </ListBox.ItemContainerStyle>
-    </ListBox>
+      </ItemsControl.ItemContainerStyle>-->
+    </ItemsControl>
   </Border>
 </UserControl>
