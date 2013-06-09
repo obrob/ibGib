@@ -3,19 +3,22 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{8A4D642E-824A-4D58-BD56-648CC30C8F17}") = "LightLearn.LightSwitch", "LightLearn.LightSwitch\LightLearn.LightSwitch.ls3proj", "{3E7154F7-CB18-4F2A-B643-0153FE41FC7D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LightLearn.Aspects", "LightLearn.Aspects\LightLearn.Aspects.csproj", "{AFB02C72-2780-4977-88F9-F779BC0D982A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectDependencies) = postSolution
-		{853BDA15-3640-46FA-AE91-6E0195353D73}.0 = {5F1CF9BA-7D41-4AD9-B907-B61E4613573C}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{3E7154F7-CB18-4F2A-B643-0153FE41FC7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E7154F7-CB18-4F2A-B643-0153FE41FC7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E7154F7-CB18-4F2A-B643-0153FE41FC7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E7154F7-CB18-4F2A-B643-0153FE41FC7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AFB02C72-2780-4977-88F9-F779BC0D982A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFB02C72-2780-4977-88F9-F779BC0D982A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFB02C72-2780-4977-88F9-F779BC0D982A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFB02C72-2780-4977-88F9-F779BC0D982A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F1CF9BA-7D41-4AD9-B907-B61E4613573C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F1CF9BA-7D41-4AD9-B907-B61E4613573C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F1CF9BA-7D41-4AD9-B907-B61E4613573C}.Release|Any CPU.ActiveCfg = Release|Any CPU

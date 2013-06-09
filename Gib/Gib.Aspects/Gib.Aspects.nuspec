@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Gib.Aspects</id>
+        <version>0.0.1</version>
+        <authors>William Raiford,Robert Raiford</authors>
+        <projectUrl>http://www.github.com/ibgib</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>PostSharp aspects for the ibGib.</description>
+        <language>en-US</language>
+        <dependencies>
+            <dependency id="PostSharp" version="3.0.27" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="Content\PostSharp\PostSharpGlobalConfig.cs" target="content\PostSharp\PostSharpGlobalConfig.cs" />
+        <file src="bin\Debug\Gib.Aspects.dll" target="lib\net45\Gib.Aspects.dll" />
+    </files>
+</package>

@@ -14,9 +14,7 @@
       <ContentControl x:Name="TitleControl" HorizontalContentAlignment="Stretch" />
       <!--<ListBox x:Name="Items" Visibility="Collapsed">-->
       <Border x:Name="ItemsIsVisible">
-        <ItemsControl x:Name="Items" Margin="25,0,0,0">
-          
-        </ItemsControl>
+        <ItemsControl x:Name="Items" Margin="25,0,0,0" />
       </Border>
     </StackPanel>
   </Border>

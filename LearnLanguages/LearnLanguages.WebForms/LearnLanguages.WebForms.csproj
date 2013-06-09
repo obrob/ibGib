@@ -22,6 +22,8 @@
     <SilverlightApplicationList>{23A302A7-4A66-4D8B-A13F-14A4453EF517}|..\LearnLanguages.Silverlight\LearnLanguages.Silverlight.csproj|ClientBin|False,{8341B23A-A916-4C7D-B52B-A2682B568652}|..\LearnLanguages.Silverlight.Tests\LearnLanguages.Silverlight.Tests.csproj|ClientBin|False</SilverlightApplicationList>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <DontImportPostSharp>True</DontImportPostSharp>
+    <PostSharpHostConfigurationFile>Web.config</PostSharpHostConfigurationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -88,6 +90,10 @@
       <HintPath>..\packages\DotNetOpenAuth.OpenId.RelyingParty.4.3.0.13117\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PostSharp, Version=3.0.27.9, Culture=neutral, PublicKeyToken=b13fd38b8f9c99d7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\PostSharp.3.0.27\lib\net20\PostSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -337,6 +343,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RequiresPostSharp.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -415,6 +422,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\packages\PostSharp.3.0.27\tools\PostSharp.targets" Condition="Exists('..\packages\PostSharp.3.0.27\tools\PostSharp.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

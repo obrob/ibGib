@@ -147,7 +147,7 @@
     <value>10</value>
   </data>
   <data name="ShouldSeedDbWithData" xml:space="preserve">
-    <value>False</value>
+    <value>True</value>
     <comment>warning, this will delete all existing data</comment>
   </data>
   <data name="SPName_DeleteUser" xml:space="preserve">
