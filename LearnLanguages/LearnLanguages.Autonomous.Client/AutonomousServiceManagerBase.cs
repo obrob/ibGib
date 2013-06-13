@@ -5,13 +5,7 @@ namespace LearnLanguages.Autonomous.Client
 {
   public class AutonomousServiceManagerBase : IAutonomousServiceManager
   {
-
-    public void InvestIn(Type serviceType, int amountToInvest, DateTime expirationDate)
-    {
-      throw new NotImplementedException();
-    }
-
-    public void InvestIn(string serviceName, int amountToInvest, DateTime expirationDate)
+    public IObservable<IInvestmentReceipt> Invest(IInvestmentInfo investmentInfo)
     {
       throw new NotImplementedException();
     }

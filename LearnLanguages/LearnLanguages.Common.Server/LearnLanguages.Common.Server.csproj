@@ -92,6 +92,9 @@
     <Compile Include="..\LearnLanguages.Common\Analysis\AnalyzerBaseOfTAnalysis.cs">
       <Link>Analysis\AnalyzerBaseOfTAnalysis.cs</Link>
     </Compile>
+    <Compile Include="..\LearnLanguages.Common\Autonomous\InvestmentInfo.cs">
+      <Link>Autonomous\InvestmentInfo.cs</Link>
+    </Compile>
     <Compile Include="..\LearnLanguages.Common\CommonHelper.cs">
       <Link>CommonHelper.cs</Link>
     </Compile>
@@ -152,6 +155,9 @@
     <Compile Include="..\LearnLanguages.Common\Delegates\ExceptionCheckCallback.cs">
       <Link>Delegates\ExceptionCheckCallback.cs</Link>
     </Compile>
+    <Compile Include="..\LearnLanguages.Common\Enums\Autonomous\AutonomousServiceContextStates.cs">
+      <Link>Enums\Autonomous\AutonomousServiceContextStates.cs</Link>
+    </Compile>
     <Compile Include="..\LearnLanguages.Common\EventArgs\ModelEventArgsOfT.cs">
       <Link>EventArgs\ModelEventArgsOfT.cs</Link>
     </Compile>
@@ -184,6 +190,24 @@
     </Compile>
     <Compile Include="..\LearnLanguages.Common\Interfaces\Analyzer\IAnalyzer.cs">
       <Link>Interfaces\Analyzer\IAnalyzer.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Interfaces\Autonomous\IAutonomousService.cs">
+      <Link>Interfaces\Autonomous\IAutonomousService.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Interfaces\Autonomous\IAutonomousServiceContext.cs">
+      <Link>Interfaces\Autonomous\IAutonomousServiceContext.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Interfaces\Autonomous\IAutonomousServiceInfo.cs">
+      <Link>Interfaces\Autonomous\IAutonomousServiceInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Interfaces\Autonomous\IAutonomousServiceManager.cs">
+      <Link>Interfaces\Autonomous\IAutonomousServiceManager.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Interfaces\Autonomous\IInvestmentInfo.cs">
+      <Link>Interfaces\Autonomous\IInvestmentInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Interfaces\Autonomous\IInvestmentReceipt.cs">
+      <Link>Interfaces\Autonomous\IInvestmentReceipt.cs</Link>
     </Compile>
     <Compile Include="..\LearnLanguages.Common\Interfaces\Core\IAdvisor.cs">
       <Link>Interfaces\Core\IAdvisor.cs</Link>
@@ -318,6 +342,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CslaContrib\" />
+    <Folder Include="Events\Autonomous\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

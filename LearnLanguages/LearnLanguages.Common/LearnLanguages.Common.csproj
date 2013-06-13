@@ -102,6 +102,21 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.ComponentModel.DataAnnotations.dll</HintPath>
     </Reference>
+    <Reference Include="System.Reactive.Core">
+      <HintPath>..\packages\Rx-Core.2.1.30214.0\lib\SL5\System.Reactive.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces">
+      <HintPath>..\packages\Rx-Interfaces.2.1.30214.0\lib\SL5\System.Reactive.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Linq">
+      <HintPath>..\packages\Rx-Linq.2.1.30214.0\lib\SL5\System.Reactive.Linq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices">
+      <HintPath>..\packages\Rx-PlatformServices.2.1.30214.0\lib\SL5\System.Reactive.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading">
+      <HintPath>..\packages\Rx-XAML.2.1.30214.0\lib\SL5\System.Reactive.Windows.Threading.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime">
       <HintPath>..\packages\Microsoft.Bcl.1.0.19\lib\sl5\System.Runtime.dll</HintPath>
     </Reference>
@@ -148,6 +163,7 @@
       <Link>CslaContrib\ScreenWithSubject.cs</Link>
     </Compile>
     <Compile Include="Analysis\AnalyzerBaseOfTAnalysis.cs" />
+    <Compile Include="Autonomous\InvestmentInfo.cs" />
     <Compile Include="CommonHelper.cs" />
     <Compile Include="Core\PageBase.cs" />
     <Compile Include="Core\QuestionArgs.cs" />
@@ -178,10 +194,12 @@
     <Compile Include="Exceptions\UserNotAuthenticatedException.cs" />
     <Compile Include="Interfaces\Analyzer\IAnalysis.cs" />
     <Compile Include="Interfaces\Analyzer\IAnalyzer.cs" />
+    <Compile Include="Interfaces\Autonomous\IInvestmentInfo.cs" />
     <Compile Include="Interfaces\Autonomous\IAutonomousServiceInfo.cs" />
     <Compile Include="Interfaces\Autonomous\IAutonomousServiceContext.cs" />
     <Compile Include="Interfaces\Autonomous\IAutonomousServiceManager.cs" />
     <Compile Include="Interfaces\Autonomous\IAutonomousService.cs" />
+    <Compile Include="Interfaces\Autonomous\IInvestmentReceipt.cs" />
     <Compile Include="Interfaces\Core\IModule.cs" />
     <Compile Include="Interfaces\Core\IPageInitializer.cs" />
     <Compile Include="Interfaces\Navigation\INavigationPanelViewModel.cs" />

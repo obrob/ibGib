@@ -1,24 +1,21 @@
-﻿using System;
-using System.Net;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
-
-namespace LearnLanguages.Common.Enums.Autonomous
+﻿namespace LearnLanguages.Common.Enums.Autonomous
 {
   public enum AutonomousServiceContextStates
   {
-    Unloaded,
     Loading,
     Loaded,
+    LoadError,
     Executing,
-    Aborting,
-    Killing,
-    Killed
+    Executed,
+    ExecuteError,
+    Canceling, //change to cancel
+    Canceled,
+    CancelError,
+    Killing, //change to abort?? (thread vocab google)
+    Killed,
+    KillError,
+    Unloading,
+    Unloaded,
+    UnloadError
   }
 }

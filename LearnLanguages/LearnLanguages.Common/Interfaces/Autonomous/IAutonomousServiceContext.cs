@@ -14,12 +14,12 @@ namespace LearnLanguages.Common.Interfaces.Autonomous
     /// <summary>
     /// The autonomous service which this context has loaded.
     /// </summary>
-    IAutonomousService LoadedService { get; }
+    IAutonomousService Service { get; }
 
     /// <summary>
     /// Indicates the current state of the context.
     /// </summary>
-    AutonomousServiceContextStates CurrentState { get; }
+    AutonomousServiceContextStates State { get; }
 
     /// <summary>
     /// Loads a service. For a service to be loaded, it must be
@@ -30,11 +30,33 @@ namespace LearnLanguages.Common.Interfaces.Autonomous
     /// </summary>
     /// <param name="service">service to load</param>
     Task<bool> TryLoadAsync(IAutonomousService service);
+
+    /// <summary>
+    /// Begins the execution of the service.
+    /// </summary>
     void Execute();
+
+    /// <summary>
+    /// Begins the abort of the service. 
+    /// </summary>
     void Abort();
+
+    /// <summary>
+    /// Amount of time allocated for loading of the service before 
+    /// the load times out and the context is put into an error state.
+    /// </summary>
     int AllowedLoadTime { get; set; }
+
+    /// <summary>
+    /// Amount of time allocated for aborting of the service before 
+    /// the abort times out and the context is put into an error state.
+    /// </summary>
     int AllowedAbortTime { get; set; }
-    int MinExecutionTime { get; set; }
-    int MaxExecutionTime { get; set; }
+
+    /// <summary>
+    /// Amount of time allocated for execution of the service before 
+    /// the execution times out and the context is put into an error state.
+    /// </summary>
+    int AllowedExecuteTime { get; set; }
   }
 }
