@@ -34,7 +34,7 @@ namespace LearnLanguages.Common.Interfaces.Autonomous
     /// <summary>
     /// Begins the execution of the service.
     /// </summary>
-    void Execute();
+    Task ExecuteAsync();
 
     /// <summary>
     /// Begins the abort of the service. 

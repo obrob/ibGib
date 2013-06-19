@@ -8,10 +8,10 @@
     Executing,
     Executed,
     ExecuteError,
-    Canceling, //change to cancel
+    Canceling, 
     Canceled,
     CancelError,
-    Killing, //change to abort?? (thread vocab google)
+    Killing, 
     Killed,
     KillError,
     Unloading,

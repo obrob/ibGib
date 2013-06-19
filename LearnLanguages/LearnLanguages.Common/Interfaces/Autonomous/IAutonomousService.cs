@@ -58,12 +58,12 @@
     int NumIterationsCompletedThisLifetime { get; }
 
     /// <summary>
-    /// Aborts the service's execution within the given timeAllowed. 
+    /// Cancels the service's execution within the given timeAllowed. 
     /// This is NOT an async timeout. This value is how long the service is being 
     /// given before that service's executing thread is no longer guaranteed. After
     /// that time, the thread may be stopped dead, and the service will be 
     /// marked as an untrustworthy service. 
     /// </summary>
-    void Abort(int timeAllowed);
+    void Cancel(int timeAllowed);
   }
 }

@@ -194,6 +194,7 @@
     <Compile Include="Exceptions\UserNotAuthenticatedException.cs" />
     <Compile Include="Interfaces\Analyzer\IAnalysis.cs" />
     <Compile Include="Interfaces\Analyzer\IAnalyzer.cs" />
+    <Compile Include="Interfaces\Autonomous\IAutonomousServiceChooser.cs" />
     <Compile Include="Interfaces\Autonomous\IInvestmentInfo.cs" />
     <Compile Include="Interfaces\Autonomous\IAutonomousServiceInfo.cs" />
     <Compile Include="Interfaces\Autonomous\IAutonomousServiceContext.cs" />

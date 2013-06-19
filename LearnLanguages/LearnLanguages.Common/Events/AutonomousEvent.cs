@@ -1,5 +1,11 @@
-﻿using Csla.Serialization;
+﻿#if SILVERLIGHT
+using Csla.Serialization;
+#else
+using System;
+#endif
+
 using LearnLanguages.Common.Interfaces.Autonomous;
+
 namespace LearnLanguages.Common.Events
 {
   [Serializable]

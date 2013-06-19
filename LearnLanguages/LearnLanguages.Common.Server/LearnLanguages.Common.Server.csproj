@@ -164,6 +164,9 @@
     <Compile Include="..\LearnLanguages.Common\EventArgs\ResultArgsOfT.cs">
       <Link>EventArgs\ResultArgsOfT.cs</Link>
     </Compile>
+    <Compile Include="..\LearnLanguages.Common\Events\AutonomousEvent.cs">
+      <Link>Events\AutonomousEvent.cs</Link>
+    </Compile>
     <Compile Include="..\LearnLanguages.Common\Events\MessageEvent.cs">
       <Link>Events\MessageEvent.cs</Link>
     </Compile>
@@ -342,7 +345,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CslaContrib\" />
-    <Folder Include="Events\Autonomous\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

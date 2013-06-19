@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LearnLanguages.Common.Events;
+using System.Collections.Generic;
 
 namespace LearnLanguages.Common.Interfaces.Autonomous
 {
@@ -55,7 +56,7 @@ namespace LearnLanguages.Common.Interfaces.Autonomous
     /// <summary>
     /// History for the 
     /// </summary>
-    IList<Events.AutonomousEvent> ServiceEventHistory { get; }
+    IList<AutonomousEvent> ServiceEventHistory { get; }
 
   }
 }
