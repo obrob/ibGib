@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LearnLanguages.Common.Interfaces.Autonomous;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +8,12 @@ using System.Threading.Tasks;
 
 namespace ExampleServices
 {
-  public class SleepService : LearnLanguages.Common.Interfaces.Autonomous.IAutonomousService
+  [Serializable]
+  public class SleepService : IAutonomousService
   {
-    public SleepService(int timeToSleepInMs, bool finishWithException)
+    public SleepService(string serviceName, int timeToSleepInMs, bool finishWithException)
     {
+      Name = serviceName;
       TimeToSleepInMs = timeToSleepInMs;
       FinishWithException = finishWithException;
     }
@@ -28,7 +31,7 @@ namespace ExampleServices
       NumIterationsCompletedThisLifetime += 1;
     }
 
-    public void Abort(int timeAllowed)
+    public void Cancel(int timeAllowed)
     {
       //Does nothing. In a real service, this would set a flag.
     }
@@ -56,5 +59,11 @@ namespace ExampleServices
 
     public int NumIterationsCompletedThisLifetime { get; set; }
 
+
+
+    public void Load()
+    {
+      Thread.Sleep(100);//don't really do anything.
+    }
   }
 }

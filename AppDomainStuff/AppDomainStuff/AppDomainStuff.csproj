@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="LearnLanguages.Common">
-      <HintPath>..\..\..\ibGib\LearnLanguages\LearnLanguages.Silverlight.Common\Bin\Debug\LearnLanguages.Common.dll</HintPath>
+    <Reference Include="LearnLanguages.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\LearnLanguages\LearnLanguages.Common.Server\bin\Debug\LearnLanguages.Common.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -44,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Context.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,6 +55,10 @@
     <ProjectReference Include="..\ExampleServices\ExampleServices.csproj">
       <Project>{0de26867-d0ec-4239-8127-42e1121d64f6}</Project>
       <Name>ExampleServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LearnLanguages.Autonomous.Server\LearnLanguages.Autonomous.Server.csproj">
+      <Project>{f75cc392-cc0d-4fda-bad4-0e936b2de109}</Project>
+      <Name>LearnLanguages.Autonomous.Server</Name>
     </ProjectReference>
     <ProjectReference Include="..\SomeOtherLibrary\SomeOtherLibrary.csproj">
       <Project>{ed376b11-ddf2-46ff-8d5f-a64599b35069}</Project>

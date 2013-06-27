@@ -1,12 +1,15 @@
 ﻿using LearnLanguages.Common.Enums.Autonomous;
+using LearnLanguages.Common.Exceptions;
 using LearnLanguages.Common.Interfaces.Autonomous;
 using System;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows;
+
 namespace LearnLanguages.Autonomous
 {
-  public class Context : IAutonomousServiceContext
+  [Serializable]
+  public class AppDomainContext : MarshalByRefObject, IAutonomousServiceContext
   {
 
     public void Abort()
@@ -60,14 +63,26 @@ namespace LearnLanguages.Autonomous
       get { throw new NotImplementedException(); }
     }
 
-    public AutonomousServiceContextStates State
-    {
-      get { throw new NotImplementedException(); }
-    }
+    public AutonomousServiceContextStates State { get; private set;}
 
-    public Task<bool> TryLoadAsync(IAutonomousService service)
+    public bool TryLoadService(IAutonomousService service)
     {
-      throw new NotImplementedException();
+      State = AutonomousServiceContextStates.Loading;
+      try
+      {
+        if (!service.IsEnabled)
+          throw new ServiceNotEnabledException(service.Name, null);
+        service.Load();
+      }
+      catch (Exception ex)
+      {
+        //Don't care what the exception is as far as the flow of code is concerned.
+        //Log the error, though not sure how to do that with the app domain.
+        
+        State = AutonomousServiceContextStates.LoadError;
+      }
+      State = AutonomousServiceContextStates.Loaded;
+      return true;
     }
   }
 }

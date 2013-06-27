@@ -1,10 +1,11 @@
 ﻿using System;
+using System.Threading.Tasks;
 namespace LearnLanguages.Common.Interfaces.Autonomous
 {
   public interface IAutonomousServiceManager : IHaveId
   {
     IObservable<IInvestmentReceipt> Invest(IInvestmentInfo investmentInfo);
-    bool Enable();
-    bool Disable();
+    Task<bool> Enable();
+    Task<bool> Disable();
   }
 }

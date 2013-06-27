@@ -24,5 +24,16 @@ namespace LearnLanguages.Autonomous.Client
     {
       get { throw new NotImplementedException(); }
     }
+
+
+    System.Threading.Tasks.Task<bool> IAutonomousServiceManager.Enable()
+    {
+      throw new NotImplementedException();
+    }
+
+    System.Threading.Tasks.Task<bool> IAutonomousServiceManager.Disable()
+    {
+      throw new NotImplementedException();
+    }
   }
 }

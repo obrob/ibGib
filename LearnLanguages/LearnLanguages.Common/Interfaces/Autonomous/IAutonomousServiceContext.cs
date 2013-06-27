@@ -29,7 +29,7 @@ namespace LearnLanguages.Common.Interfaces.Autonomous
     /// in which to execute, and may overextend their reach.
     /// </summary>
     /// <param name="service">service to load</param>
-    Task<bool> TryLoadAsync(IAutonomousService service);
+    bool TryLoadService(IAutonomousService service);
 
     /// <summary>
     /// Begins the execution of the service.

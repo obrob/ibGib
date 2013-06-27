@@ -1,4 +1,6 @@
-﻿using LearnLanguages.Common.Enums.Autonomous;
+﻿using ExampleServices;
+using LearnLanguages.Autonomous.Loaders;
+using LearnLanguages.Common.Enums.Autonomous;
 using LearnLanguages.Common.Interfaces.Autonomous;
 using System;
 using System.Collections.Generic;
@@ -6,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LearnLanguages.Autonomous.Server
+namespace LearnLanguages.Autonomous
 {
     public class ServiceManager : IAutonomousServiceManager
     {
@@ -37,19 +39,23 @@ namespace LearnLanguages.Autonomous.Server
 
       private async Task InitializeContextsAsync()
       {
-        _Contexts = new List<Context>();
-        for (int i = 0; i < Configuration.ConcurrentContexts; i++)
-        {
-          var context = new Context()
-            {
-              AllowedAbortTime = Configuration.DefaultContextAllowedAbortTime,
-              AllowedExecuteTime = Configuration.DefaultContextAllowedExecuteTime,
-              AllowedLoadTime = Configuration.DefaultContextAllowedLoadTime
-            };
-        }
+        //First, just try to load one single context.
+        var service = new SleepService("TestSleepService2sec", 2000, false);
+        var context = await AppDomainLoader.Ton.TryLoadService(service);
+        var contextState = context.State;
+        //_Contexts = new List<AppDomainContext>();
+        //for (int i = 0; i < Configuration.ConcurrentContexts; i++)
+        //{
+        //  var context = new AppDomainContext()
+        //    {
+        //      AllowedAbortTime = Configuration.DefaultContextAllowedAbortTime,
+        //      AllowedExecuteTime = Configuration.DefaultContextAllowedExecuteTime,
+        //      AllowedLoadTime = Configuration.DefaultContextAllowedLoadTime
+        //    };
+        //}
       }
 
-      private List<Context> _Contexts { get; set; }
+      private List<AppDomainContext> _Contexts { get; set; }
 
       private async Task StopAndDisableAllContextsAsync()
       {
@@ -61,5 +67,7 @@ namespace LearnLanguages.Autonomous.Server
         throw new NotImplementedException();
       }
 
+
+     
     }
 }

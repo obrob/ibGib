@@ -43,9 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\LearnLanguages.Autonomous.Client\Context.cs">
-      <Link>Context.cs</Link>
+    <Compile Include="AppDomainContext.cs" />
+    <Compile Include="AutonomousResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutonomousResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Loaders\AppDomainLoader.cs" />
     <Compile Include="ServiceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceManagerConfiguration.cs" />
@@ -56,13 +60,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AutonomousResources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>AutonomousResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ServiceManagerConfigurationResources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>ServiceManagerConfigurationResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Loaders\" />
+    <ProjectReference Include="..\ExampleServices\ExampleServices.csproj">
+      <Project>{0de26867-d0ec-4239-8127-42e1121d64f6}</Project>
+      <Name>ExampleServices</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

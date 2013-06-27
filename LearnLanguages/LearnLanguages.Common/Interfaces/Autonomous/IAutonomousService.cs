@@ -65,5 +65,10 @@
     /// marked as an untrustworthy service. 
     /// </summary>
     void Cancel(int timeAllowed);
+
+    /// <summary>
+    /// Initializes the service. 
+    /// </summary>
+    void Load();
   }
 }

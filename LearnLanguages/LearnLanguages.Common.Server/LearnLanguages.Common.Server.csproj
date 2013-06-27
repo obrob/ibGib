@@ -176,6 +176,9 @@
     <Compile Include="..\LearnLanguages.Common\Exceptions\AnalysisTypeNotRecognizedException.cs">
       <Link>Exceptions\AnalysisTypeNotRecognizedException.cs</Link>
     </Compile>
+    <Compile Include="..\LearnLanguages.Common\Exceptions\Autonomous\ServiceNotEnabledException.cs">
+      <Link>Exceptions\Autonomous\ServiceNotEnabledException.cs</Link>
+    </Compile>
     <Compile Include="..\LearnLanguages.Common\Exceptions\PartNotSatisfiedException.cs">
       <Link>Exceptions\PartNotSatisfiedException.cs</Link>
     </Compile>

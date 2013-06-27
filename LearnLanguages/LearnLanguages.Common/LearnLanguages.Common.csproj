@@ -190,6 +190,7 @@
     <Compile Include="Events\MessageEvent.cs" />
     <Compile Include="Exceptions\AnalysisTypeNotRecognizedException.cs" />
     <Compile Include="Exceptions\AnalysisIdNotRecognizedException.cs" />
+    <Compile Include="Exceptions\Autonomous\ServiceNotEnabledException.cs" />
     <Compile Include="Exceptions\RefineAttemptedBeforeAnalysisException.cs" />
     <Compile Include="Exceptions\UserNotAuthenticatedException.cs" />
     <Compile Include="Interfaces\Analyzer\IAnalysis.cs" />

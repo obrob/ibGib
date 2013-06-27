@@ -143,5 +143,6 @@ namespace LearnLanguages
     public static string LearnLanguagesAccountKey = @"j4TwNcNsmN1prhbk21NS+wA7dR/fXtex4+32m9GS/Bg=";
 #endif
 
+    public static string ErrorMsgServiceNotEnabledException = "The service {0} is not enabled.";//{0} = service name.
   }
 }

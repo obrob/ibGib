@@ -1,4 +1,5 @@
 ﻿using ExampleServices;
+using LearnLanguages.Autonomous;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,11 +14,47 @@ namespace AppDomainStuff
   {
     static void Main(string[] args)
     {
-      Secondary();
-      Thread.Sleep(15000);
+
+      Pause("Starting services.");
+      StartAutonomousServiceManager();
+      bool shouldEnd = false;
+      do
+      {
+        shouldEnd = AskForEndProgram();
+      } while (!shouldEnd);
+      //AppDomainTestStuff();
+      //Thread.Sleep(15000);
     }
 
-    private static async Task Secondary()
+    private static bool AskForEndProgram()
+    {
+      //just being silly
+      var input = Console.ReadLine();
+      switch (input.ToLower())
+      {
+        case "exit":
+          return true;
+        case "q":
+          return true;
+        case "quit":
+          return true;
+        case "end":
+          return true;
+
+        default:
+          Console.WriteLine("What'd you say to me?");
+          return false;
+      }
+    }
+
+    private static ServiceManager _ServiceManager { get; set; }
+    private static async void StartAutonomousServiceManager()
+    {
+      _ServiceManager = new ServiceManager();
+      var isEnabled = await _ServiceManager.Enable();
+    }
+
+    private static async Task AppDomainTestStuff()
     {
       // Get and display the friendly name of the default AppDomain. 
       string callingDomainName = Thread.GetDomain().FriendlyName;
@@ -113,21 +150,16 @@ namespace AppDomainStuff
         Console.WriteLine(line);
     }
 
-    public static void Pause()
+    public static void Pause(string msg = "")
     {
       Console.WriteLine();
+      if (msg != "")
+        Console.WriteLine(msg);
       Console.WriteLine("Paused. Press Enter to continue.");
       Console.ReadLine();
     }
 
-    #region beginning autonomous stuff.....
-    ////When the app starts up, then this action is representative of a user
-    ////logging on. This in and of itself is investing in our program relative 
-    ////to that user, so we will do some processing for that user. For starters,
-    ////we will want to do some service called "NaiveWordsLearnedMetricService". 
-    //var serviceName = _NaiveWordsLearnedMetricService;
-    //static string _NaiveWordsLearnedMetricService = "NaiveWordsLearnedMetricService";
-    #endregion
+    
 
   }
 }
