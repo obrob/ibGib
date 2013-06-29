@@ -144,5 +144,9 @@ namespace LearnLanguages
 #endif
 
     public static string ErrorMsgServiceNotEnabledException = "The service {0} is not enabled.";//{0} = service name.
+    public static string ErrorMsgAutonomousServiceExecuteException = "There was an error executing the service.\r\nServiceName: {0}\r\nError:{1}"; //0=Service name, 1 = error message
+    public static string ErrorMsgAutonomousServiceCancelException = "There was an error canceling the service.\r\nServiceName: {0}\r\nError:{1}"; //0=Service name, 1 = error message
+    public static string ErrorMsgAutonomousServiceLoadException = "There was an error loading the service.\r\nServiceName: {0}\r\nError:{1}"; //0=Service name, 1 = error message
+    
   }
 }

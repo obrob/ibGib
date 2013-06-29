@@ -169,6 +169,7 @@
     <Compile Include="Core\QuestionArgs.cs" />
     <Compile Include="Core\RandomPicker.cs" />
     <Compile Include="Enums\Autonomous\AutonomousServiceContextStates.cs" />
+    <Compile Include="Enums\Autonomous\AutonomousServiceStates.cs" />
     <Compile Include="Enums\IntendedUserAuthenticationState.cs" />
     <Compile Include="EventArgs\ResultArgsOfT.cs" />
     <Compile Include="Core\LearnLanguagesExtensions.cs" />
@@ -190,6 +191,9 @@
     <Compile Include="Events\MessageEvent.cs" />
     <Compile Include="Exceptions\AnalysisTypeNotRecognizedException.cs" />
     <Compile Include="Exceptions\AnalysisIdNotRecognizedException.cs" />
+    <Compile Include="Exceptions\Autonomous\AutonomousServiceExecuteException.cs" />
+    <Compile Include="Exceptions\Autonomous\AutonomousServiceCancelException.cs" />
+    <Compile Include="Exceptions\Autonomous\AutonomousServiceLoadException.cs" />
     <Compile Include="Exceptions\Autonomous\ServiceNotEnabledException.cs" />
     <Compile Include="Exceptions\RefineAttemptedBeforeAnalysisException.cs" />
     <Compile Include="Exceptions\UserNotAuthenticatedException.cs" />

@@ -158,6 +158,12 @@
     <Compile Include="..\LearnLanguages.Common\Enums\Autonomous\AutonomousServiceContextStates.cs">
       <Link>Enums\Autonomous\AutonomousServiceContextStates.cs</Link>
     </Compile>
+    <Compile Include="..\LearnLanguages.Common\Enums\Autonomous\AutonomousServiceStates.cs">
+      <Link>Enums\Autonomous\AutonomousServiceStates.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Enums\IntendedUserAuthenticationState.cs">
+      <Link>Enums\IntendedUserAuthenticationState.cs</Link>
+    </Compile>
     <Compile Include="..\LearnLanguages.Common\EventArgs\ModelEventArgsOfT.cs">
       <Link>EventArgs\ModelEventArgsOfT.cs</Link>
     </Compile>
@@ -175,6 +181,15 @@
     </Compile>
     <Compile Include="..\LearnLanguages.Common\Exceptions\AnalysisTypeNotRecognizedException.cs">
       <Link>Exceptions\AnalysisTypeNotRecognizedException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Exceptions\Autonomous\AutonomousServiceCancelException.cs">
+      <Link>Exceptions\Autonomous\AutonomousServiceCancelException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Exceptions\Autonomous\AutonomousServiceExecuteException.cs">
+      <Link>Exceptions\Autonomous\AutonomousServiceExecuteException.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Common\Exceptions\Autonomous\AutonomousServiceLoadException.cs">
+      <Link>Exceptions\Autonomous\AutonomousServiceLoadException.cs</Link>
     </Compile>
     <Compile Include="..\LearnLanguages.Common\Exceptions\Autonomous\ServiceNotEnabledException.cs">
       <Link>Exceptions\Autonomous\ServiceNotEnabledException.cs</Link>

@@ -37,10 +37,10 @@ namespace LearnLanguages.Autonomous
 
     public int ConcurrentContexts { get; set; }
 
-    public int DefaultContextAllowedAbortTime { get; set; }
+    public int DefaultContextAllowedAbortTimeInMs { get; set; }
 
-    public int DefaultContextAllowedExecuteTime { get; set; }
+    public int DefaultContextAllowedExecuteTimeInMs { get; set; }
 
-    public int DefaultContextAllowedLoadTime { get; set; }
+    public int DefaultContextAllowedLoadTimeInMs { get; set; }
   }
 }

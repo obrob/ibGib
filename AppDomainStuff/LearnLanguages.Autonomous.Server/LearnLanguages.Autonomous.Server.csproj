@@ -49,6 +49,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AutonomousResources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Bases\AutonomousServiceBase.cs" />
     <Compile Include="Loaders\AppDomainLoader.cs" />
     <Compile Include="ServiceManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -41,18 +41,12 @@ namespace LearnLanguages.Autonomous
       {
         //First, just try to load one single context.
         var service = new SleepService("TestSleepService2sec", 2000, false);
+
+        //The service should be enabled to qualify for loading into the context.
+        service.Enable();
+
         var context = await AppDomainLoader.Ton.TryLoadService(service);
         var contextState = context.State;
-        //_Contexts = new List<AppDomainContext>();
-        //for (int i = 0; i < Configuration.ConcurrentContexts; i++)
-        //{
-        //  var context = new AppDomainContext()
-        //    {
-        //      AllowedAbortTime = Configuration.DefaultContextAllowedAbortTime,
-        //      AllowedExecuteTime = Configuration.DefaultContextAllowedExecuteTime,
-        //      AllowedLoadTime = Configuration.DefaultContextAllowedLoadTime
-        //    };
-        //}
       }
 
       private List<AppDomainContext> _Contexts { get; set; }
