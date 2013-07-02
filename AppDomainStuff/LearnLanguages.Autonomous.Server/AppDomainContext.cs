@@ -65,14 +65,14 @@ namespace LearnLanguages.Autonomous
 
     public AutonomousServiceContextStates State { get; private set;}
 
-    public bool TryLoadService(IAutonomousService service)
+    public bool TryLoadService(IAutonomousService service, int timeAllowedInMs)
     {
       State = AutonomousServiceContextStates.Loading;
       try
       {
         if (!service.IsEnabled)
           throw new ServiceNotEnabledException(service.Name, null);
-        service.Load();
+        service.Load(timeAllowedInMs);
       }
       catch (Exception ex)
       {

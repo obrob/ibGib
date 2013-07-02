@@ -30,7 +30,7 @@ namespace LearnLanguages.Autonomous.Loaders
     }
     #endregion
     
-    public async Task<IAutonomousServiceContext> TryLoadService(IAutonomousService service)
+    public async Task<IAutonomousServiceContext> LoadServiceAsync(IAutonomousService service, int timeAllowedInMs)
     {
       //We will create an AppDomainContext, which descends from MarshalByRefObject.
       //This will actually return a proxy.
@@ -61,7 +61,7 @@ namespace LearnLanguages.Autonomous.Loaders
              );
 
       var beforeState = contextProxy.State;
-      var success = contextProxy.TryLoadService(service);
+      var success = contextProxy.TryLoadService(service, timeAllowedInMs);
       var afterState = contextProxy.State;
       return contextProxy;
     }

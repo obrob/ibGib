@@ -4,6 +4,7 @@ using LearnLanguages.Common.Enums.Autonomous;
 using LearnLanguages.Common.Interfaces.Autonomous;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,7 +46,8 @@ namespace LearnLanguages.Autonomous
         //The service should be enabled to qualify for loading into the context.
         service.Enable();
 
-        var context = await AppDomainLoader.Ton.TryLoadService(service);
+        var context = 
+            await AppDomainLoader.Ton.LoadServiceAsync(service, Configuration.DefaultContextAllowedLoadTimeInMs);
         var contextState = context.State;
       }
 
@@ -62,6 +64,8 @@ namespace LearnLanguages.Autonomous
       }
 
 
-     
+
+      [ImportMany(typeof(IAutonomousService))]
+      private ICollection<IAutonomousService> _Services { get; set; }
     }
 }
