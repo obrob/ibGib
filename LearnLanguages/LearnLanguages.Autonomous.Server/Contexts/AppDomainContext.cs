@@ -58,10 +58,7 @@ namespace LearnLanguages.Autonomous
       throw new NotImplementedException();
     }
 
-    public IAutonomousService Service
-    {
-      get { throw new NotImplementedException(); }
-    }
+    public IAutonomousService Service { get; private set; }
 
     public AutonomousServiceContextStates State { get; private set;}
 
@@ -84,5 +81,32 @@ namespace LearnLanguages.Autonomous
       State = AutonomousServiceContextStates.Loaded;
       return true;
     }
+
+
+    public Task AbortAsync(int timeAllowedInMs)
+    {
+      throw new NotImplementedException();
+    }
+
+    public Task ExecuteAsync(int timeAllowedInMs)
+    {
+      throw new NotImplementedException();
+    }
+
+    public Task KillAsync(int timeAllowedInMs)
+    {
+      throw new NotImplementedException();
+    }
+
+
+    #region IDisposable Members
+
+    public void Dispose()
+    {
+      Service = null;
+      GC.Collect();
+    }
+
+    #endregion
   }
 }

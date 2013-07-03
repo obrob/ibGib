@@ -1,4 +1,5 @@
 ﻿using LearnLanguages.Common.Enums.Autonomous;
+using System;
 using System.Threading.Tasks;
 namespace LearnLanguages.Common.Interfaces.Autonomous
 {
@@ -9,7 +10,7 @@ namespace LearnLanguages.Common.Interfaces.Autonomous
   /// This means that these contexts should be creating the threads/tasks
   /// with timeouts of max allowed execution time. 
   /// </summary>
-  public interface IAutonomousServiceContext
+  public interface IAutonomousServiceContext : IDisposable
   {
     /// <summary>
     /// The autonomous service which this context has loaded.
@@ -31,15 +32,17 @@ namespace LearnLanguages.Common.Interfaces.Autonomous
     /// <param name="service">service to load</param>
     bool TryLoadService(IAutonomousService service, int timeAllowedInMs);
 
+    Task KillAsync(int timeAllowedInMs);
+
     /// <summary>
     /// Begins the execution of the service.
     /// </summary>
-    Task ExecuteAsync();
+    Task ExecuteAsync(int timeAllowedInMs);
 
     /// <summary>
     /// Begins the abort of the service. 
     /// </summary>
-    void Abort();
+    Task AbortAsync(int timeAllowedInMs);
 
     /// <summary>
     /// Amount of time allocated for loading of the service before 

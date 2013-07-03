@@ -32,6 +32,7 @@ namespace LearnLanguages.Autonomous.Loaders
     
     public async Task<IAutonomousServiceContext> LoadServiceAsync(IAutonomousService service, int timeAllowedInMs)
     {
+      throw new NotImplementedException();
       //We will create an AppDomainContext, which descends from MarshalByRefObject.
       //This will actually return a proxy.
       //This context must load the service in that appdomain
@@ -40,30 +41,30 @@ namespace LearnLanguages.Autonomous.Loaders
       
       var serviceType = service.GetType();
 
-      AppDomainSetup ads = new AppDomainSetup();
-      ads.ApplicationBase =
-          System.Environment.CurrentDirectory;
-      ads.DisallowBindingRedirects = false;
-      ads.DisallowCodeDownload = true;
-      ads.ConfigurationFile =
-          AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
+      //AppDomainSetup ads = new AppDomainSetup();
+      //ads.ApplicationBase =
+      //    System.Environment.CurrentDirectory;
+      //ads.DisallowBindingRedirects = false;
+      //ads.DisallowCodeDownload = true;
+      //ads.ConfigurationFile =
+      //    AppDomain.CurrentDomain.SetupInformation.ConfigurationFile;
 
-      var appDomainName = AutonomousResources.AppDomainNamePrefix + 
-                          service.Name + 
-                          AutonomousResources.AppDomainNameSuffix;
-      AppDomain ad2 = AppDomain.CreateDomain(appDomainName, null, ads);
-      var contextType = typeof(AppDomainContext);
-      var assembly = contextType.Assembly.FullName;
-      var contextProxy =
-             (AppDomainContext)ad2.CreateInstanceAndUnwrap(
-                 assembly,
-                 typeof(AppDomainContext).FullName
-             );
+      //var appDomainName = AutonomousResources.AppDomainNamePrefix + 
+      //                    service.Name + 
+      //                    AutonomousResources.AppDomainNameSuffix;
+      //AppDomain ad2 = AppDomain.CreateDomain(appDomainName, null, ads);
+      //var contextType = typeof(AppDomainContext);
+      //var assembly = contextType.Assembly.FullName;
+      //var contextProxy =
+      //       (AppDomainContext)ad2.CreateInstanceAndUnwrap(
+      //           assembly,
+      //           typeof(AppDomainContext).FullName
+      //       );
 
-      var beforeState = contextProxy.State;
-      var success = contextProxy.TryLoadService(service, timeAllowedInMs);
-      var afterState = contextProxy.State;
-      return contextProxy;
+    //  var beforeState = contextProxy.State;
+    //  var success = contextProxy.TryLoadService(service, timeAllowedInMs);
+    //  var afterState = contextProxy.State;
+    //  return contextProxy;
     }
   }
 }

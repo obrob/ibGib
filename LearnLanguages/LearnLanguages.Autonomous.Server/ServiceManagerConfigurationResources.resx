@@ -117,7 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="ConcurrentContexts" xml:space="preserve">
+  <data name="DefaultConcurrentContexts" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="DefaultContextAllowedAbortTimeInMs" xml:space="preserve">
+    <value>5000</value>
+  </data>
+  <data name="DefaultContextAllowedExecuteTimeInMs" xml:space="preserve">
+    <value>60000</value>
+    <comment>1 minute</comment>
+  </data>
+  <data name="DefaultContextAllowedLoadTimeInMs" xml:space="preserve">
+    <value>5000</value>
+  </data>
+  <data name="DefaultContextRandomSalt" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="DefaultKillAllContextsAllowedTimeInMs" xml:space="preserve">
+    <value>5000</value>
   </data>
 </root>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Contracts;
 
 namespace LearnLanguages.Common
 {
@@ -82,6 +83,28 @@ namespace LearnLanguages.Common
       var i = Randomizer.Next(0, list.Count);
       var picked = list[i];
       return picked;
+    }
+
+    public string PickLetters(int numOfLetters)
+    {
+      Contract.Requires(numOfLetters > 0);
+
+      var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+      string randomString = "";
+      for (int i = 0; i < numOfLetters; i++)
+        randomString += PickRandomCharacter(letters);
+
+      
+      Contract.Ensures(randomString.Length == numOfLetters);
+      return randomString;
+    }
+
+    public char PickRandomCharacter(string source)
+    {
+      var randomIndex = Randomizer.Next(0, source.Length);
+      var randomChar = source[randomIndex];
+      return randomChar;
     }
   }
 }
