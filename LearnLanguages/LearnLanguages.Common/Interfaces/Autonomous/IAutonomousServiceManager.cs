@@ -5,7 +5,7 @@ namespace LearnLanguages.Common.Interfaces.Autonomous
   public interface IAutonomousServiceManager : IHaveId
   {
     IObservable<IInvestmentReceipt> Invest(IInvestmentInfo investmentInfo);
-    Task<bool> Enable();
-    Task<bool> Disable();
+    Task<bool> EnableAsync();
+    Task<bool> DisableAsync();
   }
 }

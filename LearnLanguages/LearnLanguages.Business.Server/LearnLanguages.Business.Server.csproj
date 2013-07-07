@@ -19,7 +19,6 @@
     <SccProvider>SAK</SccProvider>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
-    <DontImportPostSharp>True</DontImportPostSharp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -62,12 +61,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.XmlSerializers.dll</HintPath>
     </Reference>
-    <Reference Include="Gib.Aspects">
-      <HintPath>..\packages\Gib.Aspects.0.0.1\lib\net45\Gib.Aspects.dll</HintPath>
-    </Reference>
-    <Reference Include="PostSharp">
-      <HintPath>..\packages\PostSharp.3.0.27\lib\net20\PostSharp.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
@@ -99,6 +92,9 @@
     </Compile>
     <Compile Include="..\LearnLanguages.Business.Client\Core\Cache.cs">
       <Link>Core\Cache.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\Criteria\AutonomousServiceInvestmentCriteria.cs">
+      <Link>Criteria\AutonomousServiceInvestmentCriteria.cs</Link>
     </Compile>
     <Compile Include="..\LearnLanguages.Business.Client\Criteria\ChangePasswordCriteria.cs">
       <Link>Criteria\ChangePasswordCriteria.cs</Link>
@@ -181,6 +177,12 @@
     <Compile Include="..\LearnLanguages.Business.Client\Lists\UserList.cs">
       <Link>Lists\UserList.cs</Link>
     </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\Autonomous\ChangeEnableAutonomousServiceManagerReadOnly.cs">
+      <Link>ReadOnly\Autonomous\ChangeEnableAutonomousServiceManagerReadOnly.cs</Link>
+    </Compile>
+    <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\Autonomous\InvestInAutonomousServiceReadOnly.cs">
+      <Link>ReadOnly\Autonomous\InvestInAutonomousServiceReadOnly.cs</Link>
+    </Compile>
     <Compile Include="..\LearnLanguages.Business.Client\ReadOnly\BlankPhraseCreator.cs">
       <Link>ReadOnly\BlankPhraseCreator.cs</Link>
     </Compile>
@@ -230,11 +232,13 @@
       <Link>Security\UserPrincipal.cs</Link>
     </Compile>
     <Compile Include="Dummy.cs" />
-    <Compile Include="PostSharp\PostSharpGlobalConfig.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequiresPostSharp.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LearnLanguages.Autonomous.Server\LearnLanguages.Autonomous.Server.csproj">
+      <Project>{f75cc392-cc0d-4fda-bad4-0e936b2de109}</Project>
+      <Name>LearnLanguages.Autonomous.Server</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LearnLanguages.Common.Server\LearnLanguages.Common.Server.csproj">
       <Project>{D0155DB8-9B4B-4594-8DE9-6268F0E2595B}</Project>
       <Name>LearnLanguages.Common.Server</Name>
@@ -254,7 +258,6 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
-  <Import Project="..\packages\PostSharp.3.0.27\tools\PostSharp.targets" Condition="Exists('..\packages\PostSharp.3.0.27\tools\PostSharp.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

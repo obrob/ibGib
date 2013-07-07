@@ -99,10 +99,13 @@
     <Compile Include="BusinessHelper.cs" />
     <Compile Include="Core\Cache.cs" />
     <Compile Include="Criteria\ChangePasswordCriteria.cs" />
+    <Compile Include="Criteria\AutonomousServiceInvestmentCriteria.cs" />
     <Compile Include="Criteria\PhraseTextLanguageTextPairsCriteria.cs" />
     <Compile Include="Edits\UserEdit.cs" />
     <Compile Include="Lists\UserList.cs" />
+    <Compile Include="ReadOnly\Autonomous\ChangeEnableAutonomousServiceManagerReadOnly.cs" />
     <Compile Include="ReadOnly\ChangePasswordReadOnly.cs" />
+    <Compile Include="ReadOnly\Autonomous\InvestInAutonomousServiceReadOnly.cs" />
     <Compile Include="ReadOnly\DeleteMultiLineTextsReadOnly.cs" />
     <Compile Include="ReadOnly\MultiLineTextDtosOnlyRetriever.cs" />
     <Compile Include="ReadOnly\MostRecentPhraseDataBeliefsRetriever.cs" />
