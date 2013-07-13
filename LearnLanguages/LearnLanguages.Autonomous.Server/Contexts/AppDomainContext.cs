@@ -12,6 +12,11 @@ namespace LearnLanguages.Autonomous
   public class AppDomainContext : MarshalByRefObject, IAutonomousServiceContext
   {
 
+    public AppDomainContext()
+    {
+
+    }
+
     public void Abort()
     {
       throw new NotImplementedException();

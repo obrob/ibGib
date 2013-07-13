@@ -55,6 +55,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\AspNet.ScriptManager.jQuery.UI.Combined.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.UI.Combined.dll</HintPath>
     </Reference>
+    <Reference Include="Caliburn.Micro">
+      <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\net45\Caliburn.Micro.dll</HintPath>
+    </Reference>
     <Reference Include="Csla">
       <HintPath>..\packages\CSLA-Core.4.5.30\lib\net45\Csla.dll</HintPath>
     </Reference>
@@ -98,6 +101,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Caliburn.Micro.1.5.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -377,6 +383,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\LearnLanguages.Autonomous.Server\LearnLanguages.Autonomous.Server.csproj">
+      <Project>{f75cc392-cc0d-4fda-bad4-0e936b2de109}</Project>
+      <Name>LearnLanguages.Autonomous.Server</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LearnLanguages.Business.Server\LearnLanguages.Business.Server.csproj">
       <Project>{9ab67d6b-f6b7-4ad4-8c51-c5049ae7898a}</Project>
       <Name>LearnLanguages.Business.Server</Name>

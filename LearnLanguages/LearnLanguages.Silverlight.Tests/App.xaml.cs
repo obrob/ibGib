@@ -13,7 +13,7 @@ namespace LearnLanguages.Silverlight.Tests
       this.Startup += this.Application_Startup;
       this.Exit += this.Application_Exit;
       this.UnhandledException += this.Application_UnhandledException;
-
+      var name = typeof(LearnLanguages.Business.Security.UserPrincipal).Assembly.FullName;
       InitializeComponent();
     }
 

@@ -28,11 +28,13 @@ namespace LearnLanguages.Silverlight.Tests
       try
       {
         await Setup();
-        var result = await ChangeEnableAutonomousServiceManagerReadOnly.CreateNewAsync(true);
-        
+        ChangeEnableAutonomousServiceManagerReadOnly result = null;
         EnqueueCallback(() => Assert.IsTrue(result.WasSuccessful.Value));
-
         EnqueueTestComplete();
+        
+        result = await ChangeEnableAutonomousServiceManagerReadOnly.CreateNewAsync(true);
+        isComplete = true;
+        
       }
       finally
       {

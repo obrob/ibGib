@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="AppDomainLoading.Web.FooService" CodeBehind="FooService.svc.cs" %>

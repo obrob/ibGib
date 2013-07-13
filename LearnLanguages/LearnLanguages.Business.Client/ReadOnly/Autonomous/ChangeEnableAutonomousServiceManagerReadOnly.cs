@@ -55,13 +55,13 @@ namespace LearnLanguages.Business.ReadOnly.Autonomous
       Id = Guid.NewGuid();
       bool? result = null;
 
-      if (!Services.IsInitialized)
+      if (!Services.ContainsAssemblyCatalog(GetType().Assembly.FullName))
       {
-        //This is where we do the server-side container initialization. I don't know of a better
-        //place to put this, and we have a use case for it right now with the autonomous services.
-        CompositionContainer serverContainer = InitializeContainer();
-        Services.Initialize(serverContainer);
-        serverContainer.SatisfyImportsOnce(this);
+        Services.AddCatalog(this.GetType().Assembly);
+        var autonomousAssembly = typeof(LearnLanguages.Autonomous.AppDomainContext).Assembly;
+        if (!Services.ContainsAssemblyCatalog(autonomousAssembly.FullName))
+          Services.AddCatalog(autonomousAssembly);
+        Services.Container.ComposeParts(this);
       }
 
       //The service manager should not be null at this point.
@@ -76,18 +76,9 @@ namespace LearnLanguages.Business.ReadOnly.Autonomous
       WasSuccessful = result;
     }
 
-    [Import]
+    [Import(AllowRecomposition=false)]
     private IAutonomousServiceManager _ServiceManager { get; set; }
 
-    private CompositionContainer InitializeContainer()
-    {
-      AssemblyCatalog catThis = new AssemblyCatalog(GetType().Assembly);
-      AssemblyCatalog catAutonomous = new AssemblyCatalog(typeof(ServiceManager).Assembly);
-      AggregateCatalog catAggregate = new AggregateCatalog(catThis, catAutonomous);
-      CompositionContainer retContainer = new CompositionContainer(catAggregate);
-      
-      return retContainer;
-    }
 #endif
 
     #endregion
