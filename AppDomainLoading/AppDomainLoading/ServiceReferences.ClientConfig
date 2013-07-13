@@ -1,1 +1,17 @@
-﻿<configuration />
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <customBinding>
+                <binding name="CustomBinding_FooService">
+                    <binaryMessageEncoding />
+                    <httpTransport maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" />
+                </binding>
+            </customBinding>
+        </bindings>
+        <client>
+            <endpoint address="../FooService.svc" binding="customBinding"
+                bindingConfiguration="CustomBinding_FooService" contract="ServiceReference1.FooService"
+                name="CustomBinding_FooService" />
+        </client>
+    </system.serviceModel>
+</configuration>

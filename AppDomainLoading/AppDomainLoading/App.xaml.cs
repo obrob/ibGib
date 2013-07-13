@@ -28,6 +28,14 @@ namespace AppDomainLoading
     {
       this.RootVisual = new MainPage();
 
+      var client = new ServiceReference1.FooServiceClient();
+      client.FooCompleted += client_FooCompleted;
+      client.FooAsync();
+    }
+
+    void client_FooCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+    {
+      var blah = "blah";
     }
 
     private void Application_Exit(object sender, EventArgs e)

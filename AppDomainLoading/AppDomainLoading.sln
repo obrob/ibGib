@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.20617.1 PREVIEW
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppDomainLoading", "AppDomainLoading\AppDomainLoading.csproj", "{A201489B-0CBC-4606-BD8C-78B8326A8988}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B20349BE-5DA4-4611-B60C-8B09D7487EE2} = {B20349BE-5DA4-4611-B60C-8B09D7487EE2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppDomainLoading.Web", "AppDomainLoading.Web\AppDomainLoading.Web.csproj", "{B20349BE-5DA4-4611-B60C-8B09D7487EE2}"
 EndProject

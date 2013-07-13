@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="f3d4af73-6e23-498e-8dfa-e2a19b9b0b57" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:3533/FooService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FooService.wsdl" MetadataType="Wsdl" ID="5447a37b-92a1-4c6b-9e4e-809658a853e5" SourceId="1" SourceUrl="http://localhost:3533/FooService.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="FooService.xsd" MetadataType="Schema" ID="c72a3484-e05e-4437-bb69-2fffb1255844" SourceId="1" SourceUrl="http://localhost:3533/FooService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FooService.disco" MetadataType="Disco" ID="1ac1486f-6578-4850-a195-a5dde9bdad61" SourceId="1" SourceUrl="http://localhost:3533/FooService.svc?disco" />
+    <MetadataFile FileName="FooService1.wsdl" MetadataType="Wsdl" ID="6d7c4c93-fe52-44ce-8c06-40a1b49ca7b5" SourceId="1" SourceUrl="http://localhost:3533/FooService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

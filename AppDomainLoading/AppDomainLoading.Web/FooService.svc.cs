@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppDomainLoading.Autonomous;
+using System;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -13,8 +14,8 @@ namespace AppDomainLoading.Web
     [OperationContract]
     public void Foo()
     {
-      // Add your operation implementation here
-      return;
+      ServiceManager svcManager = new ServiceManager();
+      svcManager.LoadAppDomain();
     }
 
     // Add more operations here and mark them with [OperationContract]
