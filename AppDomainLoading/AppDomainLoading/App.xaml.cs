@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Windows;
@@ -26,15 +27,21 @@ namespace AppDomainLoading
 
     private void Application_Startup(object sender, StartupEventArgs e)
     {
+      Debug.WriteLine("---------- [App.ApplicationStartup()] ----------");
+
       this.RootVisual = new MainPage();
 
       var client = new ServiceReference1.FooServiceClient();
       client.FooCompleted += client_FooCompleted;
+
       client.FooAsync();
     }
 
     void client_FooCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
     {
+      Debug.WriteLine(System.Environment.NewLine);
+      Debug.WriteLine("---------- [App.client_FooCompleted()] ----------");
+
       var blah = "blah";
     }
 

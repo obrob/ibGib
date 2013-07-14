@@ -47,7 +47,7 @@ namespace AppDomainLoading.Autonomous
         var contextType = typeof(AppDomainContext);
         var assembly = contextType.Assembly; //.FullName;
 
-        //ad2.AssemblyResolve += ad2_AssemblyResolve;
+        ad2.AssemblyResolve += AssemblyResolverHelper.ad2_AssemblyResolve;
 
         //var blah2 = ad2.CreateInstanceFromAndUnwrap(
         //  //assembly.FullName,
@@ -55,9 +55,10 @@ namespace AppDomainLoading.Autonomous
         //  contextType.FullName);
         //var foo = (AppDomainContext)blah2;
 
+        Debug.WriteLine(System.Environment.NewLine);
         Debug.WriteLine(string.Format("-------------- Creating instance from assembly \"{0}\" of type \"{1}\"", assembly.FullName, contextType.FullName));
-        var obj = ad2.CreateInstance(assembly.FullName, contextType.FullName);
-        var adContext = (AppDomainContext)obj.Unwrap();
+
+        var adContext = (AppDomainContext)ad2.CreateInstanceAndUnwrap(assembly.FullName, contextType.FullName);
 
         Debug.WriteLine("---------- [LoadAppDomain()] adContext after creation: " + adContext);
 
@@ -92,14 +93,5 @@ namespace AppDomainLoading.Autonomous
         ad.BaseDirectory ?? "<BaseDirectory=null>", 
         ad.RelativeSearchPath ?? "<RelativeSearchPath=null>"));
     }  
-
-    System.Reflection.Assembly ad2_AssemblyResolve(object sender, ResolveEventArgs args)
-    {
-      Debug.WriteLine("---------- [ad2_AssemblyResolve()]");
-      Debug.WriteLine(string.Format("------------- args.Name = \"{0}\"", args.Name));
-      Debug.WriteLine(string.Format("------------- args.RequestingAssembly = \"{0}\"", args.RequestingAssembly.FullName));
-
-      throw new NotImplementedException();
-    }
   }
 }
